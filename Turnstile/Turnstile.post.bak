@@ -1,0 +1,88 @@
+PROGRAM Turnstile
+
+	VAR_INPUT
+		PdOut : BOOL;
+		paid : BOOL;
+		opened : BOOL;
+	END_VAR
+
+	VAR_OUTPUT
+		open : BOOL;
+		reset : BOOL;
+		enter : BOOL;
+	END_VAR
+
+	VAR
+		passed : BOOL;
+	END_VAR
+
+	PROCESS Init
+		STATE init
+
+		END_STATE
+	END_PROCESS
+
+	PROCESS Controller
+		STATE isClosed
+			IF paid THEN
+				open := TRUE;
+				passed := FALSE;
+				SET NEXT;
+			END_IF
+
+		END_STATE
+
+		STATE minimalOpened
+			IF PdOut THEN
+				passed := TRUE;
+			END_IF
+			TIMEOUT T#1s THEN
+				IF passed THEN
+					open := FALSE;
+					SET STATE isClosed;
+				ELSE
+					SET NEXT;
+				END_IF
+			END_TIMEOUT
+		END_STATE
+
+		STATE isOpened
+			IF PdOut THEN
+				open := FALSE;
+				SET STATE isClosed;
+			END_IF
+			TIMEOUT T#9s THEN
+				open := FALSE;
+				SET STATE isClosed;
+			END_TIMEOUT
+		END_STATE
+	END_PROCESS
+
+	PROCESS EntranceController
+		STATE isClosed
+			IF opened = TRUE THEN
+				enter := TRUE;
+				SET NEXT;
+			END_IF
+		END_STATE
+
+		STATE isOpened
+			IF opened = FALSE THEN
+				enter := FALSE;
+				reset := TRUE;
+				START PROCESS Unlocker;
+				SET STATE isClosed;
+			END_IF
+		END_STATE
+	END_PROCESS
+
+	PROCESS Unlocker
+		STATE unlock
+			TIMEOUT T#1s THEN
+				reset := FALSE;
+				STOP;
+			END_TIMEOUT
+		END_STATE
+	END_PROCESS
+END_PROGRAM
+		

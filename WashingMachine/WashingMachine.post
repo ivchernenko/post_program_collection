@@ -1,0 +1,108 @@
+PROGRAM WashingMachine
+  VAR_INPUT
+    startButton: BOOL;
+    locked: BOOL;
+    waterLevel, waterPresence: BOOL;
+    temp: INT;
+    freq: INT;
+  END_VAR
+  
+  VAR_OUTPUT
+    left, right: BOOL;
+    filling, drain: BOOL;
+    heater: BOOL;
+    lock: BOOL;
+    washing: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+    PRESSED: BOOL := TRUE;
+    SUFFICIENT: BOOL := TRUE;
+    TURN_ON: BOOL := TRUE;
+    TURN_OFF: BOOL := FALSE;
+    WASHING_TIME: TIME:= T#30m;
+    DIRECTION_CHANGE_PERIOD: TIME := T#1m;
+    MIN_TEMP: INT := 30;
+    MAX_TEMP: INT := 40;
+  END_VAR
+  
+  PROCESS Washing
+    STATE idle
+      IF startButton = PRESSED THEN
+        lock := TURN_ON;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE locking
+      IF locked = TRUE THEN
+        filling := TURN_ON;
+        START PROCESS Drum;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE waterSupply
+      IF waterLevel = SUFFICIENT THEN
+        filling := TURN_OFF;
+        washing := TURN_ON;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE wash
+      IF temp >= MIN_TEMP THEN
+        heater := TURN_OFF;
+      ELSIF temp < MAX_TEMP THEN
+        heater := TURN_ON;
+      END_IF
+      TIMEOUT WASHING_TIME THEN
+        washing := TURN_OFF;
+        drain := TURN_ON;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE draining
+      IF waterPresence = FALSE THEN
+        drain := TURN_OFF;
+        lock := TURN_OFF;
+        left := TURN_OFF;
+        right := TURN_OFF;
+        STOP PROCESS Drum;
+        SET STATE idle;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Drum
+    STATE leftRotation
+      left := TURN_ON;
+      TIMEOUT DIRECTION_CHANGE_PERIOD THEN
+        left:= TURN_ON;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE leftToRight
+      IF freq = 0 THEN
+        right := TURN_ON;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE rightRotation
+      TIMEOUT DIRECTION_CHANGE_PERIOD THEN
+        right := TURN_OFF;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE rightToLeft
+      IF freq = 0 THEN
+        left := TURN_ON;
+        SET STATE leftRotation;
+      END_IF
+    END_STATE
+  END_PROCESS
+END_PROGRAM

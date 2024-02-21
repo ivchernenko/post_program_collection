@@ -1,0 +1,137 @@
+PROGRAM SmartLighting
+VAR_INPUT
+  presence: BOOL;
+  autoOnOff: BOOL;
+  switch: BOOL;
+  light: BOOL;
+END_VAR
+
+VAR_OUTPUT
+  dayLight: BOOL;
+  dimLight: BOOL;
+  nightLight: BOOL;
+  timeOfDay: INT;
+END_VAR
+
+VAR CONSTANT
+  TURNED_ON: BOOL := TRUE;
+  TURNED_OFF: BOOL := FALSE;
+  LOW: BOOL := FALSE;
+  NIGHT: INT := 0;
+  EARLY_MORNING: INT := 1;
+  DAY: INT := 3;
+  EVENING: INT := 4;
+  LIGHTING_TIME: TIME := T#5m;
+  MORNING_LIGHTING_TIME: TIME := T#30m;
+END_VAR
+
+VAR
+  autoTurnedOn: BOOL;
+  forciblyTurnedOn: BOOL;
+END_VAR
+
+PROCESS Init
+  STATE init
+    START PROCESS Action;
+    START PROCESS Lighting;
+    STOP;
+  END_STATE
+END_PROCESS
+
+PROCESS Action
+  STATE turnedOff
+    IF autoOnOff = FALSE THEN
+      SET STATE manualMode;
+    ELSIF presence = TRUE AND light = LOW THEN
+      autoTurnedOn := TRUE;
+      SET NEXT;
+    END_IF
+  END_STATE
+  
+  STATE turnedOn
+    IF autoOnOff = FALSE THEN
+      SET STATE manualMode;
+    ELSIF presence = TRUE THEN
+      RESET TIMER;
+    END_IF
+    TIMEOUT LIGHTING_TIME THEN
+      autoTurnedOn := FALSE;
+      SET STATE turnedOff;
+    END_TIMEOUT
+  END_STATE
+  
+  STATE manualMode
+    IF autoOnOff = TRUE THEN
+      forciblyTurnedOn := FALSE;
+      IF presence = TRUE AND light = LOW THEN
+        autoTurnedOn := TRUE;
+        SET STATE turnedOn;
+      ELSE
+        autoTurnedOn := FALSE;
+        SET STATE turnedOff;
+      END_IF
+    ELSE
+      autoTurnedOn := FALSE;
+      IF switch = TURNED_ON THEN
+        forciblyTurnedOn := TRUE;
+      ELSE
+        forciblyTurnedOn := FALSE;
+      END_IF
+    END_IF
+  END_STATE
+END_PROCESS
+
+PROCESS Lighting
+  STATE night
+    dimLight := TURNED_OFF;
+    IF forciblyTurnedOn THEN
+      nightLight := TURNED_ON;
+    ELSE
+      nightLight := FALSE;
+    END_IF
+    TIMEOUT T#6h THEN
+      timeOfDay := EARLY_MORNING;
+      SET NEXT;
+    END_TIMEOUT
+  END_STATE
+  
+  STATE earlyMorning
+    nightLight := TURNED_OFF;
+    IF autoOnOff = TRUE OR forciblyTurnedOn THEN
+      dimLight := TURNED_ON;
+    ELSE
+      dimLight := TURNED_OFF;
+    END_IF
+    TIMEOUT MORNING_LIGHTING_TIME THEN
+      timeOfDay := DAY;
+      SET NEXT;
+    END_TIMEOUT
+  END_STATE
+  
+  STATE morningOrDay
+    dimLight := TURNED_OFF;
+    IF autoTurnedOn = TRUE OR forciblyTurnedOn = TRUE THEN
+      dayLight := TURNED_ON;
+    ELSE
+      dayLight := TURNED_OFF;
+    END_IF
+    TIMEOUT T#11h30m THEN
+      timeOfDay := EVENING;
+      SET NEXT;
+    END_TIMEOUT
+  END_STATE
+  
+  STATE evening
+    dayLight := TURNED_OFF;
+    IF autoTurnedOn = TRUE OR forciblyTurnedOn = TRUE THEN
+      dimLight := TURNED_ON;
+    ELSE
+      dimLight := TURNED_OFF;
+    END_IF
+    TIMEOUT T#6h THEN
+      timeOfDay := NIGHT;
+      SET STATE night;
+    END_TIMEOUT
+  END_STATE
+END_PROCESS
+END_PROGRAM

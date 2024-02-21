@@ -1,0 +1,34 @@
+(*1. При опускании жетона турникет открывает проход.
+2. При успешной оплате по карте турникет открывает проход.
+3. Если не опущен жетон, оплата по карте не выполнена и проход был закрыт, то он не откроется.
+4. После прохода одного пользователя турникет закрывается.
+5. Продолжительность сигнала квитирования не менее 100 мс.*)
+
+Definition R1 (s: estate) : forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1 /\
+ getVarBool s1 turnstile = CLOSED /\
+ getVarBool s2 token = PRESENT ->
+ getVarBool s2 turnstile = OPEN.
+
+Definition R2 (s: estate) : forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1 /\
+ getVarBool s1 turnstile = CLOSED /\
+ getVarBool s2 card ->
+ getVarBool s2 turnstile = OPEN.
+
+Definition R3 (s: estate) : forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1 /\
+ getVarBool s1 turnstile = CLOSED /\
+ getVarBool s2 token = NOT_PRESENT /\
+ ~getVarBool s2 card ->
+ getVarBool s2 turnstile = CLOSED.
+
+Definition R4 (s: estate) : forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1 /\
+ getVarBool s1 turnstile = OPEN /\
+ getVarBool s2 passing ->
+ getVarBool s2 turnstile = CLOSED.
