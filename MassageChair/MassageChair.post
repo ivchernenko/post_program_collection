@@ -1,0 +1,117 @@
+PROGRAM MassageChair
+  VAR_INPUT
+    startButton: BOOL;
+    changeDuration: BOOL;
+    vibrationButton: BOOL;
+    buttonUp, buttonDown: BOOL;
+    upper, lower: BOOL;
+  END_VAR
+  
+  VAR_OUTPUT
+    move: BOOL;
+    vibration: INT;
+    up, down: BOOL;
+    min10, min20, min30: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+     PRESSED: BOOL := TRUE;
+     MODERATE: INT := 1;
+     FAST: INT := 2;
+   END_VAR
+  
+  PROCESS Init
+    STATE init
+      START PROCESS RollerMassage;
+      START PROCESS BackMovement;
+      STOP;
+    END_STATE
+  END_PROCESS
+  
+  PROCESS RollerMassage
+    STATE waiting
+      move := FALSE;
+      vibration := 0;
+      STOP PROCESS Vibration;
+      IF startButton = PRESSED THEN
+        move := TRUE;
+        min10 := TRUE;
+        START PROCESS Vibration;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE massage10min
+      IF changeDuration = PRESSED THEN
+        min10 := FALSE;
+        min20 := TRUE;
+        SET NEXT;
+      END_IF
+      TIMEOUT T#10m THEN
+        min10 := FALSE;
+        SET STATE waiting;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE massage20min
+      IF changeDuration = PRESSED THEN
+        min20 := FALSE;
+        min30 := TRUE;
+        SET NEXT;
+      END_IF
+      TIMEOUT T#20m THEN
+        min20 := FALSE;
+        SET STATE waiting;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE massage30min
+      IF changeDuration = PRESSED THEN
+        min30 := FALSE;
+        min10 := TRUE;
+        SET STATE massage10min;
+      END_IF
+      TIMEOUT T#10m THEN
+        min30 := FALSE;
+        SET STATE waiting;
+      END_TIMEOUT
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Vibration
+    STATE noVibration
+      IF vibrationButton = PRESSED THEN
+        vibration := FAST;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE fast
+      IF vibrationButton = PRESSED THEN
+        vibration := MODERATE;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE moderate
+      IF vibrationButton = PRESSED THEN
+        vibration := 0;
+        SET STATE noVibration;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS BackMovement
+    STATE ctrl
+      IF buttonUp = PRESSED AND NOT upper THEN
+        up := TRUE;
+      ELSIF buttonDown = PRESSED AND NOT lower THEN
+        down := TRUE;
+      ELSE
+        up := FALSE;
+        down := FALSE;
+      END_IF
+    END_STATE
+  END_PROCESS
+END_PROGRAM
+        

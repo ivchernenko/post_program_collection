@@ -1,0 +1,67 @@
+PROGRAM Barrier
+  VAR_INPUT
+    carInFront: BOOL;
+    peCarUnder: BOOL;
+    opened, closed: BOOL;
+  END_VAR
+  
+  VAR_OUTPUT
+    up, down: BOOL;
+    green, red: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+    OPEN_TIME: TIME := T#10m;
+  END_VAR
+  
+  PROCESS CarController
+    STATE waitingForCar
+      IF carInFront = TRUE THEN
+        START PROCESS Opening;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE waitingForCarPassing
+      IF carInFront = FALSE THEN
+        SET STATE waitingForCar;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Opening
+    STATE opening
+      up := TRUE;
+      down := FALSE;
+      IF opened = TRUE THEN
+        up := FALSE;
+        red := FALSE;
+        green := TRUE;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE open
+      IF peCarUnder = TRUE THEN
+        RESET TIMER;
+      END_IF
+      TIMEOUT OPEN_TIME THEN
+        down := TRUE;
+        green:= FALSE;
+        red := TRUE;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE closing
+      IF closed = TRUE THEN
+        down := FALSE;
+        STOP;
+      ELSIF peCarUnder = TRUE THEN
+        down := FALSE;
+        up := TRUE;
+        SET STATE opening;
+      END_IF
+    END_STATE
+  END_PROCESS
+END_PROGRAM

@@ -1,0 +1,171 @@
+PROGRAM VendingMachine
+  VAR_INPUT
+    button1, button2: BOOL;
+    deposited: INT;
+    given1, given2: BOOL;
+    paidOut: BOOL;
+    cancel: BOOL;
+  END_VAR
+  
+  VAR_OUTPUT
+    product1, product2: BOOL;
+    lockChanger: BOOL;
+    change: INT;
+    mode: INT;
+    credit: INT;
+    dispense: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+    PRESSED: BOOL := TRUE;
+    IDLE: INT := 0;
+    CHOICE: INT := 1;
+    ADD_MONEY: INT := 2;
+    DELIVERY: INT := 3;
+    PAYING_OUT: INT := 4;
+    PRICE1: INT := 10;
+    PRICE2: INT := 50;
+    DELIVERY_TIME_LIMIT: TIME := T#3s;
+  END_VAR
+  
+  VAR
+    given: BOOL;
+  END_VAR
+  
+  PROCESS Init
+    STATE init
+      START PROCESS PaymentAcceptance;
+      START PROCESS Controller;
+      STOP;
+    END_STATE
+  END_PROCESS
+  
+  PROCESS PaymentAcceptance
+    STATE accepting LOOPED
+      credit := credit + deposited;
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Controller
+    STATE waiting
+      IF credit > 0 THEN
+        lockChanger := TRUE;
+        STOP PROCESS PaymentAcceptance;
+        IF cancel THEN
+          mode := PAYING_OUT;
+          SET STATE payOut;
+        ELSE
+          mode := CHOICE;
+          SET NEXT;
+        END_IF
+      END_IF
+    END_STATE
+    
+    STATE choice
+      IF cancel THEN
+        mode := PAYING_OUT;
+        SET STATE payOut;
+      ELSIF button1 = PRESSED THEN
+        START PROCESS Sale1;
+        SET STATE sale;
+      ELSIF button2 = PRESSED THEN
+        START PROCESS Sale2;
+        SET STATE sale;
+      END_IF
+    END_STATE
+    
+    STATE sale
+      IF PROCESS Sale1 IN STATE INACTIVE AND PROCESS Sale2 IN STATE INACTIVE THEN
+        IF given THEN
+          mode := PAYING_OUT;
+          SET NEXT;
+        ELSE
+          mode := CHOICE;
+          SET STATE choice;
+        END_IF
+      END_IF
+    END_STATE
+    
+    STATE payOut
+      dispense := TRUE;
+      change := credit;
+      IF paidOut THEN
+        dispense := FALSE;
+        change := 0;
+        credit := 0;
+        mode := IDLE;
+        lockChanger := FALSE;
+        START PROCESS PaymentAcceptance;
+        SET STATE waiting;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Sale1
+    STATE addMoney
+      lockChanger := FALSE;
+      START PROCESS PaymentAcceptance;
+      mode := ADD_MONEY;
+      IF cancel OR credit >= PRICE1 THEN
+        lockChanger := TRUE;
+        STOP PROCESS PaymentAcceptance;
+        IF cancel THEN
+          STOP;
+        ELSE
+          mode := DELIVERY;
+          product1 := TRUE;
+          SET NEXT;
+        END_IF
+      END_IF
+    END_STATE
+    
+    STATE delivery
+      IF given1 THEN
+        product1 := FALSE;
+        given := TRUE;
+        credit := credit - PRICE1;
+        STOP;
+      END_IF
+      TIMEOUT DELIVERY_TIME_LIMIT THEN
+        product1 := FALSE;
+        given := FALSE;
+        STOP;
+      END_TIMEOUT
+    END_STATE
+  END_PROCESS
+  
+    PROCESS Sale2
+    STATE addMoney
+      lockChanger := FALSE;
+      START PROCESS PaymentAcceptance;
+      mode := ADD_MONEY;
+      IF cancel OR credit >= PRICE2 THEN
+        lockChanger := TRUE;
+        STOP PROCESS PaymentAcceptance;
+        IF cancel THEN
+          STOP;
+        ELSE
+          mode := DELIVERY;
+          product2 := TRUE;
+          SET NEXT;
+        END_IF
+      END_IF
+    END_STATE
+    
+    STATE delivery
+      IF given2 THEN
+        product2 := FALSE;
+        given := TRUE;
+        credit := credit - PRICE2;
+        STOP;
+      END_IF
+      TIMEOUT DELIVERY_TIME_LIMIT THEN
+        product2 := FALSE;
+        given := FALSE;
+        STOP;
+      END_TIMEOUT
+    END_STATE
+  END_PROCESS
+END_PROGRAM       
+        
+        
