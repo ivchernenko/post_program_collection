@@ -1,0 +1,83 @@
+PROGRAM MassageChair
+  VAR_INPUT
+    startButton: BOOL;
+    rollerButton: BOOL;
+    vibrationButton: BOOL;
+    buttonUp, buttonDown: BOOL;
+    upper, lower: BOOL;
+  END_VAR
+  
+  VAR_OUTPUT
+    roller: BOOL;
+    vibration: INT;
+    up, down: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+     PRESSED: BOOL := TRUE;
+     TURN_ON: BOOL := TRUE;
+     TURN_OFF: BOOL := FALSE;
+     ROLLER_MASSAGE_TIME: TIME := T#10m;
+     VIBRATION_MASSAGE_TIME : TIME := T#30m;
+  END_VAR
+   
+  PROCESS Init
+    STATE init
+      START PROCESS Massage;
+      START PROCESS BackMovement;
+      STOP;
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Massage
+    STATE ctrl
+      IF startButton = PRESSED THEN
+        START PROCESS Roller;
+        START PROCESS Vibration;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS Roller
+    STATE waiting
+      IF rollerButton = PRESSED THEN
+        roller := TURN_ON;
+        SET NEXT;
+      END_STATE
+      
+      STATE massaging
+        TIMEOUT ROLLER_MASSAGE_TIME THEN
+          roller := TURN_OFF;
+          STOP;
+        END_TIMEOUT
+      END_STATE
+    END_PROCESS
+    
+   PROCESS Vibration
+    STATE waiting
+      IF vibrationButton = PRESSED THEN
+        vibration := TURN_ON;
+        SET NEXT;
+      END_STATE
+      
+      STATE massaging
+        TIMEOUT VIBRATION_MASSAGE_TIME THEN
+          vibration := TURN_OFF;
+          STOP;
+        END_TIMEOUT
+      END_STATE
+    END_PROCESS
+    
+    PROCESS BackMovement
+      STATE ctrl
+        IF buttonUp = PRESSED AND NOT upper THEN
+          up := TRUE;
+          down := FALSE;
+        ELSIF buttonDown = PRESSED AND NOT lower THEN
+          up := fALSE;
+          down := TRUE;
+        END_IF
+      END_STATE
+    END_PROCESS
+  END_PROGRAM
+        

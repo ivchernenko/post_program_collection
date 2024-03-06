@@ -1,115 +1,128 @@
 PROGRAM MassageChair
   VAR_INPUT
+    onOff: BOOL;
     startButton: BOOL;
-    changeDuration: BOOL;
+    rollerButton: BOOL;
     vibrationButton: BOOL;
     buttonUp, buttonDown: BOOL;
     upper, lower: BOOL;
   END_VAR
   
   VAR_OUTPUT
-    move: BOOL;
-    vibration: INT;
+    roller: BOOL;
+    vibration: BOOL;
     up, down: BOOL;
-    min10, min20, min30: BOOL;
+    enabled: BOOL;
   END_VAR
   
   VAR CONSTANT
      PRESSED: BOOL := TRUE;
-     MODERATE: INT := 1;
-     FAST: INT := 2;
-   END_VAR
-  
-  PROCESS Init
-    STATE init
-      START PROCESS RollerMassage;
-      START PROCESS BackMovement;
-      STOP;
+     TURN_ON: BOOL := TRUE;
+     TURN_OFF: BOOL := FALSE;
+     ROLLER_MASSAGE_TIME: TIME := T#10m;
+     VIBRATION_MASSAGE_TIME : TIME := T#30m;
+     ON_OFF_TIME: TIME := T#1s;
+  END_VAR
+   
+  PROCESS Controller
+    STATE turnedOff
+      IF onOff <> PRESSED THEN
+        RESET TIMER;
+      END_IF
+      TIMEOUT ON_OFF_TIME THEN
+        SET NEXT;
+      END_TIMEOUT
     END_STATE
-  END_PROCESS
-  
-  PROCESS RollerMassage
-    STATE waiting
-      move := FALSE;
-      vibration := 0;
-      STOP PROCESS Vibration;
-      IF startButton = PRESSED THEN
-        move := TRUE;
-        min10 := TRUE;
+    
+    STATE turningOn
+      IF onOff <> PRESSED THEN
+        enabled := TRUE;
+        START PROCESS Roller;
         START PROCESS Vibration;
+        START PROCESS BackMovement;
         SET NEXT;
       END_IF
     END_STATE
-    
-    STATE massage10min
-      IF changeDuration = PRESSED THEN
-        min10 := FALSE;
-        min20 := TRUE;
-        SET NEXT;
+      
+    STATE turnedOn
+      IF onOff <> PRESSED THEN
+        RESET TIMER;
+        IF startButton = PRESSED THEN
+          roller := FALSE;
+          vibration := FALSE;
+          START PROCESS Roller;
+          START PROCESS Vibration;
+        END_IF
       END_IF
-      TIMEOUT T#10m THEN
-        min10 := FALSE;
-        SET STATE waiting;
+      TIMEOUT ON_OFF_TIME THEN
+        SET NEXT;
       END_TIMEOUT
     END_STATE
     
-    STATE massage20min
-      IF changeDuration = PRESSED THEN
-        min20 := FALSE;
-        min30 := TRUE;
+    STATE turningOff
+      IF onOff <> PRESSED THEN
+        roller := TURN_OFF;
+        vibration := TURN_OFF;
+        enabled := FALSE;
+        STOP PROCESS Roller;
+        STOP PROCESS Vibration;
+        STOP PROCESS BackMovement;
+        down := TURN_OFF;
+        IF NOT upper THEN
+          up := TURN_ON;
+        END_IF
         SET NEXT;
       END_IF
-      TIMEOUT T#20m THEN
-        min20 := FALSE;
-        SET STATE waiting;
-      END_TIMEOUT
     END_STATE
-    
-    STATE massage30min
-      IF changeDuration = PRESSED THEN
-        min30 := FALSE;
-        min10 := TRUE;
-        SET STATE massage10min;
+      
+    STATE backLifting
+      IF upper THEN
+        up := TURN_OFF;
+        SET STATE turnedOff;
       END_IF
-      TIMEOUT T#10m THEN
-        min30 := FALSE;
-        SET STATE waiting;
-      END_TIMEOUT
     END_STATE
   END_PROCESS
   
+  PROCESS Roller
+    STATE waiting
+      IF rollerButton = PRESSED THEN
+        roller := TURN_ON;
+        SET NEXT;
+      END_IF
+    END_STATE
+      
+    STATE massaging
+      TIMEOUT ROLLER_MASSAGE_TIME THEN
+        roller := TURN_OFF;
+        STOP;
+      END_TIMEOUT
+    END_STATE
+  END_PROCESS
+    
   PROCESS Vibration
-    STATE noVibration
+    STATE waiting
       IF vibrationButton = PRESSED THEN
-        vibration := FAST;
+        vibration := TURN_ON;
         SET NEXT;
       END_IF
     END_STATE
-    
-    STATE fast
-      IF vibrationButton = PRESSED THEN
-        vibration := MODERATE;
-        SET NEXT;
-      END_IF
-    END_STATE
-    
-    STATE moderate
-      IF vibrationButton = PRESSED THEN
-        vibration := 0;
-        SET STATE noVibration;
-      END_IF
+      
+    STATE massaging
+      TIMEOUT VIBRATION_MASSAGE_TIME THEN
+        vibration := TURN_OFF;
+        STOP;
+      END_TIMEOUT
     END_STATE
   END_PROCESS
-  
+    
   PROCESS BackMovement
-    STATE ctrl
+    STATE ctrl LOOPED
       IF buttonUp = PRESSED AND NOT upper THEN
-        up := TRUE;
+        up := TURN_ON;
+        down := TURN_OFF;
       ELSIF buttonDown = PRESSED AND NOT lower THEN
-        down := TRUE;
-      ELSE
-        up := FALSE;
-        down := FALSE;
+        up := TURN_OFF;
+        down := TURN_ON;
       END_IF
     END_STATE
   END_PROCESS
