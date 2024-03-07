@@ -6,7 +6,7 @@ definition extraInv where "extraInv s \<equiv> commonExtraInv s \<and>
 (getPstate s Controller' = Controller'turningOn' \<longrightarrow>
 P12inv s 0 (\<lambda> s1. getVarBool s1 enabled' = True) (\<lambda> s2. getVarBool s2 onOff' = PRESSED')) \<and>
 (getPstate s Controller' = Controller'turnedOn' \<longrightarrow>
-P12inv s (ltime s Controller') (\<lambda> s1. getVarBool s1 enabled' = True) (\<lambda> s2. getVarBool s2 onOff' = PRESSED'))"
+P12inv s (ltime s Controller' - 1) (\<lambda> s1. getVarBool s1 enabled' = True) (\<lambda> s2. getVarBool s2 onOff' = PRESSED'))"
 
 theorem extra1: "VC1 extraInv s0"
   apply(unfold VC1_def extraInv_def P12inv_def)
@@ -50,9 +50,7 @@ theorem extra722: "VC722 extraInv env s0 onOff'value startButton'value rollerBut
   using cei722 VC722_def apply force
   apply(unfold commonExtraInv_def)
   apply(erule conjE)+
-  apply simp
-  apply(rule P12inv_rule[of _ _ _ _ _ s0])
-   apply auto
+  apply(auto intro: P12inv_rule)
   done
 
 theorem extra902: "VC902 extraInv env s0 onOff'value startButton'value rollerButton'value vibrationButton'value buttonUp'value buttonDown'value
@@ -79,7 +77,7 @@ theorem extra1262: "VC1262 extraInv env s0 onOff'value startButton'value rollerB
   apply(unfold commonExtraInv_def)
   apply(erule conjE)+
   apply simp
-  apply(rule P12inv_rule[of _ _ _ _ _ s0])
+  apply(rule P12inv_rule[of _ _ _ _ s0])
    apply auto
   done
 
@@ -97,7 +95,7 @@ theorem extra1622: "VC1622 extraInv env s0 onOff'value startButton'value rollerB
   apply(unfold commonExtraInv_def)
   apply(erule conjE)+
   apply simp
-  apply(rule P12inv_rule[of _ _ _ _ _ s0])
+  apply(rule P12inv_rule[of _ _ _ _ s0])
    apply auto
   done
 

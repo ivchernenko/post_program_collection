@@ -24,6 +24,16 @@ definition P12op where "P12op s t A1 A2 \<equiv>
 \<exists>  s1. toEnvP s1 \<and> substate s1 s \<and> toEnvNum s1 s \<ge> t \<and> A1 s1 \<and>
 (\<forall> s2. toEnvP s1 \<and> substate s1 s2 \<and> substate s2 s \<and> s1 \<noteq> s2 \<longrightarrow> A2 s2)"
 
+lemma einv2req_neg: "P12inv s t1 A1 A2 \<Longrightarrow> t1 \<le> t \<Longrightarrow> \<not> P12op s t A1 A2"
+  apply(unfold P12inv_def P12op_def)
+  apply auto
+  done
+
+lemma einv2req_imp: "A3 \<or> P12inv s t1 A1 A2 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P12op s t A1 A2 \<longrightarrow> A3"
+  apply(unfold P12inv_def P12op_def)
+  apply auto
+  done
+
 
 
 end
