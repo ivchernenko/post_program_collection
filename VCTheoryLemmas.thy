@@ -135,6 +135,9 @@ s1=s2"
   using substate_linear toEnvNum3 substate_toEnvNum_id
   by (metis add_cancel_left_left)
 
+lemma  substate_noteq_imp_substate_of_pred: "toEnvP s1 \<and> toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and> toEnvNum s0 s = 1 \<and> substate s1 s \<and>  s1 \<noteq> s \<longrightarrow> substate s1 s0"
+  by (metis (full_types) One_nat_def add_is_1 substate_linear substate_toEnvNum_id toEnvNum3) 
+
 (*
 lemma toEnvNum_le_imp_substate: "substate s1 s3 \<and> substate s2 s3 \<and> toEnvP s1 \<and> toEnvP s2 \<and>toEnvNum s2 s3 \<le> toEnvNum s1 s3 \<Longrightarrow> substate s1 s2"
   by (metis substate_linear substate_refl le_antisym substate_imp_toEnvNum_le toEnvNum_eq_imp_eq2)

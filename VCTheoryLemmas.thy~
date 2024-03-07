@@ -104,7 +104,7 @@ lemma toEnvNum3: "substate s1 s2 \<and> substate s2 s3
   apply((induction s3); (simp split: if_splits); (meson substate.simps substate_antisym))
   done
 
-lemma external_ltime: "toEnvP s \<Longrightarrow> ltime s p > 0"
+lemma external_ltime[simp]: "toEnvP s \<Longrightarrow> ltime s p > 0"
   apply(cases s)
   by auto
 

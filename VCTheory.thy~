@@ -188,6 +188,4 @@ fun shift:: "state => nat => state" where
   "shift s 0 = s" |
   "shift s (Suc n) = predEnv (shift s n)"
 
-definition consecutive where "consecutive s1 s2 \<equiv> toEnvP s1 \<and> toEnvP s2 \<and> substate s1 s2 \<and> toEnvNum s1 s2 = 1"
-
 end
