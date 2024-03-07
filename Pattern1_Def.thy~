@@ -1,4 +1,0 @@
-theory Pattern1_Def
-  imports VCTheoryLemmas
-begin
-
