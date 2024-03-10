@@ -29,7 +29,7 @@ lemma einv2req_neg: "P12inv s t1 A1 A2 \<Longrightarrow> t1 \<le> t \<Longrighta
   apply auto
   done
 
-lemma einv2req_imp: "A3 \<or> P12inv s t1 A1 A2 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P12op s t A1 A2 \<longrightarrow> A3"
+lemma einv2req_imp: " P12inv s t1 A1 A2 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P12op s t A1 A2 \<Longrightarrow> A3"
   apply(unfold P12inv_def P12op_def)
   apply auto
   done

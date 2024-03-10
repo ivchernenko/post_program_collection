@@ -4,11 +4,9 @@ begin
 
 definition inv7 where "inv7 s \<equiv> extraInv s \<and> R7_1 s"
 
-
-
 lemma "VC1 inv7 s0"
-  apply(unfold VC1_def inv7_def R7_1_def P3_def P12sub_def)
-  using extra1 apply(auto simp add: VC1_def)
+  apply(unfold VC1_def inv7_def R7_1_def extraInv_def commonExtraInv_def  P12inv_def P2_def P12op_def consecutive_def)
+  apply auto
   done
 
 theorem  "VC2 inv7 env s0 onOff'value startButton'value rollerButton'value vibrationButton'value buttonUp'value buttonDown'value
@@ -64,9 +62,10 @@ theorem  "VC722 inv7 env s0 onOff'value startButton'value rollerButton'value vib
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
   apply simp
-  apply(erule P3_rule)
-   apply(rule Pattern12_Def.einv2req[of  s0])
-     apply auto
+  apply(rule P2_rule[of s0])
+    apply(simp_all add: consecutive_def)
+  apply(rule Pattern12_Def.einv2req_neg)
+   apply auto
   done
 
 theorem  "VC902 inv7 env s0 onOff'value startButton'value rollerButton'value vibrationButton'value buttonUp'value buttonDown'value
@@ -99,15 +98,10 @@ theorem  "VC1262 inv7 env s0 onOff'value startButton'value rollerButton'value vi
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
   apply simp
-  apply(erule P3_rule)
-   apply(rule Pattern12_Def.einv2req[of  s0])
-     apply auto
-  done
-
-theorem  "VC1442 inv7 env s0 onOff'value startButton'value rollerButton'value vibrationButton'value buttonUp'value buttonDown'value
- upper'value lower'value"
-  apply(unfold VC1442_def inv7_def R7_1_def)
-  apply simp
+  apply(rule P2_rule[of s0])
+    apply(simp_all add: consecutive_def)
+  apply(rule Pattern12_Def.einv2req_neg)
+   apply auto
   done
 
 theorem  "VC1622 inv7 env s0 onOff'value startButton'value rollerButton'value vibrationButton'value buttonUp'value buttonDown'value
@@ -121,11 +115,12 @@ theorem  "VC1622 inv7 env s0 onOff'value startButton'value rollerButton'value vi
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
   apply simp
-  apply(erule P3_rule)
-   apply(rule Pattern12_Def.einv2req[of  s0])
-     apply auto
+  apply(rule P2_rule[of s0])
+    apply(auto simp add: consecutive_def)
+  apply(rule Pattern12_Def.einv2req_imp)
+    apply auto
   done
-    
+
 theorem  "VC1802 inv7 env s0 onOff'value startButton'value rollerButton'value vibrationButton'value buttonUp'value buttonDown'value
  upper'value lower'value"
   apply(unfold VC1802_def inv7_def R7_1_def)
@@ -137,9 +132,9 @@ theorem  "VC1802 inv7 env s0 onOff'value startButton'value rollerButton'value vi
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
   apply simp
-  apply(erule P3_rule)
-   apply(rule Pattern12_Def.einv2req[of  s0 0])
-     apply auto
+  apply(rule P2_rule[of s0])
+    apply(simp_all add: consecutive_def)
   done
 
 end
+

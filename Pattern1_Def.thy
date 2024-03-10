@@ -49,4 +49,14 @@ P1inv s t t1 A1 A2 A3 \<Longrightarrow> t1 \<le> t \<Longrightarrow>
   apply(unfold P1inv_def)
   by auto
 
+definition P1 where "P1 s t A1 A2 A3 \<equiv>
+\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> toEnvNum s1 s \<ge> t \<and> A1 s1 \<longrightarrow>
+(\<exists> s3. toEnvP s3 \<and> substate s1 s3 \<and> substate s3 s \<and> toEnvNum s1 s3 \<le> t \<and> A2 s3 \<and>
+(\<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s3 \<and> s2 \<noteq> s3 \<longrightarrow> A3 s2))"
+
+lemma "P1inv s t t1 A1 A2 A3 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P1 s t A1 A2 A3"
+  apply(unfold P1inv_def P1_def)
+  apply auto
+  done
+
 end
