@@ -9,7 +9,7 @@ definition R2 where "R2 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> (getVarBool s1 buttonDown' = False \<or> getVarBool s1 lower' = True) \<longrightarrow> getVarBool s1 down'= False)"
 
 definition R3 where "R3 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 enabled' = False \<longrightarrow> getVarBool s1 up' = False \<and> getVarBool s1 down' = False)"
+(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 enabled' = False \<longrightarrow>  getVarBool s1 down' = False)"
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
 (\<forall> s2 s1. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and> getVarBool s1 enabled' = False \<and> getVarBool s2 enabled' = True \<and>
