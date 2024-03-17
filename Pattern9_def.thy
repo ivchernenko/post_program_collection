@@ -1,4 +1,4 @@
-theory Pattern9_def
+theory Pattern9_Def
   imports VCTheoryLemmas
 begin
 

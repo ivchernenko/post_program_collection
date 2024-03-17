@@ -49,5 +49,48 @@ lemma einv2req: "P5inv s t t1 A1 A2 \<Longrightarrow>
   apply(unfold P5inv_def)
   by auto
 
+definition P5_1 where "P5_1 s t A1 A2 \<equiv>
+\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 < t \<and> A1 s1 \<longrightarrow> A2 s2"
+
+definition P5_1inv where "P5_1inv s t t1 A1 A2 \<equiv>
+\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2  \<and>  toEnvNum s1 s2 < t \<and> A1 s1 \<longrightarrow>
+toEnvNum s1 s \<ge> t1 \<and> A2 s2"
+
+lemma P5_1inv_rule: "
+P5_1inv s0 t t1 A1 A2 \<Longrightarrow>
+ t >0 \<and> A1  s \<longrightarrow> t2 = 0 \<and> A2 s \<Longrightarrow>
+ t1 + 1 < t \<longrightarrow>  A2 s \<Longrightarrow> t2 \<le> t1 + 1 \<Longrightarrow>
+ toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and> toEnvNum s0 s = 1 \<Longrightarrow> 
+P5_1inv s t t2 A1 A2"
+  apply(unfold P5_1inv_def)
+  apply(rule allI)+
+  subgoal for s1 s2
+    apply(cases "s1=s")
+    apply (metis le_numeral_extra(3) substate_antisym toEnvNum_id)
+   apply(cases "s2 = s")
+    apply(rule impI)
+      apply(erule allE[of _   s1])
+     apply(rotate_tac -1)
+      apply(erule allE[of _ s0])
+     apply(rotate_tac -1)
+    apply(erule impE)
+      apply (metis canonically_ordered_monoid_add_class.lessE less_add_one substate_noteq_imp_substate_of_pred toEnvNum3 trans_less_add1)
+    apply (metis add_mono_thms_linordered_semiring(3) dual_order.strict_trans2 dual_order.trans substate_noteq_imp_substate_of_pred toEnvNum3)
+    apply(rule impI)
+      apply(erule allE[of _   s1])
+     apply(rotate_tac -1)
+      apply(erule allE[of _ s2])
+    apply(rotate_tac -1)
+    apply(erule impE)
+    using substate_noteq_imp_substate_of_pred apply blast
+    by (smt (verit, ccfv_SIG) add.assoc add.commute le_Suc_ex le_add1 substate_noteq_imp_substate_of_pred toEnvNum3)
+  done
+
+lemma P5_1_einv2req: "P5_1inv s t t1 A1 A2 \<Longrightarrow> P5_1 s t A1 A2"
+  apply(unfold P5_1inv_def P5_1_def)
+  apply auto
+  done
+
+
 end
 

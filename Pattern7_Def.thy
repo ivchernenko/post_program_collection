@@ -2,23 +2,27 @@ theory Pattern7_Def
   imports VCTheoryLemmas
 begin
 
-definition pattern7 where "pattern7 a1 a2 a3 T T1 s \<equiv>
+definition P7inv where "P7inv s T T1 a1 a2 a3\<equiv>
 \<forall> s1 s2. toEnvP s1 \<and> toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s \<and> toEnvNum s1 s2 = 1 \<and> a1 s1 s2 \<longrightarrow>
 (\<exists> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s \<and> toEnvNum s2 s4 \<le> T \<and> a2 s4 \<and>
 (\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s4 \<and> s3 \<noteq> s4 \<longrightarrow> a3 s3)) \<or>
 toEnvNum s2 s \<ge> T1 \<and>
 (\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvNum s2 s3 \<le> T \<longrightarrow> a3 s3)"
 
-lemma pattern7_simp: "
-P1 \<longrightarrow> pattern7 a1 a2 a3 T T1 s0 \<Longrightarrow>
-P2 \<and> a1 s0 s \<longrightarrow> a2 s \<or> T2 = 0 \<and> a3 s \<Longrightarrow>
-P2 \<and> T1 < T \<longrightarrow> a2 s \<and>  T2 \<le> T+1  \<or>  T2 \<le> T1 + 1 \<and> a3 s \<Longrightarrow>
-P2 \<and> T1 \<ge> T \<longrightarrow> T2 \<le> T1 + 1 \<Longrightarrow>
-P2 \<longrightarrow> P1 \<Longrightarrow> toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and>  toEnvNum s0 s = 1 \<Longrightarrow>
-P2 \<longrightarrow> pattern7 a1 a2 a3 T T2 s"
-  apply(unfold pattern7_def)
-  apply(rule impI)
-  apply simp
+definition P7 where "P7 s T a1 a2 a3\<equiv>
+\<forall> s1 s2. toEnvP s1 \<and> toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s \<and> toEnvNum s1 s2 = 1 \<and> a1 s1 s2 \<longrightarrow>
+(\<exists> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s \<and> toEnvNum s2 s4 \<le> T \<and> a2 s4 \<and>
+(\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s4 \<and> s3 \<noteq> s4 \<longrightarrow> a3 s3)) \<or>
+(\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvNum s2 s3 \<le> T \<longrightarrow> a3 s3)"
+
+lemma P7inv_rule: "
+P7inv s0 T T1 a1 a2 a3 \<Longrightarrow>
+ a1 s0 s \<longrightarrow> a2 s \<or> T2 = 0 \<and> a3 s \<Longrightarrow>
+ T1 < T \<longrightarrow> a2 s \<and>  T2 \<le> T+1  \<or>  T2 \<le> T1 + 1 \<and> a3 s \<Longrightarrow>
+T1 \<ge> T \<longrightarrow> T2 \<le> T1 + 1 \<Longrightarrow>
+ toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and>  toEnvNum s0 s = 1 \<Longrightarrow>
+ P7inv s T T2 a1 a2 a3"
+  apply(unfold P7inv_def)
   apply(subgoal_tac "\<forall> s1. substate s1 s \<and> toEnvP s1  \<and> s1 \<noteq> s \<longrightarrow> substate s1 s0")
   apply(rule allI)+
   subgoal for s1 s2
@@ -40,20 +44,18 @@ P2 \<longrightarrow> pattern7 a1 a2 a3 T T2 s"
     apply(rotate_tac -1)
     apply(erule disjE)
       apply (metis dual_order.trans le_add1 substate_refl toEnvNum3)
-     apply (metis (full_types) One_nat_def Suc_eq_plus1 add_le_mono dual_order.trans le_numeral_extra(4) toEnvNum3)
+    apply (smt (verit, ccfv_SIG) add.assoc add.commute le_iff_add toEnvNum3)
     apply(erule disjE)
      apply (metis substate_trans)
     by (smt (verit, del_insts) One_nat_def Suc_eq_plus1 dual_order.trans linorder_le_less_linear not_less_eq_eq toEnvNum3)
-  by (metis (full_types) add_is_1 substate_linear substate_toEnvNum_id toEnvNum3)
+  by (metis substate_noteq_imp_substate_of_pred)
 
+  
 
-lemma einv2req: "pattern7 a1 a2 a3 T T1 s \<Longrightarrow>
-\<forall> s1 s2. toEnvP s1 \<and> toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s \<and> toEnvNum s1 s2 = 1 \<and> a1 s1 s2 \<longrightarrow>
-(\<exists> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s \<and> toEnvNum s2 s4 \<le> T \<and> a2 s4 \<and>
-(\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s4 \<and> s3 \<noteq> s4 \<longrightarrow> a3 s3)) \<or>
-(\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvNum s2 s3 \<le> T \<longrightarrow> a3 s3)"
-  apply(unfold pattern7_def)
-  by auto
+lemma einv2req: "P7inv s t t1 A1 A2 A3 \<Longrightarrow> P7 s t A1 A2 A3"
+  apply(unfold P7inv_def P7_def)
+  apply auto
+  done
 
 
 end

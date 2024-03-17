@@ -1,66 +1,42 @@
 theory Requirements
-  imports SmartLighting
+  imports SmartLighting "../Pattern5_Def" "../Pattern2_Def" "../Pattern7_Def" "../Pattern1_Def"
 begin
 
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and> 
-getVarBool s1 autoOnOff' = True \<and> getVarBool s2 autoOnOff' \<and> getVarInt s1 timeOfDay' = NIGHT' \<and> getVarInt s2 timeOfDay' = NIGHT' \<longrightarrow>
- getVarBool s2 dayLight' = False \<and> getVarBool s2 dimLight' = False \<and> getVarBool s2 nightLight' = False)"
+(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarInt s1 timeOfDay' = NIGHT' \<longrightarrow> getVarBool s1 dayLight' = TURNED_OFF' \<and> getVarBool s1 dimLight' = TURNED_OFF')"
 
 definition R2 where "R2 s == toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarBool s2 presence' = False \<and> getVarBool s2 light' = False \<and>  getVarBool s2 autoOnOff' = True \<and>
-  getVarInt s1 timeOfDay' \<in> {EARLY_MORNING', DAY', EVENING'} \<longrightarrow>
-(\<exists> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s \<and> toEnvNum s2 s4 <= LIGHTING_TIME'TIMEOUT \<and> (getVarBool s4 autoOnOff' = False \<or> getVarInt s4 timeOfDay' = NIGHT')
- \<and>
-(\<forall>  s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s4 \<and> s3 \<noteq> s4 \<longrightarrow> getVarBool s3 dayLight' = True \<or> getVarBool s3 dimLight' = True)) \<or>
-(\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvNum s2 s3 \<le> LIGHTING_TIME'TIMEOUT \<longrightarrow> getVarBool s3 dayLight' = True \<or> getVarBool s3 dimLight' = True))"
+P5_1 s LIGHTING_TIME'TIMEOUT (\<lambda> s1.  getVarBool s1 motion' = True \<and>  getVarBool s1 light' = LOW')
+  (\<lambda> s3. P2all s3 (\<lambda> s2. getVarInt s2 timeOfDay' = NIGHT' \<or> getVarInt s3 timeOfDay' = NIGHT' \<or>
+ getVarBool s3 dayLight' = True \<or> getVarBool s3 dimLight' = True))
+"
+
+definition R2_1 where "R2_1 s \<equiv> toEnvP s \<and>
+P7 s LIGHTING_TIME'TIMEOUT (\<lambda> s1 s2. getVarInt s1 timeOfDay' \<noteq> NIGHT' \<and> getVarInt s2 timeOfDay' \<noteq> NIGHT' \<and> getVarBool s2 motion' \<and> getVarBool s2 light' = LOW')
+(\<lambda> s4. getVarInt s4 timeOfDay' = NIGHT') (\<lambda> s3. getVarBool s3 dayLight' = TURNED_ON' \<or> getVarBool s3 dimLight' = TURNED_ON')"
+
 
 definition R3 where "R3 s == toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
-getVarInt s1 timeOfDay' = NIGHT' \<and> getVarInt s2 timeOfDay' = EARLY_MORNING' \<and> getVarBool s2 autoOnOff' = True \<longrightarrow>
-(\<exists> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s \<and> toEnvNum s2 s4 <= MORNING_LIGHTING_TIME'TIMEOUT \<and> getVarBool s4 autoOnOff' = False \<and>
-(\<forall>  s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s4 \<and> s3 \<noteq> s4 \<longrightarrow>  getVarBool s3 dimLight' = True)) \<or>
-(\<forall> s3. toEnvP s3 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvNum s2 s3 \<le> MORNING_LIGHTING_TIME'TIMEOUT \<longrightarrow>  getVarBool s3 dimLight' = True))"
+P5_1 s (MORNING_LIGHTING_TIME'TIMEOUT + 1) (\<lambda> s2. P2ex s2 (\<lambda> s1. getVarInt s1 timeOfDay' = EARLY_MORNING' \<and> getVarInt s2 timeOfDay' = MORNING_LIGHTING'))
+(\<lambda> s3. getVarBool s3 dimLight' = TURNED_ON')"
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>  getVarInt s1 timeOfDay' = DAY' \<longrightarrow> getVarBool s2 dimLight' = False)"
+(\<forall> s2 s1. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>  getVarInt s1 timeOfDay' = DAY' \<longrightarrow> getVarBool s2 dimLight' = False)"
 
 definition R5 where "R5 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>  getVarInt s1 timeOfDay' = EVENING' \<longrightarrow> getVarBool s2 dayLight' = False)"
+(\<forall> s2 s1. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>  getVarInt s1 timeOfDay' = EVENING' \<longrightarrow> getVarBool s2 dayLight' = False)"
 
-definition R6_1 where "R6_1 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 dayLight' = True \<longrightarrow> getVarBool s1 dimLight' = False \<and> getVarBool s1 nightLight' = False)"
+definition R6 where "R6 s == toEnvP s \<and>
+(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 dayLight' = TURNED_ON' \<longrightarrow> getVarBool s1 dimLight' = TURNED_OFF')"
 
-definition R6_2 where "R6_2 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 dimLight' = True \<longrightarrow> getVarBool s1 dayLight' = False \<and> getVarBool s1 nightLight' = False)"
-
-definition R6_3 where "R6_3 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 nightLight' = True \<longrightarrow> getVarBool s1 dimLight' = False \<and> getVarBool s1 dayLight' = False)"
-
-definition R7 where "R7 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarBool s1 autoOnOff' = False \<and> getVarBool s2 autoOnOff' = False \<and> getVarBool s2 switch' = TURNED_ON' \<longrightarrow>
- getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True \<or> getVarBool s2 nightLight' = True)"
+definition R7 where "R7  s \<equiv> toEnvP s \<and>
+P1 s (LIGHTING_TIME'TIMEOUT + MORNING_LIGHTING_TIME'TIMEOUT) (\<lambda> s1. getVarBool s1 motion' = False)
+ (\<lambda> s3. getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight'= False \<or> getVarBool s3 motion' = True)
+(\<lambda> s2. (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and> getVarBool s2 motion' = False)"
 
 definition R8 where "R8 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarBool s1 autoOnOff' = False \<and> getVarBool s2 autoOnOff' = False \<and> getVarBool s2 switch' = TURNED_OFF' \<longrightarrow>
- getVarBool s2 dayLight' = False \<and> getVarBool s2 dimLight' = False \<and> getVarBool s2 nightLight' = False)"
-
-definition R9 where "R9 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarBool s1 autoOnOff' = False \<and> getVarBool s2 autoOnOff' = False \<and> getVarBool s2 switch' = TURNED_ON' \<and> getVarInt s1 timeOfDay' = NIGHT' \<and>
- getVarInt s2 timeOfDay' = NIGHT' \<longrightarrow>  getVarBool s2 nightLight' = True)"
-
-definition R10 where "R10 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> toEnvNum s1 s \<ge> 5 * 60 * 10 - 1 \<and> getVarBool s1 presence' = False \<longrightarrow>
-(\<exists> s3. toEnvP s3 \<and> substate s1 s3 \<and> substate s3 s \<and> toEnvNum s1 s3 \<le> 5 * 60 * 10 \<and>
- (getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight' = False \<or> getVarInt s3 timeOfDay' = EARLY_MORNING' \<or> getVarBool s3 autoOnOff' = False) \<and>
-(\<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s3 \<and> s2 \<noteq> s3 \<longrightarrow> (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and>
- getVarInt s2 timeOfDay' \<noteq> EARLY_MORNING' \<and> getVarBool s2 autoOnOff' = True)))"
+P1 s (LIGHTING_TIME'TIMEOUT - 1) (\<lambda> s2. P2ex s2 (\<lambda> s1. getVarBool s1 motion' = True \<and> getVarBool s2 motion' = False))
+ (\<lambda> s3. getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight'= False \<or> getVarBool s3 motion' = True \<or> getVarInt s3 timeOfDay' = MORNING_LIGHTING')
+(\<lambda> s2. (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and> getVarBool s2 motion' = False \<and> getVarInt s2 timeOfDay' \<noteq> MORNING_LIGHTING')"
 
 end
-
-
-
