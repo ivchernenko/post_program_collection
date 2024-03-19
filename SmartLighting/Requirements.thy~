@@ -5,7 +5,7 @@ begin
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarInt s1 timeOfDay' = NIGHT' \<longrightarrow> getVarBool s1 dayLight' = TURNED_OFF' \<and> getVarBool s1 dimLight' = TURNED_OFF')"
 
-definition R2 where "R2 s == toEnvP s \<and>
+definition R2 where "R2 s \<equiv> toEnvP s \<and>
 P5_1 s LIGHTING_TIME'TIMEOUT (\<lambda> s1.  getVarBool s1 motion' = True \<and>  getVarBool s1 light' = LOW')
   (\<lambda> s3. P2all s3 (\<lambda> s2. getVarInt s2 timeOfDay' = NIGHT' \<or> getVarInt s3 timeOfDay' = NIGHT' \<or>
  getVarBool s3 dayLight' = True \<or> getVarBool s3 dimLight' = True))

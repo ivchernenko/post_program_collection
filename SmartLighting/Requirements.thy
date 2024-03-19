@@ -36,7 +36,9 @@ P1 s (LIGHTING_TIME'TIMEOUT + MORNING_LIGHTING_TIME'TIMEOUT) (\<lambda> s1. getV
 
 definition R8 where "R8 s \<equiv> toEnvP s \<and>
 P1 s (LIGHTING_TIME'TIMEOUT - 1) (\<lambda> s2. P2ex s2 (\<lambda> s1. getVarBool s1 motion' = True \<and> getVarBool s2 motion' = False))
- (\<lambda> s3. getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight'= False \<or> getVarBool s3 motion' = True \<or> getVarInt s3 timeOfDay' = MORNING_LIGHTING')
-(\<lambda> s2. (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and> getVarBool s2 motion' = False \<and> getVarInt s2 timeOfDay' \<noteq> MORNING_LIGHTING')"
+ (\<lambda> s3. getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight'= False \<or> getVarBool s3 motion' = True \<or>
+ P2ex s3 (\<lambda> s2'.  getVarInt s2' timeOfDay' = MORNING_LIGHTING' \<or> getVarInt s3 timeOfDay' = MORNING_LIGHTING'))
+(\<lambda> s2. (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and> getVarBool s2 motion' = False \<and>
+ P2all s2 (\<lambda> s1'. getVarInt s1' timeOfDay' \<noteq> MORNING_LIGHTING' \<and>getVarInt s2 timeOfDay' \<noteq> MORNING_LIGHTING'))"
 
 end

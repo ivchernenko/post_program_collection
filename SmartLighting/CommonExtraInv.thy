@@ -5,9 +5,12 @@ begin
 definition commonExtraInv where "commonExtraInv s== toEnvP s \<and>
 (getPstate s Motion' = Motion'noMovement' \<longrightarrow> getVarBool s turnedOn' = False) \<and>
 (getPstate s Motion' = Motion'movement' \<longrightarrow> getVarBool s turnedOn' = True) \<and>
+(getPstate s Motion' = STOP \<longrightarrow> getVarBool s turnedOn' = False) \<and>
 (getPstate s Motion' = Motion'movement' \<longrightarrow> ltime s Motion' \<le> LIGHTING_TIME'TIMEOUT) \<and>
 getPstate s Motion' \<in> {Motion'noMovement', Motion'movement', STOP} \<and>
 (getPstate s Lighting' = Lighting'night' \<longrightarrow> getVarBool s dayLight' = False \<and> getVarBool s dimLight' = False \<and> getVarInt s timeOfDay' = NIGHT') \<and>
+(getPstate s Lighting' = Lighting'night' \<longrightarrow> getPstate s Motion' = STOP) \<and>
+(getPstate s Lighting' \<notin> {Lighting'night', STOP} \<longrightarrow> getPstate s Motion' \<noteq> STOP) \<and>
 (getPstate s Lighting' = Lighting'earlyMorning' \<longrightarrow> getVarBool s dayLight' = False \<and> getVarInt s timeOfDay' = EARLY_MORNING') \<and>
 (getPstate s Lighting' = Lighting'morningLighting' \<longrightarrow> getVarBool s dimLight' = True \<and> getVarBool s dayLight' = False \<and> getVarInt s timeOfDay' = MORNING_LIGHTING') \<and>
 (getPstate s Lighting' = Lighting'morningOrDay' \<longrightarrow> getVarInt s timeOfDay' = DAY') \<and>
@@ -15,7 +18,7 @@ getPstate s Motion' \<in> {Motion'noMovement', Motion'movement', STOP} \<and>
 (getPstate s Lighting' = Lighting'morningLighting' \<longrightarrow> ltime s Lighting' \<le> MORNING_LIGHTING_TIME'TIMEOUT) \<and>
 (getPstate s Lighting' \<in> {Lighting'night', Lighting'earlyMorning', Lighting'morningLighting', Lighting'morningOrDay', Lighting'evening', STOP}) \<and>
 (getPstate s Init' = Init'init' \<longrightarrow> getPstate s Motion' = STOP \<and> getPstate s Lighting' = STOP) \<and>
-(getPstate s Init' = STOP \<longrightarrow> getPstate s Motion' \<noteq> STOP \<and> getPstate s Lighting' \<noteq> STOP)"
+(getPstate s Init' = STOP \<longrightarrow>  getPstate s Lighting' \<noteq> STOP)"
 
 theorem cei1: "VC1 commonExtraInv s0"
   apply(unfold VC1_def commonExtraInv_def)
@@ -119,6 +122,34 @@ theorem cei254: "VC254 commonExtraInv env s0 motion_value light_value"
 
 theorem cei272: "VC272 commonExtraInv env s0 motion_value light_value"
   apply(unfold VC272_def commonExtraInv_def)
+  by force
+
+theorem cei166: "VC166 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC166_def commonExtraInv_def)
+  by force
+
+theorem cei184: "VC184 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC184_def commonExtraInv_def)
+  by force
+
+theorem cei202: "VC202 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC202_def commonExtraInv_def)
+  by force
+
+theorem cei220: "VC220 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC220_def commonExtraInv_def)
+  by force
+
+theorem cei238: "VC238 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC238_def commonExtraInv_def)
+  by force
+
+theorem cei256: "VC256 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC256_def commonExtraInv_def)
+  by force
+
+theorem cei274: "VC274 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC274_def commonExtraInv_def)
   by force
 
 end

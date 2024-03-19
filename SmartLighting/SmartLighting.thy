@@ -106,18 +106,14 @@ definition VC2 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -136,18 +132,14 @@ definition VC2 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -162,18 +154,14 @@ definition VC2 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -195,18 +183,14 @@ definition VC2 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -235,18 +219,14 @@ definition VC2 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -269,10 +249,10 @@ definition VC2 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
-                (setPstate
+          (setPstate
+            (setVarInt
+              (setPstate
+                (setVarBool
                   (setPstate
                     (setPstate
                       (setVarBool
@@ -284,23 +264,23 @@ definition VC2 where
                         light'
                         light'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      Lighting'
+                      Lighting'night'
                     )
-                    Lighting'
-                    Lighting'night'
+                    Init'
+                    STOP
                   )
-                  Init'
-                  STOP
+                  turnedOn'
+                  True
                 )
-                turnedOn'
-                True
+                Motion'
+                Motion'movement'
               )
-              Motion'
-              Motion'movement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -357,18 +337,14 @@ definition VC3 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -387,18 +363,14 @@ definition VC3 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -413,18 +385,14 @@ definition VC3 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -446,18 +414,14 @@ definition VC3 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -487,18 +451,14 @@ definition VC3 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -525,18 +485,14 @@ definition VC3 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -603,18 +559,14 @@ definition VC4 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -633,18 +585,14 @@ definition VC4 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -659,18 +607,14 @@ definition VC4 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -692,18 +636,14 @@ definition VC4 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -729,18 +669,14 @@ definition VC4 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -767,18 +703,14 @@ definition VC4 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -811,18 +743,14 @@ definition VC4 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -901,18 +829,14 @@ definition VC5 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -931,18 +855,14 @@ definition VC5 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -957,18 +877,14 @@ definition VC5 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -990,18 +906,14 @@ definition VC5 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1027,18 +939,14 @@ definition VC5 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -1066,18 +974,14 @@ definition VC5 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1108,18 +1012,14 @@ definition VC5 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -1189,18 +1089,14 @@ definition VC6 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1219,18 +1115,14 @@ definition VC6 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1245,18 +1137,14 @@ definition VC6 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1278,18 +1166,14 @@ definition VC6 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1316,18 +1200,14 @@ definition VC6 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1355,18 +1235,14 @@ definition VC6 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1399,18 +1275,14 @@ definition VC6 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1489,18 +1361,14 @@ definition VC7 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1519,18 +1387,14 @@ definition VC7 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1545,18 +1409,14 @@ definition VC7 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1578,18 +1438,14 @@ definition VC7 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1616,18 +1472,14 @@ definition VC7 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1656,18 +1508,14 @@ definition VC7 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -1698,18 +1546,14 @@ definition VC7 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -1778,18 +1622,14 @@ definition VC8 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1808,18 +1648,14 @@ definition VC8 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -1834,18 +1670,14 @@ definition VC8 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1867,18 +1699,14 @@ definition VC8 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -1907,18 +1735,14 @@ definition VC8 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -1946,18 +1770,14 @@ definition VC8 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -2029,18 +1849,14 @@ definition VC9 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2059,18 +1875,14 @@ definition VC9 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -2085,18 +1897,14 @@ definition VC9 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2118,18 +1926,14 @@ definition VC9 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2159,18 +1963,14 @@ definition VC9 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2197,18 +1997,14 @@ definition VC9 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -2275,18 +2071,14 @@ definition VC10 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2305,18 +2097,14 @@ definition VC10 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2331,18 +2119,14 @@ definition VC10 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2364,18 +2148,14 @@ definition VC10 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2402,18 +2182,14 @@ definition VC10 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2444,18 +2220,14 @@ definition VC10 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2491,18 +2263,14 @@ definition VC10 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2581,18 +2349,14 @@ definition VC11 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2611,18 +2375,14 @@ definition VC11 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2637,18 +2397,14 @@ definition VC11 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2670,18 +2426,14 @@ definition VC11 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2708,18 +2460,14 @@ definition VC11 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2751,18 +2499,14 @@ definition VC11 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -2797,18 +2541,14 @@ definition VC11 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -2881,18 +2621,14 @@ definition VC12 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2911,18 +2647,14 @@ definition VC12 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -2937,18 +2669,14 @@ definition VC12 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -2970,18 +2698,14 @@ definition VC12 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3009,18 +2733,14 @@ definition VC12 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3052,18 +2772,14 @@ definition VC12 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3099,18 +2815,14 @@ definition VC12 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3189,18 +2901,14 @@ definition VC13 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3219,18 +2927,14 @@ definition VC13 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -3245,18 +2949,14 @@ definition VC13 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3278,18 +2978,14 @@ definition VC13 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3317,18 +3013,14 @@ definition VC13 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3361,18 +3053,14 @@ definition VC13 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -3407,18 +3095,14 @@ definition VC13 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -3491,18 +3175,14 @@ definition VC14 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3521,18 +3201,14 @@ definition VC14 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -3547,18 +3223,14 @@ definition VC14 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3580,18 +3252,14 @@ definition VC14 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3618,18 +3286,14 @@ definition VC14 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -3660,18 +3324,14 @@ definition VC14 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3700,50 +3360,54 @@ definition VC14 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setPstate
-                            (setVarBool
+                            (setPstate
                               (setVarBool
-                                s0
-                                motion'
-                                motion'value
+                                (setVarBool
+                                  s0
+                                  motion'
+                                  motion'value
+                                )
+                                light'
+                                light'value
                               )
-                              light'
-                              light'value
+                              Lighting'
+                              Lighting'night'
                             )
-                            Motion'
-                            Motion'noMovement'
+                            Init'
+                            STOP
                           )
-                          Lighting'
-                          Lighting'night'
+                          turnedOn'
+                          True
                         )
-                        Init'
-                        STOP
+                        Motion'
+                        Motion'movement'
                       )
-                      turnedOn'
-                      True
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'movement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -3801,18 +3465,14 @@ definition VC15 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3831,18 +3491,14 @@ definition VC15 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -3857,18 +3513,14 @@ definition VC15 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3890,18 +3542,14 @@ definition VC15 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -3928,18 +3576,14 @@ definition VC15 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -3971,18 +3615,14 @@ definition VC15 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -4017,18 +3657,14 @@ definition VC15 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -4101,18 +3737,14 @@ definition VC16 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4131,18 +3763,14 @@ definition VC16 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -4157,18 +3785,14 @@ definition VC16 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4190,18 +3814,14 @@ definition VC16 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4229,18 +3849,14 @@ definition VC16 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4272,18 +3888,14 @@ definition VC16 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4312,50 +3924,54 @@ definition VC16 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setPstate
-                            (setVarBool
+                            (setPstate
                               (setVarBool
-                                s0
-                                motion'
-                                motion'value
+                                (setVarBool
+                                  s0
+                                  motion'
+                                  motion'value
+                                )
+                                light'
+                                light'value
                               )
-                              light'
-                              light'value
+                              Lighting'
+                              Lighting'night'
                             )
-                            Motion'
-                            Motion'noMovement'
+                            Init'
+                            STOP
                           )
-                          Lighting'
-                          Lighting'night'
+                          turnedOn'
+                          True
                         )
-                        Init'
-                        STOP
+                        Motion'
+                        Motion'movement'
                       )
-                      turnedOn'
-                      True
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'movement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -4413,18 +4029,14 @@ definition VC17 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4443,18 +4055,14 @@ definition VC17 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -4469,18 +4077,14 @@ definition VC17 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4502,18 +4106,14 @@ definition VC17 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4541,18 +4141,14 @@ definition VC17 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -4585,18 +4181,14 @@ definition VC17 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -4631,18 +4223,14 @@ definition VC17 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -4713,18 +4301,14 @@ definition VC18 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -4743,18 +4327,14 @@ definition VC18 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -4769,18 +4349,14 @@ definition VC18 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -4802,18 +4378,14 @@ definition VC18 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -4841,18 +4413,14 @@ definition VC18 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -4917,18 +4485,14 @@ definition VC19 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -4947,18 +4511,14 @@ definition VC19 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -4973,18 +4533,14 @@ definition VC19 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -5006,18 +4562,14 @@ definition VC19 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -5045,18 +4597,14 @@ definition VC19 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -5122,18 +4670,14 @@ definition VC20 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -5153,18 +4697,14 @@ definition VC20 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -5179,18 +4719,14 @@ definition VC20 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -5211,18 +4747,14 @@ definition VC20 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -5243,18 +4775,14 @@ definition VC20 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -5271,8 +4799,8 @@ definition VC20 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
+          (setPstate
+            (setVarInt
               (setPstate
                 (setPstate
                   (setVarBool
@@ -5284,17 +4812,17 @@ definition VC20 where
                     light'
                     light'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  Lighting'
+                  Lighting'night'
                 )
-                Lighting'
-                Lighting'night'
+                Init'
+                STOP
               )
-              Init'
-              STOP
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -5351,18 +4879,14 @@ definition VC21 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -5382,18 +4906,14 @@ definition VC21 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -5408,18 +4928,14 @@ definition VC21 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -5440,18 +4956,14 @@ definition VC21 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -5473,18 +4985,14 @@ definition VC21 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -5503,18 +5011,14 @@ definition VC21 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -5575,18 +5079,14 @@ definition VC22 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -5606,18 +5106,14 @@ definition VC22 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -5632,18 +5128,14 @@ definition VC22 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -5664,18 +5156,14 @@ definition VC22 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -5693,18 +5181,14 @@ definition VC22 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -5723,18 +5207,14 @@ definition VC22 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -5759,18 +5239,14 @@ definition VC22 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -5843,18 +5319,14 @@ definition VC23 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -5874,18 +5346,14 @@ definition VC23 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -5900,18 +5368,14 @@ definition VC23 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -5932,18 +5396,14 @@ definition VC23 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -5961,18 +5421,14 @@ definition VC23 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -5992,18 +5448,14 @@ definition VC23 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -6026,18 +5478,14 @@ definition VC23 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -6101,18 +5549,14 @@ definition VC24 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -6132,18 +5576,14 @@ definition VC24 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -6158,18 +5598,14 @@ definition VC24 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -6190,18 +5626,14 @@ definition VC24 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -6220,18 +5652,14 @@ definition VC24 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -6251,18 +5679,14 @@ definition VC24 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -6287,18 +5711,14 @@ definition VC24 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -6371,18 +5791,14 @@ definition VC25 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -6402,18 +5818,14 @@ definition VC25 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -6428,18 +5840,14 @@ definition VC25 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -6460,18 +5868,14 @@ definition VC25 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -6490,18 +5894,14 @@ definition VC25 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -6522,18 +5922,14 @@ definition VC25 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -6556,18 +5952,14 @@ definition VC25 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -6630,18 +6022,14 @@ definition VC26 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -6661,18 +6049,14 @@ definition VC26 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -6687,18 +6071,14 @@ definition VC26 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -6719,18 +6099,14 @@ definition VC26 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -6751,18 +6127,14 @@ definition VC26 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -6782,18 +6154,14 @@ definition VC26 where
           (setVarInt
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -6859,18 +6227,14 @@ definition VC27 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -6890,18 +6254,14 @@ definition VC27 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -6916,18 +6276,14 @@ definition VC27 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -6948,18 +6304,14 @@ definition VC27 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -6981,18 +6333,14 @@ definition VC27 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -7011,18 +6359,14 @@ definition VC27 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -7083,18 +6427,14 @@ definition VC28 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7114,18 +6454,14 @@ definition VC28 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7140,18 +6476,14 @@ definition VC28 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -7172,18 +6504,14 @@ definition VC28 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7202,18 +6530,14 @@ definition VC28 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -7236,18 +6560,14 @@ definition VC28 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7275,18 +6595,14 @@ definition VC28 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7359,18 +6675,14 @@ definition VC29 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7390,18 +6702,14 @@ definition VC29 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7416,18 +6724,14 @@ definition VC29 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -7448,18 +6752,14 @@ definition VC29 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7478,18 +6778,14 @@ definition VC29 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -7513,18 +6809,14 @@ definition VC29 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -7551,18 +6843,14 @@ definition VC29 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -7629,18 +6917,14 @@ definition VC30 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7660,18 +6944,14 @@ definition VC30 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7686,18 +6966,14 @@ definition VC30 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -7718,18 +6994,14 @@ definition VC30 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7749,18 +7021,14 @@ definition VC30 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7784,18 +7052,14 @@ definition VC30 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7823,18 +7087,14 @@ definition VC30 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -7907,18 +7167,14 @@ definition VC31 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7938,18 +7194,14 @@ definition VC31 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -7964,18 +7216,14 @@ definition VC31 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -7996,18 +7244,14 @@ definition VC31 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8027,18 +7271,14 @@ definition VC31 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8063,18 +7303,14 @@ definition VC31 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -8101,18 +7337,14 @@ definition VC31 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -8179,18 +7411,14 @@ definition VC32 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -8210,18 +7438,14 @@ definition VC32 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -8236,18 +7460,14 @@ definition VC32 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -8268,18 +7488,14 @@ definition VC32 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8298,18 +7514,14 @@ definition VC32 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -8332,18 +7544,14 @@ definition VC32 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8366,42 +7574,46 @@ definition VC32 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -8459,18 +7671,14 @@ definition VC33 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -8490,18 +7698,14 @@ definition VC33 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -8516,18 +7720,14 @@ definition VC33 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -8548,18 +7748,14 @@ definition VC33 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8578,18 +7774,14 @@ definition VC33 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -8613,18 +7805,14 @@ definition VC33 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -8651,18 +7839,14 @@ definition VC33 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -8729,18 +7913,14 @@ definition VC34 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -8760,18 +7940,14 @@ definition VC34 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -8786,18 +7962,14 @@ definition VC34 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -8818,18 +7990,14 @@ definition VC34 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8849,18 +8017,14 @@ definition VC34 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8884,18 +8048,14 @@ definition VC34 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -8918,42 +8078,46 @@ definition VC34 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -9011,18 +8175,14 @@ definition VC35 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -9042,18 +8202,14 @@ definition VC35 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -9068,18 +8224,14 @@ definition VC35 where
                     (getVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -9100,18 +8252,14 @@ definition VC35 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9131,18 +8279,14 @@ definition VC35 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9167,18 +8311,14 @@ definition VC35 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -9205,18 +8345,14 @@ definition VC35 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -9281,18 +8417,14 @@ definition VC36 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9312,18 +8444,14 @@ definition VC36 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9338,18 +8466,14 @@ definition VC36 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -9370,18 +8494,14 @@ definition VC36 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -9401,18 +8521,14 @@ definition VC36 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -9471,18 +8587,14 @@ definition VC37 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9502,18 +8614,14 @@ definition VC37 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9528,18 +8636,14 @@ definition VC37 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -9560,18 +8664,14 @@ definition VC37 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -9591,18 +8691,14 @@ definition VC37 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -9663,18 +8759,14 @@ definition VC38 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -9692,18 +8784,14 @@ definition VC38 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9722,18 +8810,14 @@ definition VC38 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -9755,18 +8839,14 @@ definition VC38 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -9798,18 +8878,14 @@ definition VC38 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -9834,11 +8910,11 @@ definition VC38 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
-                (reset
-                  (setPstate
+          (setPstate
+            (setVarInt
+              (setPstate
+                (setVarBool
+                  (reset
                     (setPstate
                       (setPstate
                         (setVarBool
@@ -9850,25 +8926,25 @@ definition VC38 where
                           light'
                           light'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Lighting'
+                        Lighting'night'
                       )
-                      Lighting'
-                      Lighting'night'
+                      Init'
+                      STOP
                     )
-                    Init'
-                    STOP
+                    Motion'
                   )
-                  Motion'
+                  turnedOn'
+                  False
                 )
-                turnedOn'
-                False
+                Motion'
+                Motion'noMovement'
               )
-              Motion'
-              Motion'noMovement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -9926,18 +9002,14 @@ definition VC39 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -9955,18 +9027,14 @@ definition VC39 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -9985,18 +9053,14 @@ definition VC39 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -10018,18 +9082,14 @@ definition VC39 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10062,18 +9122,14 @@ definition VC39 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10103,18 +9159,14 @@ definition VC39 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -10184,18 +9236,14 @@ definition VC40 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10213,18 +9261,14 @@ definition VC40 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -10243,18 +9287,14 @@ definition VC40 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10276,18 +9316,14 @@ definition VC40 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10316,18 +9352,14 @@ definition VC40 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -10357,18 +9389,14 @@ definition VC40 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10404,18 +9432,14 @@ definition VC40 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10497,18 +9521,14 @@ definition VC41 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10526,18 +9546,14 @@ definition VC41 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -10556,18 +9572,14 @@ definition VC41 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10589,18 +9601,14 @@ definition VC41 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10629,18 +9637,14 @@ definition VC41 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -10671,18 +9675,14 @@ definition VC41 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10716,18 +9716,14 @@ definition VC41 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -10800,18 +9796,14 @@ definition VC42 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10829,18 +9821,14 @@ definition VC42 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -10859,18 +9847,14 @@ definition VC42 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10892,18 +9876,14 @@ definition VC42 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -10933,18 +9913,14 @@ definition VC42 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -10975,18 +9951,14 @@ definition VC42 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11022,18 +9994,14 @@ definition VC42 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -11115,18 +10083,14 @@ definition VC43 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -11144,18 +10108,14 @@ definition VC43 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -11174,18 +10134,14 @@ definition VC43 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11207,18 +10163,14 @@ definition VC43 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -11248,18 +10200,14 @@ definition VC43 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11291,18 +10239,14 @@ definition VC43 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -11336,18 +10280,14 @@ definition VC43 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -11419,18 +10359,14 @@ definition VC44 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11448,18 +10384,14 @@ definition VC44 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -11478,18 +10410,14 @@ definition VC44 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -11511,18 +10439,14 @@ definition VC44 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11554,18 +10478,14 @@ definition VC44 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -11596,18 +10516,14 @@ definition VC44 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -11682,18 +10598,14 @@ definition VC45 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11711,18 +10623,14 @@ definition VC45 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -11741,18 +10649,14 @@ definition VC45 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -11774,18 +10678,14 @@ definition VC45 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11818,18 +10718,14 @@ definition VC45 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -11859,18 +10755,14 @@ definition VC45 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -11940,18 +10832,14 @@ definition VC46 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -11969,18 +10857,14 @@ definition VC46 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -11999,18 +10883,14 @@ definition VC46 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -12032,18 +10912,14 @@ definition VC46 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12073,18 +10949,14 @@ definition VC46 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -12118,18 +10990,14 @@ definition VC46 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12168,18 +11036,14 @@ definition VC46 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12261,18 +11125,14 @@ definition VC47 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12290,18 +11150,14 @@ definition VC47 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -12320,18 +11176,14 @@ definition VC47 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -12353,18 +11205,14 @@ definition VC47 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12394,18 +11242,14 @@ definition VC47 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -12440,18 +11284,14 @@ definition VC47 where
                       (reset
                         (setPstate
                           (setPstate
-                            (setPstate
+                            (setVarBool
                               (setVarBool
-                                (setVarBool
-                                  s0
-                                  motion'
-                                  motion'value
-                                )
-                                light'
-                                light'value
+                                s0
+                                motion'
+                                motion'value
                               )
-                              Motion'
-                              Motion'noMovement'
+                              light'
+                              light'value
                             )
                             Lighting'
                             Lighting'night'
@@ -12489,18 +11329,14 @@ definition VC47 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -12576,18 +11412,14 @@ definition VC48 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12605,18 +11437,14 @@ definition VC48 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -12635,18 +11463,14 @@ definition VC48 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -12668,18 +11492,14 @@ definition VC48 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12710,18 +11530,14 @@ definition VC48 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12756,18 +11572,14 @@ definition VC48 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12806,18 +11618,14 @@ definition VC48 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12899,18 +11707,14 @@ definition VC49 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -12928,18 +11732,14 @@ definition VC49 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -12958,18 +11758,14 @@ definition VC49 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -12991,18 +11787,14 @@ definition VC49 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13033,18 +11825,14 @@ definition VC49 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13080,18 +11868,14 @@ definition VC49 where
                       (reset
                         (setPstate
                           (setPstate
-                            (setPstate
+                            (setVarBool
                               (setVarBool
-                                (setVarBool
-                                  s0
-                                  motion'
-                                  motion'value
-                                )
-                                light'
-                                light'value
+                                s0
+                                motion'
+                                motion'value
                               )
-                              Motion'
-                              Motion'noMovement'
+                              light'
+                              light'value
                             )
                             Lighting'
                             Lighting'night'
@@ -13129,18 +11913,14 @@ definition VC49 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -13216,18 +11996,14 @@ definition VC50 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13245,18 +12021,14 @@ definition VC50 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -13275,18 +12047,14 @@ definition VC50 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -13308,18 +12076,14 @@ definition VC50 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13349,18 +12113,14 @@ definition VC50 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -13394,18 +12154,14 @@ definition VC50 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13436,53 +12192,57 @@ definition VC50 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (reset
-                        (setPstate
-                          (setPstate
+                      (setPstate
+                        (setVarBool
+                          (reset
                             (setPstate
-                              (setVarBool
+                              (setPstate
                                 (setVarBool
-                                  s0
-                                  motion'
-                                  motion'value
+                                  (setVarBool
+                                    s0
+                                    motion'
+                                    motion'value
+                                  )
+                                  light'
+                                  light'value
                                 )
-                                light'
-                                light'value
+                                Lighting'
+                                Lighting'night'
                               )
-                              Motion'
-                              Motion'noMovement'
+                              Init'
+                              STOP
                             )
-                            Lighting'
-                            Lighting'night'
+                            Motion'
                           )
-                          Init'
-                          STOP
+                          turnedOn'
+                          False
                         )
                         Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -13541,18 +12301,14 @@ definition VC51 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13570,18 +12326,14 @@ definition VC51 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -13600,18 +12352,14 @@ definition VC51 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -13633,18 +12381,14 @@ definition VC51 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13674,18 +12418,14 @@ definition VC51 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -13720,18 +12460,14 @@ definition VC51 where
                       (reset
                         (setPstate
                           (setPstate
-                            (setPstate
+                            (setVarBool
                               (setVarBool
-                                (setVarBool
-                                  s0
-                                  motion'
-                                  motion'value
-                                )
-                                light'
-                                light'value
+                                s0
+                                motion'
+                                motion'value
                               )
-                              Motion'
-                              Motion'noMovement'
+                              light'
+                              light'value
                             )
                             Lighting'
                             Lighting'night'
@@ -13769,18 +12505,14 @@ definition VC51 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -13856,18 +12588,14 @@ definition VC52 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13885,18 +12613,14 @@ definition VC52 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -13915,18 +12639,14 @@ definition VC52 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -13948,18 +12668,14 @@ definition VC52 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -13990,18 +12706,14 @@ definition VC52 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -14036,18 +12748,14 @@ definition VC52 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -14078,53 +12786,57 @@ definition VC52 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (reset
-                        (setPstate
-                          (setPstate
+                      (setPstate
+                        (setVarBool
+                          (reset
                             (setPstate
-                              (setVarBool
+                              (setPstate
                                 (setVarBool
-                                  s0
-                                  motion'
-                                  motion'value
+                                  (setVarBool
+                                    s0
+                                    motion'
+                                    motion'value
+                                  )
+                                  light'
+                                  light'value
                                 )
-                                light'
-                                light'value
+                                Lighting'
+                                Lighting'night'
                               )
-                              Motion'
-                              Motion'noMovement'
+                              Init'
+                              STOP
                             )
-                            Lighting'
-                            Lighting'night'
+                            Motion'
                           )
-                          Init'
-                          STOP
+                          turnedOn'
+                          False
                         )
                         Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -14183,18 +12895,14 @@ definition VC53 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -14212,18 +12920,14 @@ definition VC53 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -14242,18 +12946,14 @@ definition VC53 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -14275,18 +12975,14 @@ definition VC53 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -14317,18 +13013,14 @@ definition VC53 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -14364,18 +13056,14 @@ definition VC53 where
                       (reset
                         (setPstate
                           (setPstate
-                            (setPstate
+                            (setVarBool
                               (setVarBool
-                                (setVarBool
-                                  s0
-                                  motion'
-                                  motion'value
-                                )
-                                light'
-                                light'value
+                                s0
+                                motion'
+                                motion'value
                               )
-                              Motion'
-                              Motion'noMovement'
+                              light'
+                              light'value
                             )
                             Lighting'
                             Lighting'night'
@@ -14413,18 +13101,14 @@ definition VC53 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -14498,18 +13182,14 @@ definition VC54 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -14527,18 +13207,14 @@ definition VC54 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -14557,18 +13233,14 @@ definition VC54 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -14590,18 +13262,14 @@ definition VC54 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -14632,18 +13300,14 @@ definition VC54 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -14711,18 +13375,14 @@ definition VC55 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -14740,18 +13400,14 @@ definition VC55 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -14770,18 +13426,14 @@ definition VC55 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -14803,18 +13455,14 @@ definition VC55 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -14845,18 +13493,14 @@ definition VC55 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -14925,18 +13569,14 @@ definition VC56 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -14954,18 +13594,14 @@ definition VC56 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -14985,18 +13621,14 @@ definition VC56 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -15017,18 +13649,14 @@ definition VC56 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -15052,18 +13680,14 @@ definition VC56 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -15082,9 +13706,9 @@ definition VC56 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (reset
-              (setPstate
+          (setPstate
+            (setVarInt
+              (reset
                 (setPstate
                   (setPstate
                     (setVarBool
@@ -15096,19 +13720,19 @@ definition VC56 where
                       light'
                       light'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    Lighting'
+                    Lighting'night'
                   )
-                  Lighting'
-                  Lighting'night'
+                  Init'
+                  STOP
                 )
-                Init'
-                STOP
+                Motion'
               )
-              Motion'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -15166,18 +13790,14 @@ definition VC57 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -15195,18 +13815,14 @@ definition VC57 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -15226,18 +13842,14 @@ definition VC57 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -15258,18 +13870,14 @@ definition VC57 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -15294,18 +13902,14 @@ definition VC57 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -15327,18 +13931,14 @@ definition VC57 where
         (reset
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -15402,18 +14002,14 @@ definition VC58 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -15431,18 +14027,14 @@ definition VC58 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -15462,18 +14054,14 @@ definition VC58 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -15494,18 +14082,14 @@ definition VC58 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -15526,18 +14110,14 @@ definition VC58 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -15559,18 +14139,14 @@ definition VC58 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -15598,18 +14174,14 @@ definition VC58 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -15685,18 +14257,14 @@ definition VC59 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -15714,18 +14282,14 @@ definition VC59 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -15745,18 +14309,14 @@ definition VC59 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -15777,18 +14337,14 @@ definition VC59 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -15809,18 +14365,14 @@ definition VC59 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -15843,18 +14395,14 @@ definition VC59 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -15880,18 +14428,14 @@ definition VC59 where
           (reset
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -15958,18 +14502,14 @@ definition VC60 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -15987,18 +14527,14 @@ definition VC60 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -16018,18 +14554,14 @@ definition VC60 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -16050,18 +14582,14 @@ definition VC60 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -16083,18 +14611,14 @@ definition VC60 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16117,18 +14641,14 @@ definition VC60 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16156,18 +14676,14 @@ definition VC60 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -16243,18 +14759,14 @@ definition VC61 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -16272,18 +14784,14 @@ definition VC61 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -16303,18 +14811,14 @@ definition VC61 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -16335,18 +14839,14 @@ definition VC61 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -16368,18 +14868,14 @@ definition VC61 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16403,18 +14899,14 @@ definition VC61 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -16440,18 +14932,14 @@ definition VC61 where
           (reset
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -16517,18 +15005,14 @@ definition VC62 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -16546,18 +15030,14 @@ definition VC62 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16577,18 +15057,14 @@ definition VC62 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -16609,18 +15085,14 @@ definition VC62 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16644,18 +15116,14 @@ definition VC62 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -16678,18 +15146,14 @@ definition VC62 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -16758,18 +15222,14 @@ definition VC63 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -16787,18 +15247,14 @@ definition VC63 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16818,18 +15274,14 @@ definition VC63 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -16850,18 +15302,14 @@ definition VC63 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16886,18 +15334,14 @@ definition VC63 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -16919,18 +15363,14 @@ definition VC63 where
         (reset
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -16994,18 +15434,14 @@ definition VC64 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17023,18 +15459,14 @@ definition VC64 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17054,18 +15486,14 @@ definition VC64 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17086,18 +15514,14 @@ definition VC64 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17119,18 +15543,14 @@ definition VC64 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -17156,18 +15576,14 @@ definition VC64 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17198,18 +15614,14 @@ definition VC64 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17285,18 +15697,14 @@ definition VC65 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17314,18 +15722,14 @@ definition VC65 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17345,18 +15749,14 @@ definition VC65 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17377,18 +15777,14 @@ definition VC65 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17410,18 +15806,14 @@ definition VC65 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -17448,18 +15840,14 @@ definition VC65 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -17489,18 +15877,14 @@ definition VC65 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -17570,18 +15954,14 @@ definition VC66 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17599,18 +15979,14 @@ definition VC66 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17630,18 +16006,14 @@ definition VC66 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17662,18 +16034,14 @@ definition VC66 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17696,18 +16064,14 @@ definition VC66 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17734,18 +16098,14 @@ definition VC66 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17776,18 +16136,14 @@ definition VC66 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17863,18 +16219,14 @@ definition VC67 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17892,18 +16244,14 @@ definition VC67 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17923,18 +16271,14 @@ definition VC67 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -17955,18 +16299,14 @@ definition VC67 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -17989,18 +16329,14 @@ definition VC67 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18028,18 +16364,14 @@ definition VC67 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -18069,18 +16401,14 @@ definition VC67 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -18150,18 +16478,14 @@ definition VC68 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -18179,18 +16503,14 @@ definition VC68 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18210,18 +16530,14 @@ definition VC68 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -18242,18 +16558,14 @@ definition VC68 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18275,18 +16587,14 @@ definition VC68 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -18312,18 +16620,14 @@ definition VC68 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18348,45 +16652,49 @@ definition VC68 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (reset
-                    (setPstate
-                      (setPstate
+                  (setVarBool
+                    (setVarBool
+                      (reset
                         (setPstate
-                          (setVarBool
+                          (setPstate
                             (setVarBool
-                              s0
-                              motion'
-                              motion'value
+                              (setVarBool
+                                s0
+                                motion'
+                                motion'value
+                              )
+                              light'
+                              light'value
                             )
-                            light'
-                            light'value
+                            Lighting'
+                            Lighting'night'
                           )
-                          Motion'
-                          Motion'noMovement'
+                          Init'
+                          STOP
                         )
-                        Lighting'
-                        Lighting'night'
+                        Motion'
                       )
-                      Init'
-                      STOP
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -18445,18 +16753,14 @@ definition VC69 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -18474,18 +16778,14 @@ definition VC69 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18505,18 +16805,14 @@ definition VC69 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -18537,18 +16833,14 @@ definition VC69 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18570,18 +16862,14 @@ definition VC69 where
               (reset
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -18608,18 +16896,14 @@ definition VC69 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -18649,18 +16933,14 @@ definition VC69 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -18730,18 +17010,14 @@ definition VC70 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -18759,18 +17035,14 @@ definition VC70 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18790,18 +17062,14 @@ definition VC70 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -18822,18 +17090,14 @@ definition VC70 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18856,18 +17120,14 @@ definition VC70 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18894,18 +17154,14 @@ definition VC70 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -18930,45 +17186,49 @@ definition VC70 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (reset
-                    (setPstate
-                      (setPstate
+                  (setVarBool
+                    (setVarBool
+                      (reset
                         (setPstate
-                          (setVarBool
+                          (setPstate
                             (setVarBool
-                              s0
-                              motion'
-                              motion'value
+                              (setVarBool
+                                s0
+                                motion'
+                                motion'value
+                              )
+                              light'
+                              light'value
                             )
-                            light'
-                            light'value
+                            Lighting'
+                            Lighting'night'
                           )
-                          Motion'
-                          Motion'noMovement'
+                          Init'
+                          STOP
                         )
-                        Lighting'
-                        Lighting'night'
+                        Motion'
                       )
-                      Init'
-                      STOP
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -19027,18 +17287,14 @@ definition VC71 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -19056,18 +17312,14 @@ definition VC71 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19087,18 +17339,14 @@ definition VC71 where
                     (reset
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -19119,18 +17367,14 @@ definition VC71 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19153,18 +17397,14 @@ definition VC71 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19192,18 +17432,14 @@ definition VC71 where
                   (reset
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -19233,18 +17469,14 @@ definition VC71 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -19312,18 +17544,14 @@ definition VC72 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19341,18 +17569,14 @@ definition VC72 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -19372,18 +17596,14 @@ definition VC72 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19404,18 +17624,14 @@ definition VC72 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -19438,18 +17654,14 @@ definition VC72 where
         (reset
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -19511,18 +17723,14 @@ definition VC73 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19540,18 +17748,14 @@ definition VC73 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -19571,18 +17775,14 @@ definition VC73 where
                 (reset
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19603,18 +17803,14 @@ definition VC73 where
             (reset
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -19637,18 +17833,14 @@ definition VC73 where
         (reset
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -19711,18 +17903,14 @@ definition VC74 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -19741,18 +17929,14 @@ definition VC74 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19771,18 +17955,14 @@ definition VC74 where
               (ltime
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -19801,18 +17981,14 @@ definition VC74 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -19841,18 +18017,14 @@ definition VC74 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -19875,10 +18047,10 @@ definition VC74 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
-                (setPstate
+          (setPstate
+            (setVarInt
+              (setPstate
+                (setVarBool
                   (setPstate
                     (setPstate
                       (setVarBool
@@ -19890,23 +18062,23 @@ definition VC74 where
                         light'
                         light'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      Lighting'
+                      Lighting'night'
                     )
-                    Lighting'
-                    Lighting'night'
+                    Init'
+                    STOP
                   )
-                  Init'
-                  STOP
+                  turnedOn'
+                  False
                 )
-                turnedOn'
-                False
+                Motion'
+                Motion'noMovement'
               )
-              Motion'
-              Motion'noMovement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -19964,18 +18136,14 @@ definition VC75 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -19994,18 +18162,14 @@ definition VC75 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20024,18 +18188,14 @@ definition VC75 where
               (ltime
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -20054,18 +18214,14 @@ definition VC75 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20095,18 +18251,14 @@ definition VC75 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20133,18 +18285,14 @@ definition VC75 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -20212,18 +18360,14 @@ definition VC76 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -20242,18 +18386,14 @@ definition VC76 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20272,18 +18412,14 @@ definition VC76 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20302,18 +18438,14 @@ definition VC76 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20339,18 +18471,14 @@ definition VC76 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -20377,18 +18505,14 @@ definition VC76 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20421,18 +18545,14 @@ definition VC76 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20512,18 +18632,14 @@ definition VC77 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -20542,18 +18658,14 @@ definition VC77 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20572,18 +18684,14 @@ definition VC77 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20602,18 +18710,14 @@ definition VC77 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20639,18 +18743,14 @@ definition VC77 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -20678,18 +18778,14 @@ definition VC77 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20720,18 +18816,14 @@ definition VC77 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -20802,18 +18894,14 @@ definition VC78 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -20832,18 +18920,14 @@ definition VC78 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20862,18 +18946,14 @@ definition VC78 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20892,18 +18972,14 @@ definition VC78 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -20930,18 +19006,14 @@ definition VC78 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -20969,18 +19041,14 @@ definition VC78 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21013,18 +19081,14 @@ definition VC78 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21104,18 +19168,14 @@ definition VC79 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -21134,18 +19194,14 @@ definition VC79 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21164,18 +19220,14 @@ definition VC79 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21194,18 +19246,14 @@ definition VC79 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21232,18 +19280,14 @@ definition VC79 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21272,18 +19316,14 @@ definition VC79 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21314,18 +19354,14 @@ definition VC79 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -21395,18 +19431,14 @@ definition VC80 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21425,18 +19457,14 @@ definition VC80 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21455,18 +19483,14 @@ definition VC80 where
               (ltime
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -21485,18 +19509,14 @@ definition VC80 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21525,18 +19545,14 @@ definition VC80 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -21564,18 +19580,14 @@ definition VC80 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -21648,18 +19660,14 @@ definition VC81 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21678,18 +19686,14 @@ definition VC81 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21708,18 +19712,14 @@ definition VC81 where
               (ltime
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -21738,18 +19738,14 @@ definition VC81 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21779,18 +19775,14 @@ definition VC81 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21817,18 +19809,14 @@ definition VC81 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -21896,18 +19884,14 @@ definition VC82 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -21926,18 +19910,14 @@ definition VC82 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -21956,18 +19936,14 @@ definition VC82 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -21986,18 +19962,14 @@ definition VC82 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22024,18 +19996,14 @@ definition VC82 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -22066,18 +20034,14 @@ definition VC82 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22113,18 +20077,14 @@ definition VC82 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22204,18 +20164,14 @@ definition VC83 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -22234,18 +20190,14 @@ definition VC83 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22264,18 +20216,14 @@ definition VC83 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -22294,18 +20242,14 @@ definition VC83 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22332,18 +20276,14 @@ definition VC83 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -22375,18 +20315,14 @@ definition VC83 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -22421,18 +20357,14 @@ definition VC83 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -22506,18 +20438,14 @@ definition VC84 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -22536,18 +20464,14 @@ definition VC84 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22566,18 +20490,14 @@ definition VC84 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -22596,18 +20516,14 @@ definition VC84 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22635,18 +20551,14 @@ definition VC84 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22678,18 +20590,14 @@ definition VC84 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22725,18 +20633,14 @@ definition VC84 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22816,18 +20720,14 @@ definition VC85 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -22846,18 +20746,14 @@ definition VC85 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22876,18 +20772,14 @@ definition VC85 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -22906,18 +20798,14 @@ definition VC85 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22945,18 +20833,14 @@ definition VC85 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -22989,18 +20873,14 @@ definition VC85 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -23035,18 +20915,14 @@ definition VC85 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -23120,18 +20996,14 @@ definition VC86 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -23150,18 +21022,14 @@ definition VC86 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23180,18 +21048,14 @@ definition VC86 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -23210,18 +21074,14 @@ definition VC86 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23248,18 +21108,14 @@ definition VC86 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -23290,18 +21146,14 @@ definition VC86 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23330,50 +21182,54 @@ definition VC86 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setPstate
-                            (setVarBool
+                            (setPstate
                               (setVarBool
-                                s0
-                                motion'
-                                motion'value
+                                (setVarBool
+                                  s0
+                                  motion'
+                                  motion'value
+                                )
+                                light'
+                                light'value
                               )
-                              light'
-                              light'value
+                              Lighting'
+                              Lighting'night'
                             )
-                            Motion'
-                            Motion'noMovement'
+                            Init'
+                            STOP
                           )
-                          Lighting'
-                          Lighting'night'
+                          turnedOn'
+                          False
                         )
-                        Init'
-                        STOP
+                        Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -23432,18 +21288,14 @@ definition VC87 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -23462,18 +21314,14 @@ definition VC87 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23492,18 +21340,14 @@ definition VC87 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -23522,18 +21366,14 @@ definition VC87 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23560,18 +21400,14 @@ definition VC87 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -23603,18 +21439,14 @@ definition VC87 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -23649,18 +21481,14 @@ definition VC87 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -23734,18 +21562,14 @@ definition VC88 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -23764,18 +21588,14 @@ definition VC88 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23794,18 +21614,14 @@ definition VC88 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -23824,18 +21640,14 @@ definition VC88 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23863,18 +21675,14 @@ definition VC88 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23906,18 +21714,14 @@ definition VC88 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -23946,50 +21750,54 @@ definition VC88 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setPstate
-                            (setVarBool
+                            (setPstate
                               (setVarBool
-                                s0
-                                motion'
-                                motion'value
+                                (setVarBool
+                                  s0
+                                  motion'
+                                  motion'value
+                                )
+                                light'
+                                light'value
                               )
-                              light'
-                              light'value
+                              Lighting'
+                              Lighting'night'
                             )
-                            Motion'
-                            Motion'noMovement'
+                            Init'
+                            STOP
                           )
-                          Lighting'
-                          Lighting'night'
+                          turnedOn'
+                          False
                         )
-                        Init'
-                        STOP
+                        Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -24048,18 +21856,14 @@ definition VC89 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -24078,18 +21882,14 @@ definition VC89 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -24108,18 +21908,14 @@ definition VC89 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -24138,18 +21934,14 @@ definition VC89 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -24177,18 +21969,14 @@ definition VC89 where
                   (setVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -24221,18 +22009,14 @@ definition VC89 where
                     (setVarBool
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -24267,18 +22051,14 @@ definition VC89 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -24350,18 +22130,14 @@ definition VC90 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -24380,18 +22156,14 @@ definition VC90 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -24410,18 +22182,14 @@ definition VC90 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -24440,18 +22208,14 @@ definition VC90 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -24479,18 +22243,14 @@ definition VC90 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -24556,18 +22316,14 @@ definition VC91 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -24586,18 +22342,14 @@ definition VC91 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -24616,18 +22368,14 @@ definition VC91 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -24646,18 +22394,14 @@ definition VC91 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -24685,18 +22429,14 @@ definition VC91 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -24763,18 +22503,14 @@ definition VC92 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -24793,18 +22529,14 @@ definition VC92 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -24824,18 +22556,14 @@ definition VC92 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -24853,18 +22581,14 @@ definition VC92 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -24885,18 +22609,14 @@ definition VC92 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -24913,8 +22633,8 @@ definition VC92 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
+          (setPstate
+            (setVarInt
               (setPstate
                 (setPstate
                   (setVarBool
@@ -24926,17 +22646,17 @@ definition VC92 where
                     light'
                     light'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  Lighting'
+                  Lighting'night'
                 )
-                Lighting'
-                Lighting'night'
+                Init'
+                STOP
               )
-              Init'
-              STOP
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -24994,18 +22714,14 @@ definition VC93 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25024,18 +22740,14 @@ definition VC93 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -25055,18 +22767,14 @@ definition VC93 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -25084,18 +22792,14 @@ definition VC93 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -25117,18 +22821,14 @@ definition VC93 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -25147,18 +22847,14 @@ definition VC93 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -25220,18 +22916,14 @@ definition VC94 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -25250,18 +22942,14 @@ definition VC94 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25281,18 +22969,14 @@ definition VC94 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25310,18 +22994,14 @@ definition VC94 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -25339,18 +23019,14 @@ definition VC94 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -25369,18 +23045,14 @@ definition VC94 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -25405,18 +23077,14 @@ definition VC94 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -25490,18 +23158,14 @@ definition VC95 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -25520,18 +23184,14 @@ definition VC95 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25551,18 +23211,14 @@ definition VC95 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25580,18 +23236,14 @@ definition VC95 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -25609,18 +23261,14 @@ definition VC95 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -25640,18 +23288,14 @@ definition VC95 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -25674,18 +23318,14 @@ definition VC95 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -25750,18 +23390,14 @@ definition VC96 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -25780,18 +23416,14 @@ definition VC96 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25811,18 +23443,14 @@ definition VC96 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -25840,18 +23468,14 @@ definition VC96 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -25870,18 +23494,14 @@ definition VC96 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -25901,18 +23521,14 @@ definition VC96 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -25937,18 +23553,14 @@ definition VC96 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -26022,18 +23634,14 @@ definition VC97 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -26052,18 +23660,14 @@ definition VC97 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -26083,18 +23687,14 @@ definition VC97 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -26112,18 +23712,14 @@ definition VC97 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -26142,18 +23738,14 @@ definition VC97 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -26174,18 +23766,14 @@ definition VC97 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -26208,18 +23796,14 @@ definition VC97 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -26283,18 +23867,14 @@ definition VC98 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -26313,18 +23893,14 @@ definition VC98 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -26344,18 +23920,14 @@ definition VC98 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -26373,18 +23945,14 @@ definition VC98 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -26405,18 +23973,14 @@ definition VC98 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -26436,18 +24000,14 @@ definition VC98 where
           (setVarInt
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -26514,18 +24074,14 @@ definition VC99 where
                   (getPstate
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -26544,18 +24100,14 @@ definition VC99 where
                 (getVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -26575,18 +24127,14 @@ definition VC99 where
                 (ltime
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -26604,18 +24152,14 @@ definition VC99 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -26637,18 +24181,14 @@ definition VC99 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -26667,18 +24207,14 @@ definition VC99 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -26740,18 +24276,14 @@ definition VC100 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -26770,18 +24302,14 @@ definition VC100 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -26801,18 +24329,14 @@ definition VC100 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -26830,18 +24354,14 @@ definition VC100 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -26860,18 +24380,14 @@ definition VC100 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -26894,18 +24410,14 @@ definition VC100 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -26933,18 +24445,14 @@ definition VC100 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27018,18 +24526,14 @@ definition VC101 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -27048,18 +24552,14 @@ definition VC101 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27079,18 +24579,14 @@ definition VC101 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27108,18 +24604,14 @@ definition VC101 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27138,18 +24630,14 @@ definition VC101 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -27173,18 +24661,14 @@ definition VC101 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -27211,18 +24695,14 @@ definition VC101 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -27290,18 +24770,14 @@ definition VC102 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -27320,18 +24796,14 @@ definition VC102 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27351,18 +24823,14 @@ definition VC102 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27380,18 +24848,14 @@ definition VC102 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27411,18 +24875,14 @@ definition VC102 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27446,18 +24906,14 @@ definition VC102 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27485,18 +24941,14 @@ definition VC102 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27570,18 +25022,14 @@ definition VC103 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -27600,18 +25048,14 @@ definition VC103 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27631,18 +25075,14 @@ definition VC103 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27660,18 +25100,14 @@ definition VC103 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27691,18 +25127,14 @@ definition VC103 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27727,18 +25159,14 @@ definition VC103 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -27765,18 +25193,14 @@ definition VC103 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -27844,18 +25268,14 @@ definition VC104 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -27874,18 +25294,14 @@ definition VC104 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27905,18 +25321,14 @@ definition VC104 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -27934,18 +25346,14 @@ definition VC104 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -27964,18 +25372,14 @@ definition VC104 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -27998,18 +25402,14 @@ definition VC104 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28032,42 +25432,46 @@ definition VC104 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -28126,18 +25530,14 @@ definition VC105 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -28156,18 +25556,14 @@ definition VC105 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -28187,18 +25583,14 @@ definition VC105 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -28216,18 +25608,14 @@ definition VC105 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28246,18 +25634,14 @@ definition VC105 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -28281,18 +25665,14 @@ definition VC105 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -28319,18 +25699,14 @@ definition VC105 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -28398,18 +25774,14 @@ definition VC106 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -28428,18 +25800,14 @@ definition VC106 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -28459,18 +25827,14 @@ definition VC106 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -28488,18 +25852,14 @@ definition VC106 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28519,18 +25879,14 @@ definition VC106 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28554,18 +25910,14 @@ definition VC106 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28588,42 +25940,46 @@ definition VC106 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -28682,18 +26038,14 @@ definition VC107 where
                     (getPstate
                       (setPstate
                         (setPstate
-                          (setPstate
+                          (setVarBool
                             (setVarBool
-                              (setVarBool
-                                s0
-                                motion'
-                                motion'value
-                              )
-                              light'
-                              light'value
+                              s0
+                              motion'
+                              motion'value
                             )
-                            Motion'
-                            Motion'noMovement'
+                            light'
+                            light'value
                           )
                           Lighting'
                           Lighting'night'
@@ -28712,18 +26064,14 @@ definition VC107 where
                   (getVarBool
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -28743,18 +26091,14 @@ definition VC107 where
                   (ltime
                     (setPstate
                       (setPstate
-                        (setPstate
+                        (setVarBool
                           (setVarBool
-                            (setVarBool
-                              s0
-                              motion'
-                              motion'value
-                            )
-                            light'
-                            light'value
+                            s0
+                            motion'
+                            motion'value
                           )
-                          Motion'
-                          Motion'noMovement'
+                          light'
+                          light'value
                         )
                         Lighting'
                         Lighting'night'
@@ -28772,18 +26116,14 @@ definition VC107 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28803,18 +26143,14 @@ definition VC107 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -28839,18 +26175,14 @@ definition VC107 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -28877,18 +26209,14 @@ definition VC107 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -28954,18 +26282,14 @@ definition VC108 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -28984,18 +26308,14 @@ definition VC108 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29015,18 +26335,14 @@ definition VC108 where
               (ltime
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29044,18 +26360,14 @@ definition VC108 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -29075,18 +26387,14 @@ definition VC108 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -29146,18 +26454,14 @@ definition VC109 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -29176,18 +26480,14 @@ definition VC109 where
               (getVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29207,18 +26507,14 @@ definition VC109 where
               (ltime
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29236,18 +26532,14 @@ definition VC109 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -29267,18 +26559,14 @@ definition VC109 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -29337,18 +26625,14 @@ definition VC110 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29367,18 +26651,14 @@ definition VC110 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -29399,18 +26679,14 @@ definition VC110 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -29427,8 +26703,8 @@ definition VC110 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
+          (setPstate
+            (setVarInt
               (setPstate
                 (setPstate
                   (setVarBool
@@ -29440,17 +26716,17 @@ definition VC110 where
                     light'
                     light'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  Lighting'
+                  Lighting'night'
                 )
-                Lighting'
-                Lighting'night'
+                Init'
+                STOP
               )
-              Init'
-              STOP
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -29506,18 +26782,14 @@ definition VC111 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29536,18 +26808,14 @@ definition VC111 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -29569,18 +26837,14 @@ definition VC111 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -29599,18 +26863,14 @@ definition VC111 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -29670,18 +26930,14 @@ definition VC112 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -29700,18 +26956,14 @@ definition VC112 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29729,18 +26981,14 @@ definition VC112 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -29759,18 +27007,14 @@ definition VC112 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -29795,18 +27039,14 @@ definition VC112 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29878,18 +27118,14 @@ definition VC113 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -29908,18 +27144,14 @@ definition VC113 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -29937,18 +27169,14 @@ definition VC113 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -29968,18 +27196,14 @@ definition VC113 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30002,18 +27226,14 @@ definition VC113 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -30076,18 +27296,14 @@ definition VC114 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -30106,18 +27322,14 @@ definition VC114 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30136,18 +27348,14 @@ definition VC114 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30167,18 +27375,14 @@ definition VC114 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30203,18 +27407,14 @@ definition VC114 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30286,18 +27486,14 @@ definition VC115 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -30316,18 +27512,14 @@ definition VC115 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30346,18 +27538,14 @@ definition VC115 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30378,18 +27566,14 @@ definition VC115 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30412,18 +27596,14 @@ definition VC115 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -30485,18 +27665,14 @@ definition VC116 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30515,18 +27691,14 @@ definition VC116 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30547,18 +27719,14 @@ definition VC116 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -30578,18 +27746,14 @@ definition VC116 where
           (setVarInt
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -30654,18 +27818,14 @@ definition VC117 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30684,18 +27844,14 @@ definition VC117 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30717,18 +27873,14 @@ definition VC117 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30747,18 +27899,14 @@ definition VC117 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -30818,18 +27966,14 @@ definition VC118 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -30848,18 +27992,14 @@ definition VC118 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30878,18 +28018,14 @@ definition VC118 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -30912,18 +28048,14 @@ definition VC118 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -30951,18 +28083,14 @@ definition VC118 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31034,18 +28162,14 @@ definition VC119 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31064,18 +28188,14 @@ definition VC119 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31094,18 +28214,14 @@ definition VC119 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -31129,18 +28245,14 @@ definition VC119 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31167,18 +28279,14 @@ definition VC119 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -31244,18 +28352,14 @@ definition VC120 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31274,18 +28378,14 @@ definition VC120 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31305,18 +28405,14 @@ definition VC120 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31340,18 +28436,14 @@ definition VC120 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31379,18 +28471,14 @@ definition VC120 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31462,18 +28550,14 @@ definition VC121 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31492,18 +28576,14 @@ definition VC121 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31523,18 +28603,14 @@ definition VC121 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31559,18 +28635,14 @@ definition VC121 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31597,18 +28669,14 @@ definition VC121 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -31674,18 +28742,14 @@ definition VC122 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31704,18 +28768,14 @@ definition VC122 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31734,18 +28794,14 @@ definition VC122 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -31768,18 +28824,14 @@ definition VC122 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31802,42 +28854,46 @@ definition VC122 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -31894,18 +28950,14 @@ definition VC123 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -31924,18 +28976,14 @@ definition VC123 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -31954,18 +29002,14 @@ definition VC123 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -31989,18 +29033,14 @@ definition VC123 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -32027,18 +29067,14 @@ definition VC123 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -32104,18 +29140,14 @@ definition VC124 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -32134,18 +29166,14 @@ definition VC124 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32165,18 +29193,14 @@ definition VC124 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32200,18 +29224,14 @@ definition VC124 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32234,42 +29254,46 @@ definition VC124 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -32326,18 +29350,14 @@ definition VC125 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -32356,18 +29376,14 @@ definition VC125 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32387,18 +29403,14 @@ definition VC125 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32423,18 +29435,14 @@ definition VC125 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -32461,18 +29469,14 @@ definition VC125 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -32536,18 +29540,14 @@ definition VC126 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -32566,18 +29566,14 @@ definition VC126 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -32597,18 +29593,14 @@ definition VC126 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -32666,18 +29658,14 @@ definition VC127 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -32696,18 +29684,14 @@ definition VC127 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -32727,18 +29711,14 @@ definition VC127 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -32797,18 +29777,14 @@ definition VC128 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32827,18 +29803,14 @@ definition VC128 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -32859,18 +29831,14 @@ definition VC128 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -32887,8 +29855,8 @@ definition VC128 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
+          (setPstate
+            (setVarInt
               (setPstate
                 (setPstate
                   (setVarBool
@@ -32900,17 +29868,17 @@ definition VC128 where
                     light'
                     light'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  Lighting'
+                  Lighting'night'
                 )
-                Lighting'
-                Lighting'night'
+                Init'
+                STOP
               )
-              Init'
-              STOP
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -32966,18 +29934,14 @@ definition VC129 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -32996,18 +29960,14 @@ definition VC129 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -33029,18 +29989,14 @@ definition VC129 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -33059,18 +30015,14 @@ definition VC129 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -33130,18 +30082,14 @@ definition VC130 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -33160,18 +30108,14 @@ definition VC130 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33189,18 +30133,14 @@ definition VC130 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -33219,18 +30159,14 @@ definition VC130 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -33255,18 +30191,14 @@ definition VC130 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33338,18 +30270,14 @@ definition VC131 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -33368,18 +30296,14 @@ definition VC131 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33397,18 +30321,14 @@ definition VC131 where
           (getVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -33428,18 +30348,14 @@ definition VC131 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33462,18 +30378,14 @@ definition VC131 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -33536,18 +30448,14 @@ definition VC132 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -33566,18 +30474,14 @@ definition VC132 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33596,18 +30500,14 @@ definition VC132 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -33627,18 +30527,14 @@ definition VC132 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -33663,18 +30559,14 @@ definition VC132 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33746,18 +30638,14 @@ definition VC133 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -33776,18 +30664,14 @@ definition VC133 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33806,18 +30690,14 @@ definition VC133 where
             (getVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -33838,18 +30718,14 @@ definition VC133 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33872,18 +30748,14 @@ definition VC133 where
         (setVarBool
           (setPstate
             (setPstate
-              (setPstate
+              (setVarBool
                 (setVarBool
-                  (setVarBool
-                    s0
-                    motion'
-                    motion'value
-                  )
-                  light'
-                  light'value
+                  s0
+                  motion'
+                  motion'value
                 )
-                Motion'
-                Motion'noMovement'
+                light'
+                light'value
               )
               Lighting'
               Lighting'night'
@@ -33945,18 +30817,14 @@ definition VC134 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -33975,18 +30843,14 @@ definition VC134 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -34007,18 +30871,14 @@ definition VC134 where
           (ltime
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -34038,18 +30898,14 @@ definition VC134 where
           (setVarInt
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -34114,18 +30970,14 @@ definition VC135 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34144,18 +30996,14 @@ definition VC135 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -34177,18 +31025,14 @@ definition VC135 where
             (ltime
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -34207,18 +31051,14 @@ definition VC135 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -34278,18 +31118,14 @@ definition VC136 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -34308,18 +31144,14 @@ definition VC136 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34338,18 +31170,14 @@ definition VC136 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -34372,18 +31200,14 @@ definition VC136 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34411,18 +31235,14 @@ definition VC136 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34494,18 +31314,14 @@ definition VC137 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -34524,18 +31340,14 @@ definition VC137 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34554,18 +31366,14 @@ definition VC137 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -34589,18 +31397,14 @@ definition VC137 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -34627,18 +31431,14 @@ definition VC137 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -34704,18 +31504,14 @@ definition VC138 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -34734,18 +31530,14 @@ definition VC138 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34765,18 +31557,14 @@ definition VC138 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34800,18 +31588,14 @@ definition VC138 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34839,18 +31623,14 @@ definition VC138 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34922,18 +31702,14 @@ definition VC139 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -34952,18 +31728,14 @@ definition VC139 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -34983,18 +31755,14 @@ definition VC139 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35019,18 +31787,14 @@ definition VC139 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35057,18 +31821,14 @@ definition VC139 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -35134,18 +31894,14 @@ definition VC140 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35164,18 +31920,14 @@ definition VC140 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35194,18 +31946,14 @@ definition VC140 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -35228,18 +31976,14 @@ definition VC140 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35262,42 +32006,46 @@ definition VC140 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -35354,18 +32102,14 @@ definition VC141 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35384,18 +32128,14 @@ definition VC141 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35414,18 +32154,14 @@ definition VC141 where
             (setVarBool
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -35449,18 +32185,14 @@ definition VC141 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35487,18 +32219,14 @@ definition VC141 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -35564,18 +32292,14 @@ definition VC142 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35594,18 +32318,14 @@ definition VC142 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35625,18 +32345,14 @@ definition VC142 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35660,18 +32376,14 @@ definition VC142 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35694,42 +32406,46 @@ definition VC142 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
-                    (setPstate
+                  (setVarBool
+                    (setVarBool
                       (setPstate
-                        (setVarBool
+                        (setPstate
                           (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
                           )
-                          light'
-                          light'value
+                          Lighting'
+                          Lighting'night'
                         )
-                        Motion'
-                        Motion'noMovement'
+                        Init'
+                        STOP
                       )
-                      Lighting'
-                      Lighting'night'
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Init'
-                    STOP
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -35786,18 +32502,14 @@ definition VC143 where
                 (getPstate
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35816,18 +32528,14 @@ definition VC143 where
               (getPstate
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35847,18 +32555,14 @@ definition VC143 where
               (setVarBool
                 (setPstate
                   (setPstate
-                    (setPstate
+                    (setVarBool
                       (setVarBool
-                        (setVarBool
-                          s0
-                          motion'
-                          motion'value
-                        )
-                        light'
-                        light'value
+                        s0
+                        motion'
+                        motion'value
                       )
-                      Motion'
-                      Motion'noMovement'
+                      light'
+                      light'value
                     )
                     Lighting'
                     Lighting'night'
@@ -35883,18 +32587,14 @@ definition VC143 where
                 (setVarBool
                   (setPstate
                     (setPstate
-                      (setPstate
+                      (setVarBool
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
-                          )
-                          light'
-                          light'value
+                          s0
+                          motion'
+                          motion'value
                         )
-                        Motion'
-                        Motion'noMovement'
+                        light'
+                        light'value
                       )
                       Lighting'
                       Lighting'night'
@@ -35921,18 +32621,14 @@ definition VC143 where
           (setVarBool
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -35996,18 +32692,14 @@ definition VC144 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -36026,18 +32718,14 @@ definition VC144 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -36057,18 +32745,14 @@ definition VC144 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -36126,18 +32810,14 @@ definition VC145 where
             (getPstate
               (setPstate
                 (setPstate
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
-                      )
-                      light'
-                      light'value
+                      s0
+                      motion'
+                      motion'value
                     )
-                    Motion'
-                    Motion'noMovement'
+                    light'
+                    light'value
                   )
                   Lighting'
                   Lighting'night'
@@ -36156,18 +32836,14 @@ definition VC145 where
           (getPstate
             (setPstate
               (setPstate
-                (setPstate
+                (setVarBool
                   (setVarBool
-                    (setVarBool
-                      s0
-                      motion'
-                      motion'value
-                    )
-                    light'
-                    light'value
+                    s0
+                    motion'
+                    motion'value
                   )
-                  Motion'
-                  Motion'noMovement'
+                  light'
+                  light'value
                 )
                 Lighting'
                 Lighting'night'
@@ -36187,18 +32863,14 @@ definition VC145 where
       (toEnv
         (setPstate
           (setPstate
-            (setPstate
+            (setVarBool
               (setVarBool
-                (setVarBool
-                  s0
-                  motion'
-                  motion'value
-                )
-                light'
-                light'value
+                s0
+                motion'
+                motion'value
               )
-              Motion'
-              Motion'noMovement'
+              light'
+              light'value
             )
             Lighting'
             Lighting'night'
@@ -36361,26 +33033,30 @@ definition VC146 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
+          (setPstate
+            (setVarInt
+              (setPstate
                 (setVarBool
                   (setVarBool
-                    s0
-                    motion'
-                    motion'value
+                    (setVarBool
+                      s0
+                      motion'
+                      motion'value
+                    )
+                    light'
+                    light'value
                   )
-                  light'
-                  light'value
+                  turnedOn'
+                  True
                 )
-                turnedOn'
-                True
+                Motion'
+                Motion'movement'
               )
-              Motion'
-              Motion'movement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -38820,38 +35496,46 @@ definition VC158 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          True
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'movement'
                       )
-                      turnedOn'
-                      True
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'movement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -39264,38 +35948,46 @@ definition VC160 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          True
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'movement'
                       )
-                      turnedOn'
-                      True
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'movement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -39947,18 +36639,22 @@ definition VC164 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -42070,30 +38766,38 @@ definition VC176 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -42454,30 +39158,38 @@ definition VC178 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -43094,29 +39806,33 @@ definition VC182 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
-                (reset
-                  (setVarBool
+          (setPstate
+            (setVarInt
+              (setPstate
+                (setVarBool
+                  (reset
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        s0
+                        motion'
+                        motion'value
+                      )
+                      light'
+                      light'value
                     )
-                    light'
-                    light'value
+                    Motion'
                   )
-                  Motion'
+                  turnedOn'
+                  False
                 )
-                turnedOn'
-                False
+                Motion'
+                Motion'noMovement'
               )
-              Motion'
-              Motion'noMovement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -45724,41 +42440,49 @@ definition VC194 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (reset
+                      (setPstate
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                          (reset
+                            (setVarBool
+                              (setVarBool
+                                s0
+                                motion'
+                                motion'value
+                              )
+                              light'
+                              light'value
+                            )
+                            Motion'
                           )
-                          light'
-                          light'value
+                          turnedOn'
+                          False
                         )
                         Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -46198,41 +42922,49 @@ definition VC196 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (reset
+                      (setPstate
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                          (reset
+                            (setVarBool
+                              (setVarBool
+                                s0
+                                motion'
+                                motion'value
+                              )
+                              light'
+                              light'value
+                            )
+                            Motion'
                           )
-                          light'
-                          light'value
+                          turnedOn'
+                          False
                         )
                         Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -46926,21 +43658,25 @@ definition VC200 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (reset
-              (setVarBool
+          (setPstate
+            (setVarInt
+              (reset
                 (setVarBool
-                  s0
-                  motion'
-                  motion'value
+                  (setVarBool
+                    s0
+                    motion'
+                    motion'value
+                  )
+                  light'
+                  light'value
                 )
-                light'
-                light'value
+                Motion'
               )
-              Motion'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -49220,33 +45956,41 @@ definition VC212 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (reset
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
+                      (reset
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            motion'
+                            motion'value
+                          )
+                          light'
+                          light'value
+                        )
+                        Motion'
                       )
-                      light'
-                      light'value
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -49634,33 +46378,41 @@ definition VC214 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (reset
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
+                      (reset
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            motion'
+                            motion'value
+                          )
+                          light'
+                          light'value
+                        )
+                        Motion'
                       )
-                      light'
-                      light'value
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -50303,26 +47055,30 @@ definition VC218 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
+          (setPstate
+            (setVarInt
+              (setPstate
                 (setVarBool
                   (setVarBool
-                    s0
-                    motion'
-                    motion'value
+                    (setVarBool
+                      s0
+                      motion'
+                      motion'value
+                    )
+                    light'
+                    light'value
                   )
-                  light'
-                  light'value
+                  turnedOn'
+                  False
                 )
-                turnedOn'
-                False
+                Motion'
+                Motion'noMovement'
               )
-              Motion'
-              Motion'noMovement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -52786,38 +49542,46 @@ definition VC230 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          False
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -53234,38 +49998,46 @@ definition VC232 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          False
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -53925,18 +50697,22 @@ definition VC236 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -56072,30 +52848,38 @@ definition VC248 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -56460,30 +53244,38 @@ definition VC250 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -57047,18 +53839,22 @@ definition VC254 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -58738,30 +55534,38 @@ definition VC266 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -59050,30 +55854,38 @@ definition VC268 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -59523,18 +56335,22 @@ definition VC272 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -61214,30 +58030,38 @@ definition VC284 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -61526,30 +58350,38 @@ definition VC286 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -62049,26 +58881,30 @@ definition VC290 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
+          (setPstate
+            (setVarInt
+              (setPstate
                 (setVarBool
                   (setVarBool
-                    s0
-                    motion'
-                    motion'value
+                    (setVarBool
+                      s0
+                      motion'
+                      motion'value
+                    )
+                    light'
+                    light'value
                   )
-                  light'
-                  light'value
+                  turnedOn'
+                  True
                 )
-                turnedOn'
-                True
+                Motion'
+                Motion'movement'
               )
-              Motion'
-              Motion'movement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -64508,38 +61344,46 @@ definition VC302 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          True
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'movement'
                       )
-                      turnedOn'
-                      True
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'movement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -64952,38 +61796,46 @@ definition VC304 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          True
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'movement'
                       )
-                      turnedOn'
-                      True
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'movement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -65635,18 +62487,22 @@ definition VC308 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -67758,30 +64614,38 @@ definition VC320 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -68142,30 +65006,38 @@ definition VC322 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -68782,29 +65654,33 @@ definition VC326 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
-                (reset
-                  (setVarBool
+          (setPstate
+            (setVarInt
+              (setPstate
+                (setVarBool
+                  (reset
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        s0
+                        motion'
+                        motion'value
+                      )
+                      light'
+                      light'value
                     )
-                    light'
-                    light'value
+                    Motion'
                   )
-                  Motion'
+                  turnedOn'
+                  False
                 )
-                turnedOn'
-                False
+                Motion'
+                Motion'noMovement'
               )
-              Motion'
-              Motion'noMovement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -71412,41 +68288,49 @@ definition VC338 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (reset
+                      (setPstate
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                          (reset
+                            (setVarBool
+                              (setVarBool
+                                s0
+                                motion'
+                                motion'value
+                              )
+                              light'
+                              light'value
+                            )
+                            Motion'
                           )
-                          light'
-                          light'value
+                          turnedOn'
+                          False
                         )
                         Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -71886,41 +68770,49 @@ definition VC340 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (reset
+                      (setPstate
                         (setVarBool
-                          (setVarBool
-                            s0
-                            motion'
-                            motion'value
+                          (reset
+                            (setVarBool
+                              (setVarBool
+                                s0
+                                motion'
+                                motion'value
+                              )
+                              light'
+                              light'value
+                            )
+                            Motion'
                           )
-                          light'
-                          light'value
+                          turnedOn'
+                          False
                         )
                         Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -72614,21 +69506,25 @@ definition VC344 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (reset
-              (setVarBool
+          (setPstate
+            (setVarInt
+              (reset
                 (setVarBool
-                  s0
-                  motion'
-                  motion'value
+                  (setVarBool
+                    s0
+                    motion'
+                    motion'value
+                  )
+                  light'
+                  light'value
                 )
-                light'
-                light'value
+                Motion'
               )
-              Motion'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -74908,33 +71804,41 @@ definition VC356 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (reset
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
+                      (reset
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            motion'
+                            motion'value
+                          )
+                          light'
+                          light'value
+                        )
+                        Motion'
                       )
-                      light'
-                      light'value
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -75322,33 +72226,41 @@ definition VC358 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (reset
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        motion'
-                        motion'value
+                      (reset
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            motion'
+                            motion'value
+                          )
+                          light'
+                          light'value
+                        )
+                        Motion'
                       )
-                      light'
-                      light'value
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -75991,26 +72903,30 @@ definition VC362 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setPstate
-              (setVarBool
+          (setPstate
+            (setVarInt
+              (setPstate
                 (setVarBool
                   (setVarBool
-                    s0
-                    motion'
-                    motion'value
+                    (setVarBool
+                      s0
+                      motion'
+                      motion'value
+                    )
+                    light'
+                    light'value
                   )
-                  light'
-                  light'value
+                  turnedOn'
+                  False
                 )
-                turnedOn'
-                False
+                Motion'
+                Motion'noMovement'
               )
-              Motion'
-              Motion'noMovement'
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -78474,38 +75390,46 @@ definition VC374 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          False
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -78922,38 +75846,46 @@ definition VC376 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
-                  (setPstate
+                  (setVarBool
                     (setVarBool
-                      (setVarBool
+                      (setPstate
                         (setVarBool
-                          s0
-                          motion'
-                          motion'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              motion'
+                              motion'value
+                            )
+                            light'
+                            light'value
+                          )
+                          turnedOn'
+                          False
                         )
-                        light'
-                        light'value
+                        Motion'
+                        Motion'noMovement'
                       )
-                      turnedOn'
-                      False
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    Motion'
-                    Motion'noMovement'
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -79613,18 +76545,22 @@ definition VC380 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -81760,30 +78696,38 @@ definition VC392 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -82148,30 +79092,38 @@ definition VC394 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -82735,18 +79687,22 @@ definition VC398 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -84426,30 +81382,38 @@ definition VC410 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -84738,30 +81702,38 @@ definition VC412 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -85211,18 +82183,22 @@ definition VC416 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
-            (setVarBool
+          (setPstate
+            (setVarInt
               (setVarBool
-                s0
-                motion'
-                motion'value
+                (setVarBool
+                  s0
+                  motion'
+                  motion'value
+                )
+                light'
+                light'value
               )
-              light'
-              light'value
+              timeOfDay'
+              EARLY_MORNING'
             )
-            timeOfDay'
-            EARLY_MORNING'
+            Motion'
+            Motion'noMovement'
           )
           Lighting'
           Lighting'earlyMorning'
@@ -86902,30 +83878,38 @@ definition VC428 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_ON'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_ON'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
@@ -87214,30 +84198,38 @@ definition VC430 where
     (inv0
       (toEnv
         (setPstate
-          (setVarInt
+          (setPstate
             (setVarBool
-              (setVarBool
+              (setVarInt
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      motion'
-                      motion'value
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          motion'
+                          motion'value
+                        )
+                        light'
+                        light'value
+                      )
+                      dayLight'
+                      TURNED_OFF'
                     )
-                    light'
-                    light'value
+                    dimLight'
+                    TURNED_OFF'
                   )
-                  dayLight'
+                  dimLight'
                   TURNED_OFF'
                 )
-                dimLight'
-                TURNED_OFF'
+                timeOfDay'
+                NIGHT'
               )
-              dimLight'
-              TURNED_OFF'
+              turnedOn'
+              False
             )
-            timeOfDay'
-            NIGHT'
+            Motion'
+            STOP
           )
           Lighting'
           Lighting'night'
