@@ -1,5 +1,5 @@
 theory Requirements
-  imports SmartLighting "../Pattern5_Def" "../Pattern2_Def" "../Pattern7_Def" "../Pattern1_Def"
+  imports SmartLighting "../Pattern5_Def" "../Pattern2_Def" "../Pattern7_Def" "../Pattern1_Def" "../Pattern3_Def"
 begin
 
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
@@ -17,7 +17,7 @@ P7 s LIGHTING_TIME'TIMEOUT (\<lambda> s1 s2. getVarInt s1 timeOfDay' \<noteq> NI
 
 
 definition R3 where "R3 s == toEnvP s \<and>
-P5_1 s (MORNING_LIGHTING_TIME'TIMEOUT + 1) (\<lambda> s2. P2ex s2 (\<lambda> s1. getVarInt s1 timeOfDay' = EARLY_MORNING' \<and> getVarInt s2 timeOfDay' = MORNING_LIGHTING'))
+P5_2 s (MORNING_LIGHTING_TIME'TIMEOUT + 1) (\<lambda> s1 s2.  getVarInt s1 timeOfDay' = EARLY_MORNING' \<and> getVarInt s2 timeOfDay' = MORNING_LIGHTING')
 (\<lambda> s3. getVarBool s3 dimLight' = TURNED_ON')"
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
@@ -33,6 +33,11 @@ definition R7 where "R7  s \<equiv> toEnvP s \<and>
 P1 s (LIGHTING_TIME'TIMEOUT + MORNING_LIGHTING_TIME'TIMEOUT) (\<lambda> s1. getVarBool s1 motion' = False)
  (\<lambda> s3. getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight'= False \<or> getVarBool s3 motion' = True)
 (\<lambda> s2. (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and> getVarBool s2 motion' = False)"
+
+definition R7_1 where "R7_1 s \<equiv> toEnvP s \<and>
+always s (\<lambda> s1. getVarBool s1 motion' = False \<longrightarrow> constrained_until s1 s (LIGHTING_TIME'TIMEOUT + MORNING_LIGHTING_TIME'TIMEOUT)
+(\<lambda> s2. (getVarBool s2 dayLight' = True \<or> getVarBool s2 dimLight' = True) \<and> getVarBool s2 motion' = False)
+ (\<lambda> s3. getVarBool s3 dayLight' = False \<and> getVarBool s3 dimLight'= False \<or> getVarBool s3 motion' = True))"
 
 definition R8 where "R8 s \<equiv> toEnvP s \<and>
 P1 s (LIGHTING_TIME'TIMEOUT - 1) (\<lambda> s2. P2ex s2 (\<lambda> s1. getVarBool s1 motion' = True \<and> getVarBool s2 motion' = False))

@@ -152,4 +152,38 @@ theorem cei274: "VC274 commonExtraInv env s0 motion_value light_value"
   apply(unfold VC274_def commonExtraInv_def)
   by force
 
+theorem cei165: "VC165 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC165_def commonExtraInv_def)
+  by force
+
+theorem cei167: "VC167 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC167_def commonExtraInv_def)
+  by force
+
+theorem cei168: "VC168 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC168_def commonExtraInv_def)
+  by force
+
+theorem cei169: "VC169 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC169_def commonExtraInv_def)
+  by force
+
+theorem cei170: "VC170 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC170_def commonExtraInv_def)
+  by force
+
+theorem cei171: "VC171 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC171_def commonExtraInv_def)
+  by force
+
+theorem cei172: "VC172 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC172_def commonExtraInv_def)
+  by force
+
+theorem cei173: "VC173 commonExtraInv env s0 motion_value light_value"
+  apply(unfold VC173_def commonExtraInv_def)
+  by force
+
+
+
 end
