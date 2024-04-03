@@ -1627,157 +1627,194 @@ definition VC9 where
           (
             (
               (
-                (getPstate
-                  (setVarBool
+                (
+                  (getPstate
                     (setVarBool
                       (setVarBool
                         (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
                         )
-                        peCarUnder'
-                        peCarUnder'value
+                        opened'
+                        opened'value
                       )
-                      opened'
-                      opened'value
+                      closed'
+                      closed'value
                     )
-                    closed'
-                    closed'value
+                    CarController'
                   )
-                  CarController'
+                =
+                  CarController'waitingForCar'
                 )
-              =
-                CarController'waitingForCar'
+              \<and>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  True
+                )
               )
             \<and>
               (
-                (getVarBool
-                  (setVarBool
-                    (setVarBool
+                (getPstate
+                  (setPstate
+                    (setPstate
                       (setVarBool
                         (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
                         )
-                        peCarUnder'
-                        peCarUnder'value
+                        closed'
+                        closed'value
                       )
-                      opened'
-                      opened'value
+                      Opening'
+                      Opening'opening'
                     )
-                    closed'
-                    closed'value
+                    CarController'
+                    CarController'waitingForCarPassing'
                   )
-                  carInFront'
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setPstate
+                    (setPstate
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      Opening'
+                      Opening'opening'
+                    )
+                    CarController'
+                    CarController'waitingForCarPassing'
+                  )
+                  closed'
                 )
               =
                 True
               )
             )
-          \<and>
-            (
-              (getPstate
-                (setPstate
-                  (setPstate
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    Opening'
-                    Opening'opening'
-                  )
-                  CarController'
-                  CarController'waitingForCarPassing'
-                )
-                Opening'
-              )
-            =
-              Opening'closing'
-            )
           )
         \<and>
-          (\<not>
-            (
-              (getVarBool
-                (setPstate
-                  (setPstate
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    Opening'
-                    Opening'opening'
-                  )
-                  CarController'
-                  CarController'waitingForCarPassing'
-                )
-                closed'
-              )
-            =
-              True
-            )
-          )
-        )
-      \<and>
-        (
-          (getVarBool
-            (setPstate
+          (
+            (getVarBool
               (setPstate
-                (setVarBool
+                (setPstate
                   (setVarBool
                     (setVarBool
                       (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
                       )
-                      peCarUnder'
-                      peCarUnder'value
+                      opened'
+                      opened'value
                     )
-                    opened'
-                    opened'value
+                    closed'
+                    closed'value
                   )
-                  closed'
-                  closed'value
+                  Opening'
+                  Opening'opening'
                 )
-                Opening'
-                Opening'opening'
+                CarController'
+                CarController'waitingForCarPassing'
               )
-              CarController'
-              CarController'waitingForCarPassing'
+              peCarUnder'
             )
-            peCarUnder'
+          =
+            True
           )
-        =
-          True
+        )
+      \<and>
+        (\<not>
+          (getVarBool
+            (setVarBool
+              (setPstate
+                (setPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                  Opening'opening'
+                )
+                CarController'
+                CarController'waitingForCarPassing'
+              )
+              down'
+              False
+            )
+            opened'
+          )
         )
       )
     )
@@ -1828,6 +1865,275 @@ definition VC9 where
 
 definition VC10 where
   "VC10 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (
+                  (getPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                  )
+                =
+                  CarController'waitingForCar'
+                )
+              \<and>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  True
+                )
+              )
+            \<and>
+              (
+                (getPstate
+                  (setPstate
+                    (setPstate
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      Opening'
+                      Opening'opening'
+                    )
+                    CarController'
+                    CarController'waitingForCarPassing'
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setPstate
+                    (setPstate
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      Opening'
+                      Opening'opening'
+                    )
+                    CarController'
+                    CarController'waitingForCarPassing'
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setPstate
+                (setPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                  Opening'opening'
+                )
+                CarController'
+                CarController'waitingForCarPassing'
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (\<not>
+            (getVarBool
+              (setVarBool
+                (setPstate
+                  (setPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    Opening'
+                    Opening'opening'
+                  )
+                  CarController'
+                  CarController'waitingForCarPassing'
+                )
+                down'
+                False
+              )
+              opened'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setPstate
+              (setPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+                Opening'opening'
+              )
+              CarController'
+              CarController'waitingForCarPassing'
+            )
+            down'
+            False
+          )
+          Opening'
+          Opening'opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC11 where
+  "VC11 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -2050,8 +2356,8 @@ definition VC10 where
   )
   "
 
-definition VC11 where
-  "VC11 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC12 where
+  "VC12 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -2200,8 +2506,8 @@ definition VC11 where
   )
   "
 
-definition VC12 where
-  "VC12 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC13 where
+  "VC13 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -2350,8 +2656,8 @@ definition VC12 where
   )
   "
 
-definition VC13 where
-  "VC13 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC14 where
+  "VC14 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -2545,8 +2851,8 @@ definition VC13 where
   )
   "
 
-definition VC14 where
-  "VC14 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC15 where
+  "VC15 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -2726,8 +3032,8 @@ definition VC14 where
   )
   "
 
-definition VC15 where
-  "VC15 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC16 where
+  "VC16 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -2938,8 +3244,8 @@ definition VC15 where
   )
   "
 
-definition VC16 where
-  "VC16 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC17 where
+  "VC17 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -3136,8 +3442,8 @@ definition VC16 where
   )
   "
 
-definition VC17 where
-  "VC17 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC18 where
+  "VC18 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -3344,8 +3650,8 @@ definition VC17 where
   )
   "
 
-definition VC18 where
-  "VC18 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC19 where
+  "VC19 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -3538,8 +3844,8 @@ definition VC18 where
   )
   "
 
-definition VC19 where
-  "VC19 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC20 where
+  "VC20 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -3709,8 +4015,8 @@ definition VC19 where
   )
   "
 
-definition VC20 where
-  "VC20 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC21 where
+  "VC21 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -3744,6 +4050,60 @@ definition VC20 where
           (
             (
               (
+                (
+                  (getPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                  )
+                =
+                  CarController'waitingForCar'
+                )
+              \<and>
+                (\<not>
+                  (
+                    (getVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      carInFront'
+                    )
+                  =
+                    True
+                  )
+                )
+              )
+            \<and>
+              (
                 (getPstate
                   (setVarBool
                     (setVarBool
@@ -3762,117 +4122,92 @@ definition VC20 where
                     closed'
                     closed'value
                   )
-                  CarController'
+                  Opening'
                 )
               =
-                CarController'waitingForCar'
-              )
-            \<and>
-              (\<not>
-                (
-                  (getVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    carInFront'
-                  )
-                =
-                  True
-                )
+                Opening'closing'
               )
             )
           \<and>
-            (
-              (getPstate
-                (setVarBool
+            (\<not>
+              (
+                (getVarBool
                   (setVarBool
                     (setVarBool
                       (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
                       )
-                      peCarUnder'
-                      peCarUnder'value
+                      opened'
+                      opened'value
                     )
-                    opened'
-                    opened'value
+                    closed'
+                    closed'value
                   )
                   closed'
-                  closed'value
                 )
-                Opening'
+              =
+                True
               )
-            =
-              Opening'closing'
             )
           )
         \<and>
-          (\<not>
-            (
-              (getVarBool
+          (
+            (getVarBool
+              (setVarBool
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
+                      s0
+                      carInFront'
+                      carInFront'value
                     )
-                    opened'
-                    opened'value
+                    peCarUnder'
+                    peCarUnder'value
                   )
-                  closed'
-                  closed'value
+                  opened'
+                  opened'value
                 )
                 closed'
+                closed'value
               )
-            =
-              True
+              peCarUnder'
             )
+          =
+            True
           )
         )
       \<and>
-        (
+        (\<not>
           (getVarBool
             (setVarBool
               (setVarBool
                 (setVarBool
                   (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
                   )
-                  peCarUnder'
-                  peCarUnder'value
+                  opened'
+                  opened'value
                 )
-                opened'
-                opened'value
+                closed'
+                closed'value
               )
-              closed'
-              closed'value
+              down'
+              False
             )
-            peCarUnder'
+            opened'
           )
-        =
-          True
         )
       )
     )
@@ -3913,8 +4248,239 @@ definition VC20 where
   )
   "
 
-definition VC21 where
-  "VC21 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC22 where
+  "VC22 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (
+                  (getPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                  )
+                =
+                  CarController'waitingForCar'
+                )
+              \<and>
+                (\<not>
+                  (
+                    (getVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      carInFront'
+                    )
+                  =
+                    True
+                  )
+                )
+              )
+            \<and>
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (\<not>
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                down'
+                False
+              )
+              opened'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            down'
+            False
+          )
+          Opening'
+          Opening'opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC23 where
+  "VC23 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -4107,8 +4673,8 @@ definition VC21 where
   )
   "
 
-definition VC22 where
-  "VC22 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC24 where
+  "VC24 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -4243,8 +4809,8 @@ definition VC22 where
   )
   "
 
-definition VC23 where
-  "VC23 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC25 where
+  "VC25 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -4379,8 +4945,8 @@ definition VC23 where
   )
   "
 
-definition VC24 where
-  "VC24 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC26 where
+  "VC26 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -4584,8 +5150,8 @@ definition VC24 where
   )
   "
 
-definition VC25 where
-  "VC25 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC27 where
+  "VC27 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -4775,8 +5341,8 @@ definition VC25 where
   )
   "
 
-definition VC26 where
-  "VC26 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC28 where
+  "VC28 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -5001,8 +5567,8 @@ definition VC26 where
   )
   "
 
-definition VC27 where
-  "VC27 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC29 where
+  "VC29 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -5213,8 +5779,8 @@ definition VC27 where
   )
   "
 
-definition VC28 where
-  "VC28 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC30 where
+  "VC30 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -5435,8 +6001,8 @@ definition VC28 where
   )
   "
 
-definition VC29 where
-  "VC29 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC31 where
+  "VC31 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -5643,8 +6209,8 @@ definition VC29 where
   )
   "
 
-definition VC30 where
-  "VC30 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC32 where
+  "VC32 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -5824,8 +6390,8 @@ definition VC30 where
   )
   "
 
-definition VC31 where
-  "VC31 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC33 where
+  "VC33 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -5859,145 +6425,178 @@ definition VC31 where
           (
             (
               (
-                (getPstate
-                  (setVarBool
+                (
+                  (getPstate
                     (setVarBool
                       (setVarBool
                         (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
                         )
-                        peCarUnder'
-                        peCarUnder'value
+                        opened'
+                        opened'value
                       )
-                      opened'
-                      opened'value
+                      closed'
+                      closed'value
                     )
-                    closed'
-                    closed'value
+                    CarController'
                   )
-                  CarController'
+                =
+                  CarController'waitingForCarPassing'
                 )
-              =
-                CarController'waitingForCarPassing'
+              \<and>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  False
+                )
               )
             \<and>
               (
-                (getVarBool
-                  (setVarBool
+                (getPstate
+                  (setPstate
                     (setVarBool
                       (setVarBool
                         (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
                         )
-                        peCarUnder'
-                        peCarUnder'value
+                        opened'
+                        opened'value
                       )
-                      opened'
-                      opened'value
+                      closed'
+                      closed'value
                     )
-                    closed'
-                    closed'value
+                    CarController'
+                    CarController'waitingForCar'
                   )
-                  carInFront'
+                  Opening'
                 )
               =
-                False
+                Opening'closing'
               )
             )
           \<and>
-            (
-              (getPstate
-                (setPstate
-                  (setVarBool
+            (\<not>
+              (
+                (getVarBool
+                  (setPstate
                     (setVarBool
                       (setVarBool
                         (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
                         )
-                        peCarUnder'
-                        peCarUnder'value
+                        opened'
+                        opened'value
                       )
-                      opened'
-                      opened'value
+                      closed'
+                      closed'value
                     )
-                    closed'
-                    closed'value
+                    CarController'
+                    CarController'waitingForCar'
                   )
-                  CarController'
-                  CarController'waitingForCar'
+                  closed'
                 )
-                Opening'
+              =
+                True
               )
-            =
-              Opening'closing'
             )
           )
         \<and>
-          (\<not>
-            (
-              (getVarBool
-                (setPstate
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
-                        )
-                        peCarUnder'
-                        peCarUnder'value
-                      )
-                      opened'
-                      opened'value
-                    )
-                    closed'
-                    closed'value
-                  )
-                  CarController'
-                  CarController'waitingForCar'
-                )
-                closed'
-              )
-            =
-              True
-            )
-          )
-        )
-      \<and>
-        (
-          (getVarBool
-            (setPstate
-              (setVarBool
+          (
+            (getVarBool
+              (setPstate
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
                     )
-                    peCarUnder'
-                    peCarUnder'value
+                    opened'
+                    opened'value
                   )
-                  opened'
-                  opened'value
+                  closed'
+                  closed'value
                 )
-                closed'
-                closed'value
+                CarController'
+                CarController'waitingForCar'
               )
-              CarController'
-              CarController'waitingForCar'
+              peCarUnder'
             )
-            peCarUnder'
+          =
+            True
           )
-        =
-          True
+        )
+      \<and>
+        (\<not>
+          (getVarBool
+            (setVarBool
+              (setPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                CarController'
+                CarController'waitingForCar'
+              )
+              down'
+              False
+            )
+            opened'
+          )
         )
       )
     )
@@ -6042,8 +6641,257 @@ definition VC31 where
   )
   "
 
-definition VC32 where
-  "VC32 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC34 where
+  "VC34 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (
+                  (getPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                  )
+                =
+                  CarController'waitingForCarPassing'
+                )
+              \<and>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  False
+                )
+              )
+            \<and>
+              (
+                (getPstate
+                  (setPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                    CarController'waitingForCar'
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                    CarController'waitingForCar'
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                CarController'
+                CarController'waitingForCar'
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (\<not>
+            (getVarBool
+              (setVarBool
+                (setPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                  CarController'waitingForCar'
+                )
+                down'
+                False
+              )
+              opened'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setPstate
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              CarController'
+              CarController'waitingForCar'
+            )
+            down'
+            False
+          )
+          Opening'
+          Opening'opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC35 where
+  "VC35 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -6250,8 +7098,8 @@ definition VC32 where
   )
   "
 
-definition VC33 where
-  "VC33 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC36 where
+  "VC36 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -6392,8 +7240,8 @@ definition VC33 where
   )
   "
 
-definition VC34 where
-  "VC34 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC37 where
+  "VC37 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -6534,8 +7382,8 @@ definition VC34 where
   )
   "
 
-definition VC35 where
-  "VC35 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC38 where
+  "VC38 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -6729,8 +7577,8 @@ definition VC35 where
   )
   "
 
-definition VC36 where
-  "VC36 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC39 where
+  "VC39 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -6904,624 +7752,6 @@ definition VC36 where
           )
           down'
           False
-        )
-      )
-    )
-  )
-  "
-
-definition VC37 where
-  "VC37 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (
-              (
-                (getPstate
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
-                        )
-                        peCarUnder'
-                        peCarUnder'value
-                      )
-                      opened'
-                      opened'value
-                    )
-                    closed'
-                    closed'value
-                  )
-                  CarController'
-                )
-              =
-                CarController'waitingForCarPassing'
-              )
-            \<and>
-              (\<not>
-                (
-                  (getVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    carInFront'
-                  )
-                =
-                  False
-                )
-              )
-            )
-          \<and>
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-            =
-              Opening'open'
-            )
-          )
-        \<and>
-          (
-            (getVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              peCarUnder'
-            )
-          =
-            True
-          )
-        )
-      \<and>
-        (
-          OPEN_TIME'TIMEOUT
-        <=
-          (ltime
-            (reset
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              Opening'
-            )
-            Opening'
-          )
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (setPstate
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (reset
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
-                        )
-                        peCarUnder'
-                        peCarUnder'value
-                      )
-                      opened'
-                      opened'value
-                    )
-                    closed'
-                    closed'value
-                  )
-                  Opening'
-                )
-                down'
-                True
-              )
-              green'
-              False
-            )
-            red'
-            True
-          )
-          Opening'
-          Opening'closing'
-        )
-      )
-    )
-  )
-  "
-
-definition VC38 where
-  "VC38 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (
-              (
-                (getPstate
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
-                        )
-                        peCarUnder'
-                        peCarUnder'value
-                      )
-                      opened'
-                      opened'value
-                    )
-                    closed'
-                    closed'value
-                  )
-                  CarController'
-                )
-              =
-                CarController'waitingForCarPassing'
-              )
-            \<and>
-              (\<not>
-                (
-                  (getVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    carInFront'
-                  )
-                =
-                  False
-                )
-              )
-            )
-          \<and>
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-            =
-              Opening'open'
-            )
-          )
-        \<and>
-          (
-            (getVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              peCarUnder'
-            )
-          =
-            True
-          )
-        )
-      \<and>
-        (\<not>
-          (
-            OPEN_TIME'TIMEOUT
-          <=
-            (ltime
-              (reset
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-              Opening'
-            )
-          )
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (reset
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-          Opening'
-        )
-      )
-    )
-  )
-  "
-
-definition VC39 where
-  "VC39 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (
-              (
-                (getPstate
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          s0
-                          carInFront'
-                          carInFront'value
-                        )
-                        peCarUnder'
-                        peCarUnder'value
-                      )
-                      opened'
-                      opened'value
-                    )
-                    closed'
-                    closed'value
-                  )
-                  CarController'
-                )
-              =
-                CarController'waitingForCarPassing'
-              )
-            \<and>
-              (\<not>
-                (
-                  (getVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    carInFront'
-                  )
-                =
-                  False
-                )
-              )
-            )
-          \<and>
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-            =
-              Opening'open'
-            )
-          )
-        \<and>
-          (\<not>
-            (
-              (getVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                peCarUnder'
-              )
-            =
-              True
-            )
-          )
-        )
-      \<and>
-        (
-          OPEN_TIME'TIMEOUT
-        <=
-          (ltime
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
-                  )
-                  peCarUnder'
-                  peCarUnder'value
-                )
-                opened'
-                opened'value
-              )
-              closed'
-              closed'value
-            )
-            Opening'
-          )
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (setPstate
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                down'
-                True
-              )
-              green'
-              False
-            )
-            red'
-            True
-          )
-          Opening'
-          Opening'closing'
         )
       )
     )
@@ -7641,6 +7871,624 @@ definition VC40 where
             )
           )
         \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (
+          OPEN_TIME'TIMEOUT
+        <=
+          (ltime
+            (reset
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              Opening'
+            )
+            Opening'
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (reset
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+                down'
+                True
+              )
+              green'
+              False
+            )
+            red'
+            True
+          )
+          Opening'
+          Opening'closing'
+        )
+      )
+    )
+  )
+  "
+
+definition VC41 where
+  "VC41 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                )
+              =
+                CarController'waitingForCarPassing'
+              )
+            \<and>
+              (\<not>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  False
+                )
+              )
+            )
+          \<and>
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+            =
+              Opening'open'
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (
+            OPEN_TIME'TIMEOUT
+          <=
+            (ltime
+              (reset
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+              Opening'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (reset
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+          Opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC42 where
+  "VC42 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                )
+              =
+                CarController'waitingForCarPassing'
+              )
+            \<and>
+              (\<not>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  False
+                )
+              )
+            )
+          \<and>
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+            =
+              Opening'open'
+            )
+          )
+        \<and>
+          (\<not>
+            (
+              (getVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                peCarUnder'
+              )
+            =
+              True
+            )
+          )
+        )
+      \<and>
+        (
+          OPEN_TIME'TIMEOUT
+        <=
+          (ltime
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            Opening'
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                down'
+                True
+              )
+              green'
+              False
+            )
+            red'
+            True
+          )
+          Opening'
+          Opening'closing'
+        )
+      )
+    )
+  )
+  "
+
+definition VC43 where
+  "VC43 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                )
+              =
+                CarController'waitingForCarPassing'
+              )
+            \<and>
+              (\<not>
+                (
+                  (getVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    carInFront'
+                  )
+                =
+                  False
+                )
+              )
+            )
+          \<and>
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+            =
+              Opening'open'
+            )
+          )
+        \<and>
           (\<not>
             (
               (getVarBool
@@ -7722,8 +8570,8 @@ definition VC40 where
   )
   "
 
-definition VC41 where
-  "VC41 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC44 where
+  "VC44 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -7893,8 +8741,8 @@ definition VC41 where
   )
   "
 
-definition VC42 where
-  "VC42 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC45 where
+  "VC45 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -7928,6 +8776,60 @@ definition VC42 where
           (
             (
               (
+                (
+                  (getPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                  )
+                =
+                  CarController'waitingForCarPassing'
+                )
+              \<and>
+                (\<not>
+                  (
+                    (getVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      carInFront'
+                    )
+                  =
+                    False
+                  )
+                )
+              )
+            \<and>
+              (
                 (getPstate
                   (setVarBool
                     (setVarBool
@@ -7946,117 +8848,92 @@ definition VC42 where
                     closed'
                     closed'value
                   )
-                  CarController'
+                  Opening'
                 )
               =
-                CarController'waitingForCarPassing'
-              )
-            \<and>
-              (\<not>
-                (
-                  (getVarBool
-                    (setVarBool
-                      (setVarBool
-                        (setVarBool
-                          (setVarBool
-                            s0
-                            carInFront'
-                            carInFront'value
-                          )
-                          peCarUnder'
-                          peCarUnder'value
-                        )
-                        opened'
-                        opened'value
-                      )
-                      closed'
-                      closed'value
-                    )
-                    carInFront'
-                  )
-                =
-                  False
-                )
+                Opening'closing'
               )
             )
           \<and>
-            (
-              (getPstate
-                (setVarBool
+            (\<not>
+              (
+                (getVarBool
                   (setVarBool
                     (setVarBool
                       (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
                       )
-                      peCarUnder'
-                      peCarUnder'value
+                      opened'
+                      opened'value
                     )
-                    opened'
-                    opened'value
+                    closed'
+                    closed'value
                   )
                   closed'
-                  closed'value
                 )
-                Opening'
+              =
+                True
               )
-            =
-              Opening'closing'
             )
           )
         \<and>
-          (\<not>
-            (
-              (getVarBool
+          (
+            (getVarBool
+              (setVarBool
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
+                      s0
+                      carInFront'
+                      carInFront'value
                     )
-                    opened'
-                    opened'value
+                    peCarUnder'
+                    peCarUnder'value
                   )
-                  closed'
-                  closed'value
+                  opened'
+                  opened'value
                 )
                 closed'
+                closed'value
               )
-            =
-              True
+              peCarUnder'
             )
+          =
+            True
           )
         )
       \<and>
-        (
+        (\<not>
           (getVarBool
             (setVarBool
               (setVarBool
                 (setVarBool
                   (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
                   )
-                  peCarUnder'
-                  peCarUnder'value
+                  opened'
+                  opened'value
                 )
-                opened'
-                opened'value
+                closed'
+                closed'value
               )
-              closed'
-              closed'value
+              down'
+              False
             )
-            peCarUnder'
+            opened'
           )
-        =
-          True
         )
       )
     )
@@ -8097,8 +8974,239 @@ definition VC42 where
   )
   "
 
-definition VC43 where
-  "VC43 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC46 where
+  "VC46 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (
+                  (getPstate
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            s0
+                            carInFront'
+                            carInFront'value
+                          )
+                          peCarUnder'
+                          peCarUnder'value
+                        )
+                        opened'
+                        opened'value
+                      )
+                      closed'
+                      closed'value
+                    )
+                    CarController'
+                  )
+                =
+                  CarController'waitingForCarPassing'
+                )
+              \<and>
+                (\<not>
+                  (
+                    (getVarBool
+                      (setVarBool
+                        (setVarBool
+                          (setVarBool
+                            (setVarBool
+                              s0
+                              carInFront'
+                              carInFront'value
+                            )
+                            peCarUnder'
+                            peCarUnder'value
+                          )
+                          opened'
+                          opened'value
+                        )
+                        closed'
+                        closed'value
+                      )
+                      carInFront'
+                    )
+                  =
+                    False
+                  )
+                )
+              )
+            \<and>
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (\<not>
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                down'
+                False
+              )
+              opened'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            down'
+            False
+          )
+          Opening'
+          Opening'opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC47 where
+  "VC47 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -8291,8 +9399,8 @@ definition VC43 where
   )
   "
 
-definition VC44 where
-  "VC44 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC48 where
+  "VC48 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -8427,8 +9535,8 @@ definition VC44 where
   )
   "
 
-definition VC45 where
-  "VC45 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC49 where
+  "VC49 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -8563,8 +9671,8 @@ definition VC45 where
   )
   "
 
-definition VC46 where
-  "VC46 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC50 where
+  "VC50 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -8729,8 +9837,8 @@ definition VC46 where
   )
   "
 
-definition VC47 where
-  "VC47 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC51 where
+  "VC51 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -8881,8 +9989,8 @@ definition VC47 where
   )
   "
 
-definition VC48 where
-  "VC48 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC52 where
+  "VC52 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -9058,661 +10166,6 @@ definition VC48 where
           )
           Opening'
           Opening'closing'
-        )
-      )
-    )
-  )
-  "
-
-definition VC49 where
-  "VC49 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                CarController'
-              )
-            =
-              STOP
-            )
-          \<and>
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-            =
-              Opening'open'
-            )
-          )
-        \<and>
-          (
-            (getVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              peCarUnder'
-            )
-          =
-            True
-          )
-        )
-      \<and>
-        (\<not>
-          (
-            OPEN_TIME'TIMEOUT
-          <=
-            (ltime
-              (reset
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-              Opening'
-            )
-          )
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (reset
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-          Opening'
-        )
-      )
-    )
-  )
-  "
-
-definition VC50 where
-  "VC50 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                CarController'
-              )
-            =
-              STOP
-            )
-          \<and>
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-            =
-              Opening'open'
-            )
-          )
-        \<and>
-          (\<not>
-            (
-              (getVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                peCarUnder'
-              )
-            =
-              True
-            )
-          )
-        )
-      \<and>
-        (
-          OPEN_TIME'TIMEOUT
-        <=
-          (ltime
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
-                  )
-                  peCarUnder'
-                  peCarUnder'value
-                )
-                opened'
-                opened'value
-              )
-              closed'
-              closed'value
-            )
-            Opening'
-          )
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (setPstate
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                down'
-                True
-              )
-              green'
-              False
-            )
-            red'
-            True
-          )
-          Opening'
-          Opening'closing'
-        )
-      )
-    )
-  )
-  "
-
-definition VC51 where
-  "VC51 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                CarController'
-              )
-            =
-              STOP
-            )
-          \<and>
-            (
-              (getPstate
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                Opening'
-              )
-            =
-              Opening'open'
-            )
-          )
-        \<and>
-          (\<not>
-            (
-              (getVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
-                    )
-                    opened'
-                    opened'value
-                  )
-                  closed'
-                  closed'value
-                )
-                peCarUnder'
-              )
-            =
-              True
-            )
-          )
-        )
-      \<and>
-        (\<not>
-          (
-            OPEN_TIME'TIMEOUT
-          <=
-            (ltime
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              Opening'
-            )
-          )
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (setVarBool
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                s0
-                carInFront'
-                carInFront'value
-              )
-              peCarUnder'
-              peCarUnder'value
-            )
-            opened'
-            opened'value
-          )
-          closed'
-          closed'value
-        )
-      )
-    )
-  )
-  "
-
-definition VC52 where
-  "VC52 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
-  (
-    (
-      (
-        (inv0
-          s0
-        )
-      \<and>
-        (env
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  s0
-                  carInFront'
-                  carInFront'value
-                )
-                peCarUnder'
-                peCarUnder'value
-              )
-              opened'
-              opened'value
-            )
-            closed'
-            closed'value
-          )
-        )
-      )
-    \<and>
-      (
-        (
-          (
-            (getPstate
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              CarController'
-            )
-          =
-            STOP
-          )
-        \<and>
-          (
-            (getPstate
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    (setVarBool
-                      s0
-                      carInFront'
-                      carInFront'value
-                    )
-                    peCarUnder'
-                    peCarUnder'value
-                  )
-                  opened'
-                  opened'value
-                )
-                closed'
-                closed'value
-              )
-              Opening'
-            )
-          =
-            Opening'closing'
-          )
-        )
-      \<and>
-        (
-          (getVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
-                  )
-                  peCarUnder'
-                  peCarUnder'value
-                )
-                opened'
-                opened'value
-              )
-              closed'
-              closed'value
-            )
-            closed'
-          )
-        =
-          True
-        )
-      )
-    )
-  -->
-    (inv0
-      (toEnv
-        (setPstate
-          (setVarBool
-            (setVarBool
-              (setVarBool
-                (setVarBool
-                  (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
-                  )
-                  peCarUnder'
-                  peCarUnder'value
-                )
-                opened'
-                opened'value
-              )
-              closed'
-              closed'value
-            )
-            down'
-            False
-          )
-          Opening'
-          STOP
         )
       )
     )
@@ -9799,7 +10252,176 @@ definition VC53 where
                 Opening'
               )
             =
-              Opening'closing'
+              Opening'open'
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (
+            OPEN_TIME'TIMEOUT
+          <=
+            (ltime
+              (reset
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+              Opening'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (reset
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+          Opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC54 where
+  "VC54 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                CarController'
+              )
+            =
+              STOP
+            )
+          \<and>
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+            =
+              Opening'open'
             )
           )
         \<and>
@@ -9823,11 +10445,326 @@ definition VC53 where
                   closed'
                   closed'value
                 )
-                closed'
+                peCarUnder'
               )
             =
               True
             )
+          )
+        )
+      \<and>
+        (
+          OPEN_TIME'TIMEOUT
+        <=
+          (ltime
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            Opening'
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                down'
+                True
+              )
+              green'
+              False
+            )
+            red'
+            True
+          )
+          Opening'
+          Opening'closing'
+        )
+      )
+    )
+  )
+  "
+
+definition VC55 where
+  "VC55 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                CarController'
+              )
+            =
+              STOP
+            )
+          \<and>
+            (
+              (getPstate
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                Opening'
+              )
+            =
+              Opening'open'
+            )
+          )
+        \<and>
+          (\<not>
+            (
+              (getVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                peCarUnder'
+              )
+            =
+              True
+            )
+          )
+        )
+      \<and>
+        (\<not>
+          (
+            OPEN_TIME'TIMEOUT
+          <=
+            (ltime
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              Opening'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setVarBool
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                s0
+                carInFront'
+                carInFront'value
+              )
+              peCarUnder'
+              peCarUnder'value
+            )
+            opened'
+            opened'value
+          )
+          closed'
+          closed'value
+        )
+      )
+    )
+  )
+  "
+
+definition VC56 where
+  "VC56 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (getPstate
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              CarController'
+            )
+          =
+            STOP
+          )
+        \<and>
+          (
+            (getPstate
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              Opening'
+            )
+          =
+            Opening'closing'
           )
         )
       \<and>
@@ -9850,10 +10787,210 @@ definition VC53 where
               closed'
               closed'value
             )
-            peCarUnder'
+            closed'
           )
         =
           True
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            down'
+            False
+          )
+          Opening'
+          STOP
+        )
+      )
+    )
+  )
+  "
+
+definition VC57 where
+  "VC57 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                )
+              =
+                STOP
+              )
+            \<and>
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (getVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              down'
+              False
+            )
+            opened'
+          )
         )
       )
     )
@@ -9894,8 +11031,210 @@ definition VC53 where
   )
   "
 
-definition VC54 where
-  "VC54 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC58 where
+  "VC58 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                )
+              =
+                STOP
+              )
+            \<and>
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (\<not>
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                down'
+                False
+              )
+              opened'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            down'
+            False
+          )
+          Opening'
+          Opening'opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC59 where
+  "VC59 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10059,8 +11398,8 @@ definition VC54 where
   )
   "
 
-definition VC55 where
-  "VC55 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC60 where
+  "VC60 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10166,8 +11505,8 @@ definition VC55 where
   )
   "
 
-definition VC56 where
-  "VC56 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC61 where
+  "VC61 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10273,8 +11612,8 @@ definition VC56 where
   )
   "
 
-definition VC57 where
-  "VC57 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC62 where
+  "VC62 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10439,8 +11778,8 @@ definition VC57 where
   )
   "
 
-definition VC58 where
-  "VC58 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC63 where
+  "VC63 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10591,8 +11930,8 @@ definition VC58 where
   )
   "
 
-definition VC59 where
-  "VC59 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC64 where
+  "VC64 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10774,8 +12113,8 @@ definition VC59 where
   )
   "
 
-definition VC60 where
-  "VC60 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC65 where
+  "VC65 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -10943,8 +12282,8 @@ definition VC60 where
   )
   "
 
-definition VC61 where
-  "VC61 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC66 where
+  "VC66 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -11122,8 +12461,8 @@ definition VC61 where
   )
   "
 
-definition VC62 where
-  "VC62 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC67 where
+  "VC67 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -11287,8 +12626,8 @@ definition VC62 where
   )
   "
 
-definition VC63 where
-  "VC63 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC68 where
+  "VC68 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -11429,8 +12768,8 @@ definition VC63 where
   )
   "
 
-definition VC64 where
-  "VC64 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC69 where
+  "VC69 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -11463,107 +12802,136 @@ definition VC64 where
         (
           (
             (
-              (getPstate
-                (setVarBool
+              (
+                (getPstate
                   (setVarBool
                     (setVarBool
                       (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
                       )
-                      peCarUnder'
-                      peCarUnder'value
+                      opened'
+                      opened'value
                     )
-                    opened'
-                    opened'value
+                    closed'
+                    closed'value
                   )
-                  closed'
-                  closed'value
+                  CarController'
                 )
-                CarController'
+              =
+                ERROR
               )
-            =
-              ERROR
+            \<and>
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
             )
           \<and>
-            (
-              (getPstate
-                (setVarBool
+            (\<not>
+              (
+                (getVarBool
                   (setVarBool
                     (setVarBool
                       (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
                       )
-                      peCarUnder'
-                      peCarUnder'value
+                      opened'
+                      opened'value
                     )
-                    opened'
-                    opened'value
+                    closed'
+                    closed'value
                   )
                   closed'
-                  closed'value
                 )
-                Opening'
+              =
+                True
               )
-            =
-              Opening'closing'
             )
           )
         \<and>
-          (\<not>
-            (
-              (getVarBool
+          (
+            (getVarBool
+              (setVarBool
                 (setVarBool
                   (setVarBool
                     (setVarBool
-                      (setVarBool
-                        s0
-                        carInFront'
-                        carInFront'value
-                      )
-                      peCarUnder'
-                      peCarUnder'value
+                      s0
+                      carInFront'
+                      carInFront'value
                     )
-                    opened'
-                    opened'value
+                    peCarUnder'
+                    peCarUnder'value
                   )
-                  closed'
-                  closed'value
+                  opened'
+                  opened'value
                 )
                 closed'
+                closed'value
               )
-            =
-              True
+              peCarUnder'
             )
+          =
+            True
           )
         )
       \<and>
-        (
+        (\<not>
           (getVarBool
             (setVarBool
               (setVarBool
                 (setVarBool
                   (setVarBool
-                    s0
-                    carInFront'
-                    carInFront'value
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
                   )
-                  peCarUnder'
-                  peCarUnder'value
+                  opened'
+                  opened'value
                 )
-                opened'
-                opened'value
+                closed'
+                closed'value
               )
-              closed'
-              closed'value
+              down'
+              False
             )
-            peCarUnder'
+            opened'
           )
-        =
-          True
         )
       )
     )
@@ -11604,8 +12972,210 @@ definition VC64 where
   )
   "
 
-definition VC65 where
-  "VC65 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC70 where
+  "VC70 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+  (
+    (
+      (
+        (inv0
+          s0
+        )
+      \<and>
+        (env
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  s0
+                  carInFront'
+                  carInFront'value
+                )
+                peCarUnder'
+                peCarUnder'value
+              )
+              opened'
+              opened'value
+            )
+            closed'
+            closed'value
+          )
+        )
+      )
+    \<and>
+      (
+        (
+          (
+            (
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  CarController'
+                )
+              =
+                ERROR
+              )
+            \<and>
+              (
+                (getPstate
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  Opening'
+                )
+              =
+                Opening'closing'
+              )
+            )
+          \<and>
+            (\<not>
+              (
+                (getVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        (setVarBool
+                          s0
+                          carInFront'
+                          carInFront'value
+                        )
+                        peCarUnder'
+                        peCarUnder'value
+                      )
+                      opened'
+                      opened'value
+                    )
+                    closed'
+                    closed'value
+                  )
+                  closed'
+                )
+              =
+                True
+              )
+            )
+          )
+        \<and>
+          (
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      s0
+                      carInFront'
+                      carInFront'value
+                    )
+                    peCarUnder'
+                    peCarUnder'value
+                  )
+                  opened'
+                  opened'value
+                )
+                closed'
+                closed'value
+              )
+              peCarUnder'
+            )
+          =
+            True
+          )
+        )
+      \<and>
+        (\<not>
+          (\<not>
+            (getVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    (setVarBool
+                      (setVarBool
+                        s0
+                        carInFront'
+                        carInFront'value
+                      )
+                      peCarUnder'
+                      peCarUnder'value
+                    )
+                    opened'
+                    opened'value
+                  )
+                  closed'
+                  closed'value
+                )
+                down'
+                False
+              )
+              opened'
+            )
+          )
+        )
+      )
+    )
+  -->
+    (inv0
+      (toEnv
+        (setPstate
+          (setVarBool
+            (setVarBool
+              (setVarBool
+                (setVarBool
+                  (setVarBool
+                    s0
+                    carInFront'
+                    carInFront'value
+                  )
+                  peCarUnder'
+                  peCarUnder'value
+                )
+                opened'
+                opened'value
+              )
+              closed'
+              closed'value
+            )
+            down'
+            False
+          )
+          Opening'
+          Opening'opening'
+        )
+      )
+    )
+  )
+  "
+
+definition VC71 where
+  "VC71 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -11769,8 +13339,8 @@ definition VC65 where
   )
   "
 
-definition VC66 where
-  "VC66 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC72 where
+  "VC72 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (
@@ -11876,8 +13446,8 @@ definition VC66 where
   )
   "
 
-definition VC67 where
-  "VC67 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
+definition VC73 where
+  "VC73 inv0 env s0 carInFront'value peCarUnder'value opened'value closed'value \<equiv>
   (
     (
       (

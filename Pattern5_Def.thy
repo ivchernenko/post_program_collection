@@ -118,15 +118,15 @@ lemma constrained_always_einv2req: "
   apply auto
   done
 
-definition P5_2 where "P5_2 s t A1 A2 \<equiv>
-always2 s A1 (\<lambda> s2. constrained_always s2 s t A2)"
+definition P5_2 where "P5_2 s t A1 A2 A3 \<equiv>
+always2 s A1 A2 (\<lambda> s2. constrained_always s2 s t A3)"
 
-definition P5_2inv where "P5_2inv s t t1 A1 A2 \<equiv>
-always2 s A1 (\<lambda> s2. constrained_always_inv s2 s t t1 A2)"
+definition P5_2inv where "P5_2inv s t t1 A1 A2 A3 \<equiv>
+always2 s A1 A2 (\<lambda> s2. constrained_always_inv s2 s t t1 A3)"
 
 lemma P5_2_rule: "consecutive s0 s \<Longrightarrow>
-P5_2inv s0 t t1 A1 A2 \<and> (\<not>A1 s0 s \<or> t = 0 \<or> t1' = 0 \<and> A2 s) \<and> (t1 + 1 \<ge> t \<or> A2 s) \<and> t1' \<le> t1 + 1 \<Longrightarrow>
-P5_2inv s t t1' A1 A2"
+P5_2inv s0 t t1 A1 A2 A3 \<and> (\<not>A1 s0 \<or> \<not> A2 s \<or> t = 0 \<or> t1' = 0 \<and> A3 s) \<and> (t1 + 1 \<ge> t \<or> A3 s) \<and> t1' \<le> t1 + 1 \<Longrightarrow>
+P5_2inv s t t1' A1 A2 A3"
   apply(unfold P5_2inv_def)
 (*  using always2_rule constrained_always_rule constrained_always_one_point
   by (smt (verit))
@@ -145,7 +145,14 @@ P5_2inv s t t1' A1 A2"
       apply(rotate_tac -1)
        apply assumption
       prefer 2
+      apply(rule disj_forward)
+        prefer 2
+        apply(rotate_tac -1)
+        apply assumption
+       prefer 2
       apply(rule constrained_always_one_point)
+    apply(rotate_tac -1)
+      apply assumption
     apply(rotate_tac -1)
       apply assumption
     apply(rotate_tac -1)
@@ -175,10 +182,10 @@ P5_2inv s t t1' A1 A2"
   apply auto
   done
 
-lemma P5_2_einv2req: " P5_2inv s t t1 A1 A2 \<Longrightarrow> P5_2 s t A1 A2"
+lemma P5_2_einv2req: " P5_2inv s t t1 A1 A2 A3 \<Longrightarrow> P5_2 s t A1 A2 A3"
   apply(unfold P5_2inv_def P5_2_def)
- (* using always2_einv2req constrained_always_einv2req
-  by (metis (no_types, lifting))
+
+ (* by (smt (verit, best) always2_einv2req constrained_always_einv2req)
 *)
   apply(rule always2_einv2req)
   apply(rule conj_forward)
@@ -192,5 +199,6 @@ lemma P5_2_einv2req: " P5_2inv s t t1 A1 A2 \<Longrightarrow> P5_2 s t A1 A2"
    apply assumption
   apply auto
   done
+
 
 end

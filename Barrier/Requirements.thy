@@ -1,5 +1,5 @@
 theory Requirements
-  imports Barrier
+  imports Barrier "../Patterns"
 begin
 
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
@@ -9,11 +9,8 @@ definition R2 where "R2 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 peCarUnder' = True \<longrightarrow> getVarBool s1 down' = False)"
 
 definition R3 where "R3 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarBool s1 down' = True \<and> getVarBool s2 down' = False \<and>
- (\<forall> s4 s5. toEnvP s4 \<and> toEnvP s5 \<and> substate s2 s4 \<and> substate s4 s5 \<and> substate s5 s3 \<and> toEnvNum s4 s5 = 1 \<longrightarrow>
- \<not> (getVarBool s4 carInFront' = False \<and> getVarBool s5 carInFront' = True)) \<longrightarrow>
-getVarBool s3 up' = False)"
+P6_2 s (\<lambda> s1. getVarBool s1 down' = True) (\<lambda> s2. getVarBool s2 closed' = True) (\<lambda> s3. getVarBool s3 up' = False)
+ (\<lambda> s4. getVarBool s4 carInFront' = False) (\<lambda> s5. getVarBool s5 carInFront' = True)"
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> toEnvNum s1 s \<ge> OPEN_TIME'TIMEOUT \<and> getVarBool s1 green' = True \<longrightarrow>

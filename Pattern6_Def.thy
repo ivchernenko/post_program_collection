@@ -1,5 +1,5 @@
 theory Pattern6_Def
-  imports VCTheoryLemmas
+  imports Pattern2_Def
 begin
 
 definition P6 where "P6 s A1 A2 A3 \<equiv>
@@ -65,7 +65,172 @@ lemma P6_1einv2req: "P6_1inv1 s w A1 A2 A3 \<Longrightarrow> P6_1 s A1 A2 A3"
   apply auto
   done
 
+definition weak_until where "weak_until s1 s A1 A2 \<equiv>
+(\<exists> s3. toEnvP s3 \<and> substate s1 s3 \<and> substate s3 s \<and> A2 s3 \<and>
+(\<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s3 \<and> s2 \<noteq> s3 \<longrightarrow> A1 s2)) \<or>
+(\<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s\<longrightarrow> A1 s2)"
+
+definition weak_until_inv where "weak_until_inv s1 s w A1 A2 \<equiv>
+(\<exists> s3. toEnvP s3 \<and> substate s1 s3 \<and> substate s3 s \<and> A2 s3 \<and>
+(\<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s3 \<and> s2 \<noteq> s3 \<longrightarrow> A1 s2)) \<or>
+w \<and> (\<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s\<longrightarrow> A1 s2)"
+
+lemma weak_until_rule: "consecutive s0 s \<Longrightarrow>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A1 s1 \<longrightarrow> A1' s1) \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A2 s1 \<longrightarrow> A2' s1) \<and>
+(\<not> w \<or>  A2' s \<or> w' \<and> A1' s) \<Longrightarrow>
+\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> weak_until_inv s1 s0 w A1 A2 \<longrightarrow> weak_until_inv s1 s w' A1' A2'"
+  apply(unfold weak_until_inv_def)
+  by (smt (verit, best) consecutive.elims(2) substate_noteq_imp_substate_of_pred substate_refl substate_trans)
+
+lemma weak_until_one_point: "toEnvP s \<Longrightarrow> A2 s \<or> w \<and> A1 s \<Longrightarrow> weak_until_inv s s w A1 A2"
+  apply(unfold weak_until_inv_def)
+  using substate_antisym substate_refl by blast
+
+lemma weak_until_einv2req: "
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A1 s1 \<longrightarrow> A1' s1) \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A2 s1 \<longrightarrow> A2' s1) \<Longrightarrow>
+\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> weak_until_inv s1 s w A1 A2 \<longrightarrow> weak_until s1 s A1' A2'"
+  apply(unfold weak_until_inv_def weak_until_def)
+  by (meson substate_trans)
+  
+
+definition P6_2 where "P6_2 s A1 A2 A3 A4 A5 \<equiv>
+always2 s A1 A2 (\<lambda> s2. weak_until s2 s A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4))"
+
+definition P6_2inv where "P6_2inv s w b1 b2 A1 A2 A3 A4 A5 \<equiv>
+always2 s A1 A2 (\<lambda> s2. weak_until_inv s2 s w A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4)) \<and> (b1 \<longleftrightarrow> A1 s) \<and> (b2 = A4 s) "
+
+lemma P6_2_rule: "consecutive s0 s \<Longrightarrow>
+P6_2inv s0 w b1 b2 A1 A2 A3 A4 A5 \<and> (\<not> b1 \<or> \<not>A2 s \<or> b2 \<and> A5 s \<or> w' \<and> A3 s ) \<and> (w \<longrightarrow> b2 \<and> A5 s \<or> w' \<and> A3 s) \<and> (b1' \<longleftrightarrow> A1 s) \<and> (b2' = A4 s) \<Longrightarrow>
+P6_2inv s w' b1' b2' A1 A2 A3 A4 A5"
+  apply(unfold P6_2inv_def)
+  apply(rule conjI)
+ apply(rule always2_rule[of s0])
+   apply simp
+  apply(rule conj_forward)
+    prefer 2
+    apply(rotate_tac -1)
+    apply assumption
+   prefer 2
+   apply(rule conj_forward)
+     prefer 2
+     apply(rule disj_forward)
+       prefer 2
+       apply(rotate_tac -1)
+       apply assumption
+      prefer 2
+      apply(rule disj_forward)
+        prefer 2
+       apply(rotate_tac -1)
+        apply assumption
+       prefer 2
+       apply(rule weak_until_one_point)
+        apply simp
+       apply(rule disj_forward)
+         prefer 2
+         apply(rule conj_forward)
+           prefer 2
+           apply(rule previous_ex_one_point[of s0])
+            apply simp
+       apply(rotate_tac -1)
+           apply assumption
+          prefer 2
+       apply(rotate_tac -1)
+          apply assumption
+       apply(rotate_tac -1)
+         apply assumption
+        prefer 2
+       apply(rotate_tac -1)
+        apply assumption
+       apply(rotate_tac -1)
+       apply assumption
+       apply(rotate_tac -1)
+      apply assumption
+       apply(rotate_tac -1)
+     apply assumption
+    prefer 2
+    apply(rule weak_until_rule[of s0])
+     apply simp
+    apply(rule conj_forward)
+  prefer 2
+      apply(rule all_imp_refl)
+       apply(rotate_tac -1)
+      apply assumption
+     prefer 2
+     apply(rule conj_forward)
+       prefer 2
+       apply(rule all_imp_refl)
+       apply(rotate_tac -1)
+       apply assumption
+  prefer 2
+      apply(rule disj_forward)
+        prefer 2
+        apply(rotate_tac -1)
+        apply assumption
+       prefer 2
+      apply(rule disj_forward)
+        prefer 2
+        apply(rule conj_forward)
+          prefer 2
+          apply(rule previous_ex_one_point[of s0])
+           apply simp
+          apply(rotate_tac -1)
+          apply assumption
+         prefer 2
+         apply(rotate_tac -1)
+         apply assumption
+       apply(rotate_tac -1)
+        apply assumption
+       prefer 2
+       apply(rotate_tac -1)
+       apply assumption
+       apply(rotate_tac -1)
+      apply assumption
+       apply(rotate_tac -1)
+     apply assumption
+       apply(rotate_tac -1)
+    apply assumption
+       apply(rotate_tac -1)
+    apply assumption
+       apply(rotate_tac -1)
+    apply assumption
+   apply(erule conjE)+
+  apply auto
+(*   apply(rule conjI)
+    apply auto[1]
+   apply(rule conjI)
+    apply auto[1]
+   apply(rule conjI)
+  apply auto[1]
+   apply(rule conjI)
+    apply auto[1]
+   apply auto*)
+  done
+
+lemma P6_2_einv2req: "P6_2inv  s w b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow> P6_2 s A1 A2 A3 A4 A5"
+  apply(unfold P6_2_def P6_2inv_def)
+(* using always2_einv2req weak_until_einv2req
+  by (smt (verit, best) weak_until_def weak_until_inv_def)*)
+  apply(rule always2_einv2req)
+  apply(rule conj_forward)
+    prefer 2
+  apply(rotate_tac -1)
+    apply assumption
+   prefer 2
+  apply(rule weak_until_einv2req)
+   apply(rule conj_forward)
+     prefer 2
+     apply(rule all_imp_refl)
+     apply(rotate_tac -1)
+     apply assumption
+    prefer 2
+     apply(rule all_imp_refl)
+     apply(rotate_tac -1)
+    apply assumption
+     apply(rotate_tac -1)
+   apply assumption
+  apply auto
+  done
 
 end
-  
-  

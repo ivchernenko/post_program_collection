@@ -59,7 +59,9 @@ PROGRAM Barrier
         STOP;
       ELSIF peCarUnder = TRUE THEN
         down := FALSE;
-        up := TRUE;
+        IF NOT opened THEN
+          up := TRUE;
+        END_IF
         SET STATE opening;
       END_IF
     END_STATE

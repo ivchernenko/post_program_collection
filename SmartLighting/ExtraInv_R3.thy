@@ -4,16 +4,19 @@ begin
 
 definition extraInv where "extraInv s \<equiv> commonExtraInv s \<and>
 (getPstate s  Lighting' = Lighting'morningLighting' \<longrightarrow>
-P5_2inv s (MORNING_LIGHTING_TIME'TIMEOUT + 1) (ltime s Lighting' - 1) (\<lambda> s1 s2.  getVarInt s1 timeOfDay' = EARLY_MORNING' \<and> getVarInt s2 timeOfDay' = MORNING_LIGHTING')
+P5_2inv s (MORNING_LIGHTING_TIME'TIMEOUT + 1) (ltime s Lighting' - 1)
+ (\<lambda> s1.  getVarInt s1 timeOfDay' = EARLY_MORNING') (\<lambda> s2. getVarInt s2 timeOfDay' = MORNING_LIGHTING')
 (\<lambda> s3. getVarBool s3 dimLight' = TURNED_ON')) \<and>
 (getPstate s  Lighting' \<noteq> Lighting'morningLighting' \<longrightarrow>
-P5_2inv s (MORNING_LIGHTING_TIME'TIMEOUT + 1) MORNING_LIGHTING_TIME'TIMEOUT (\<lambda> s1 s2.  getVarInt s1 timeOfDay' = EARLY_MORNING' \<and> getVarInt s2 timeOfDay' = MORNING_LIGHTING')
+P5_2inv s (MORNING_LIGHTING_TIME'TIMEOUT + 1) MORNING_LIGHTING_TIME'TIMEOUT
+ (\<lambda> s1.  getVarInt s1 timeOfDay' = EARLY_MORNING') (\<lambda> s2. getVarInt s2 timeOfDay' = MORNING_LIGHTING')
 (\<lambda> s3. getVarBool s3 dimLight' = TURNED_ON'))"
 
 theorem extra1: "VC1 extraInv s0"
-  apply(unfold VC1_def extraInv_def commonExtraInv_def P5_2inv_def always2_def constrained_always_def)
+  apply(unfold VC1_def extraInv_def commonExtraInv_def P5_2inv_def always2_def always_def previous_ex_def  constrained_always_inv_def)
   apply auto
   done
+  
 
 theorem extra146: "VC146 extraInv env s0 motion_value light_value"
   apply(unfold VC146_def extraInv_def)
