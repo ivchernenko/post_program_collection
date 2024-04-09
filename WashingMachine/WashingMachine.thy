@@ -303,7 +303,7 @@ definition VC2 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -2581,7 +2581,7 @@ definition VC12 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -4711,7 +4711,7 @@ definition VC22 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -7089,7 +7089,7 @@ definition VC32 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -9219,7 +9219,7 @@ definition VC42 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -11597,7 +11597,7 @@ definition VC52 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -13778,7 +13778,7 @@ definition VC62 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -16658,7 +16658,7 @@ definition VC72 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -19327,7 +19327,7 @@ definition VC82 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -22577,7 +22577,7 @@ definition VC92 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -25565,7 +25565,7 @@ definition VC102 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -28683,7 +28683,7 @@ definition VC112 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -31515,7 +31515,7 @@ definition VC122 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -34193,7 +34193,7 @@ definition VC132 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -36252,7 +36252,7 @@ definition VC142 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'
@@ -37978,7 +37978,7 @@ definition VC152 where
               TURN_ON'
             )
             left'
-            TURN_ON'
+            TURN_OFF'
           )
           Drum'
           Drum'leftToRight'

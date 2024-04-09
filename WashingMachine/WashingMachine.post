@@ -79,7 +79,7 @@ PROGRAM WashingMachine
     STATE leftRotation
       left := TURN_ON;
       TIMEOUT DIRECTION_CHANGE_PERIOD THEN
-        left:= TURN_ON;
+        left:= TURN_OFF;
         SET NEXT;
       END_TIMEOUT
     END_STATE

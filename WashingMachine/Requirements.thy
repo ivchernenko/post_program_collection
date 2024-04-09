@@ -1,5 +1,5 @@
 theory Requirements
-  imports WashingMachine "../Pattern6_Def" "../Pattern4_Def"
+  imports WashingMachine "../Pattern6_Def" "../Pattern4_Def" "../Pattern7_Def"
 begin
 
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
@@ -65,9 +65,9 @@ P4 s DIRECTION_CHANGE_PERIOD'TIMEOUT (\<lambda> s1 s2. getVarBool s1 left' = Fal
  (\<lambda> s3. getVarBool s3 left' = True)"
 
 definition R13b where "R13b s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and>
- toEnvNum s2 s3 < DIRECTION_CHANGE_PERIOD'TIMEOUT \<and> getVarBool s1 left' = False \<and> getVarBool s2 left' = True \<longrightarrow> getVarBool s3 left' = True)"
-
+P7_2 s (DIRECTION_CHANGE_PERIOD'TIMEOUT - 1) (\<lambda> s1. getVarBool s1 left' = False) (\<lambda> s2. getVarBool s2 left' = True) (\<lambda> s3. getVarBool s3 left' = True)
+(\<lambda> s4. getVarBool s4 drain' = True) (\<lambda> s5. getVarBool s5 drain' = False)
+"
 definition R14 where "R14 s \<equiv> toEnvP s \<and>
 (\<forall> s1 s2 s3 s4. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s4 \<and> substate s4 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvP s4 \<and> toEnvNum s1 s2 = 1 \<and> 
 toEnvNum s3 s4 = 1 \<and>

@@ -53,6 +53,10 @@ theorem cei55: "VC55 commonExtraInv env s0 startButton'value locked'value waterL
   apply(unfold VC55_def commonExtraInv_def)
   by simp
 
+theorem cei56: "VC56 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC56_def commonExtraInv_def)
+  by simp
+
 theorem cei57: "VC57 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
   apply(unfold VC57_def commonExtraInv_def)
   by simp
@@ -61,12 +65,80 @@ theorem cei43: "VC43 commonExtraInv env s0 startButton'value locked'value waterL
   apply(unfold VC43_def commonExtraInv_def)
   by simp
 
+theorem cei44: "VC44 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC44_def commonExtraInv_def)
+  by simp
+
+theorem cei45: "VC45 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC45_def commonExtraInv_def)
+  by simp
+
+theorem cei46: "VC46 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC46_def commonExtraInv_def)
+  by simp
+
+theorem cei47: "VC47 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC47_def commonExtraInv_def)
+  by simp
+
+theorem cei48: "VC48 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC48_def commonExtraInv_def)
+  by simp
+
+theorem cei49: "VC49 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC49_def commonExtraInv_def)
+  by simp
+
+theorem cei50: "VC50 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC50_def commonExtraInv_def)
+  by force
+
+theorem cei51: "VC51 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC51_def commonExtraInv_def)
+  by force
+
+theorem cei52: "VC52 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC52_def commonExtraInv_def)
+  apply(rule impI)
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+  apply(rule conjI)
+   apply simp
+
+
+
 theorem cei63: "VC63 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
   apply(unfold VC63_def commonExtraInv_def)
   by simp
 
 theorem cei73: "VC73 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
   apply(unfold VC73_def commonExtraInv_def)
+  by simp
+
+theorem cei130: "VC130 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
+  apply(unfold VC130_def commonExtraInv_def)
   by simp
 
 theorem cei143: "VC143 commonExtraInv env s0 startButton'value locked'value waterLevel'value waterPresence'value temp'value freq'value"
