@@ -49,48 +49,6 @@ lemma einv2req: "P5inv s t t1 A1 A2 \<Longrightarrow>
   apply(unfold P5inv_def)
   by auto
 
-definition P5_1 where "P5_1 s t A1 A2 \<equiv>
-\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 < t \<and> A1 s1 \<longrightarrow> A2 s2"
-
-definition P5_1inv where "P5_1inv s t t1 A1 A2 \<equiv>
-\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2  \<and>  toEnvNum s1 s2 < t \<and> A1 s1 \<longrightarrow>
-toEnvNum s1 s \<ge> t1 \<and> A2 s2"
-
-lemma P5_1inv_rule: "
-P5_1inv s0 t t1 A1 A2 \<Longrightarrow>
- t >0 \<and> A1  s \<longrightarrow> t2 = 0 \<and> A2 s \<Longrightarrow>
- t1 + 1 < t \<longrightarrow>  A2 s \<Longrightarrow> t2 \<le> t1 + 1 \<Longrightarrow>
- toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and> toEnvNum s0 s = 1 \<Longrightarrow> 
-P5_1inv s t t2 A1 A2"
-  apply(unfold P5_1inv_def)
-  apply(rule allI)+
-  subgoal for s1 s2
-    apply(cases "s1=s")
-    apply (metis le_numeral_extra(3) substate_antisym toEnvNum_id)
-   apply(cases "s2 = s")
-    apply(rule impI)
-      apply(erule allE[of _   s1])
-     apply(rotate_tac -1)
-      apply(erule allE[of _ s0])
-     apply(rotate_tac -1)
-    apply(erule impE)
-      apply (metis canonically_ordered_monoid_add_class.lessE less_add_one substate_noteq_imp_substate_of_pred toEnvNum3 trans_less_add1)
-    apply (metis add_mono_thms_linordered_semiring(3) dual_order.strict_trans2 dual_order.trans substate_noteq_imp_substate_of_pred toEnvNum3)
-    apply(rule impI)
-      apply(erule allE[of _   s1])
-     apply(rotate_tac -1)
-      apply(erule allE[of _ s2])
-    apply(rotate_tac -1)
-    apply(erule impE)
-    using substate_noteq_imp_substate_of_pred apply blast
-    by (smt (verit, ccfv_SIG) add.assoc add.commute le_Suc_ex le_add1 substate_noteq_imp_substate_of_pred toEnvNum3)
-  done
-
-lemma P5_1_einv2req: "P5_1inv s t t1 A1 A2 \<Longrightarrow> P5_1 s t A1 A2"
-  apply(unfold P5_1inv_def P5_1_def)
-  apply auto
-  done
-
 definition constrained_always where "constrained_always s1 s t A \<equiv>
 \<forall> s2. toEnvP s2 \<and> substate s1 s2 \<and> substate s2 s \<and> toEnvNum s1 s2 < t \<longrightarrow> A s2"
 
@@ -121,84 +79,80 @@ lemma constrained_always_einv2req: "
 definition P5_2 where "P5_2 s t A1 A2 A3 \<equiv>
 always2 s A1 A2 (\<lambda> s2. constrained_always s2 s t A3)"
 
-definition P5_2inv where "P5_2inv s t t1 A1 A2 A3 \<equiv>
-always2 s A1 A2 (\<lambda> s2. constrained_always_inv s2 s t t1 A3)"
+definition P5_2inv where "P5_2inv s t t1 b A1 A2 A3 \<equiv>
+always2_inv s b A1 A2 (\<lambda> s2. constrained_always_inv s2 s t t1 A3)"
 
-lemma P5_2_rule: "consecutive s0 s \<Longrightarrow>
-P5_2inv s0 t t1 A1 A2 A3 \<and> (\<not>A1 s0 \<or> \<not> A2 s \<or> t = 0 \<or> t1' = 0 \<and> A3 s) \<and> (t1 + 1 \<ge> t \<or> A3 s) \<and> t1' \<le> t1 + 1 \<Longrightarrow>
-P5_2inv s t t1' A1 A2 A3"
+lemma P5_2_rule: "
+P5_2inv s0 t t1 b A1 A2 A3 \<Longrightarrow>consecutive s0 s \<Longrightarrow> (((b \<or> \<not> A2 s) \<or> t = 0 \<or> t1' = 0 \<and> A3 s) \<and> (t = 0 \<or>(t1 + 1 \<ge> t \<or> A3 s) \<and> t1' \<le> t1 + 1)) \<and> (b' \<longrightarrow> \<not> A1 s) \<Longrightarrow>
+P5_2inv s t t1' b' A1 A2 A3"
   apply(unfold P5_2inv_def)
-(*  using always2_rule constrained_always_rule constrained_always_one_point
-  by (smt (verit))
-*)
-  apply(rule always2_rule[of s0])
+  apply(erule always2_rule)
    apply simp
-  apply(rule conj_forward)
-    prefer 2
-    apply(rotate_tac -1)
-    apply assumption
-   prefer 2
-   apply(rule conj_forward)
-     prefer 2
-     apply(rule disj_forward)
-       prefer 2
-      apply(rotate_tac -1)
-       apply assumption
-      prefer 2
-      apply(rule disj_forward)
-        prefer 2
-        apply(rotate_tac -1)
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2))[1]
+     apply(erule conjE)
+    subgoal premises prems2
+      apply(rule conjI)
+       apply(insert prems2(1,2))[1]
+       apply(erule disjE)
+        apply(rule disjI1)
         apply assumption
-       prefer 2
-      apply(rule constrained_always_one_point)
-    apply(rotate_tac -1)
-      apply assumption
-    apply(rotate_tac -1)
-      apply assumption
-    apply(rotate_tac -1)
-     apply assumption
-    prefer 2
-    apply(rule constrained_always_rule[of s0])
-     apply simp
-    apply(rule disj_forward)
-      prefer 2
-    apply(rotate_tac -1)
-      apply assumption
-     prefer 2
-     apply(rule conj_forward)
-       prefer 2
-       apply(rule all_imp_refl)
-    apply(rotate_tac -1)
+       apply(rule disjI2)
+       apply(rule constrained_always_one_point)
        apply assumption
-      prefer 2
-      apply(rotate_tac -1)
-      apply assumption
-    apply(rotate_tac -1)
-     apply assumption
-    apply(rotate_tac -1)
-    apply assumption
-    apply(rotate_tac -1)
-   apply assumption
-  apply auto
+      apply(insert prems2(1,3))
+      apply(rule constrained_always_rule)
+      apply simp
+      apply simp
+      done
+    apply(insert prems1(1,3))
+    apply simp
+    done
   done
 
-lemma P5_2_einv2req: " P5_2inv s t t1 A1 A2 A3 \<Longrightarrow> P5_2 s t A1 A2 A3"
+lemma P5_2_einv2req: "P5_2inv s t t1 b A1 A2 A3 \<Longrightarrow> P5_2 s t A1 A2 A3"
   apply(unfold P5_2inv_def P5_2_def)
+  using always2_einv2req constrained_always_einv2req
+  by (metis (no_types, lifting))
 
- (* by (smt (verit, best) always2_einv2req constrained_always_einv2req)
-*)
-  apply(rule always2_einv2req)
-  apply(rule conj_forward)
-    prefer 2
-    apply(rotate_tac -1)
-    apply assumption
-   prefer 2
-   apply(rule constrained_always_einv2req)
-   apply(rule all_imp_refl)
-   apply(rotate_tac -1)
-   apply assumption
-  apply auto
+definition P5_1 where "P5_1 s t A1 A2 \<equiv>
+always s (\<lambda> s1. A1 s1 \<longrightarrow> constrained_always s1 s t A2)"
+
+definition P5_1inv where "P5_1inv s t t1 A1 A2 \<equiv>
+always s (\<lambda> s1. A1 s1 \<longrightarrow> constrained_always_inv s1 s t t1 A2)"
+
+lemma P5_1_rule: "
+P5_1inv s0 t t1 A1 A2 \<Longrightarrow>consecutive s0 s \<Longrightarrow> ((( \<not> A1 s) \<or> t = 0 \<or> t1' = 0 \<and> A2 s) \<and> (t = 0 \<or>(t1 + 1 \<ge> t \<or> A2 s) \<and> t1' \<le> t1 + 1)) \<Longrightarrow>
+P5_1inv s t t1' A1 A2"
+  apply(unfold P5_1inv_def)
+  apply(simp only: imp_conv_disj)
+  apply(erule always_rule)
+   apply simp
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2))[1]
+     apply(erule disjE)
+      apply(rule disjI1)
+      apply assumption
+     apply(rule disjI2)
+     apply(rule constrained_always_one_point)
+     apply assumption
+    apply(insert prems1(1,3))
+    apply(rule all_disj_rule)
+    apply(rule conjI)
+     apply simp
+    apply(rule constrained_always_rule)
+     apply simp
+    apply simp
+    done
   done
 
+lemma P5_1_einv2req: "P5_1inv s t t1  A1 A2 \<Longrightarrow> P5_1 s t A1 A2"
+  apply(unfold P5_1inv_def P5_1_def)
+  using always_einv2req constrained_always_einv2req
+  by (smt (verit, ccfv_SIG))
 
 end

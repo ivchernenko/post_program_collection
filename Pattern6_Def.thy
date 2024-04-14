@@ -99,138 +99,85 @@ definition P6_2 where "P6_2 s A1 A2 A3 A4 A5 \<equiv>
 always2 s A1 A2 (\<lambda> s2. weak_until s2 s A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4))"
 
 definition P6_2inv where "P6_2inv s w b1 b2 A1 A2 A3 A4 A5 \<equiv>
-always2 s A1 A2 (\<lambda> s2. weak_until_inv s2 s w A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4)) \<and> (b1 \<longleftrightarrow> A1 s) \<and> (b2 = A4 s) "
+always2_inv s b1 A1 A2 (\<lambda> s2. weak_until_inv s2 s w A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4)) \<and>  (b2 \<longrightarrow> A4 s) "
 
-lemma P6_2_rule: "consecutive s0 s \<Longrightarrow>
-P6_2inv s0 w b1 b2 A1 A2 A3 A4 A5 \<and> (\<not> b1 \<or> \<not>A2 s \<or> b2 \<and> A5 s \<or> w' \<and> A3 s ) \<and> (w \<longrightarrow> b2 \<and> A5 s \<or> w' \<and> A3 s) \<and> (b1' \<longleftrightarrow> A1 s) \<and> (b2' = A4 s) \<Longrightarrow>
+lemma P6_2_rule: "
+P6_2inv s0 w b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(( ( (b1 \<or> \<not>A2 s) \<or> b2 \<and> A5 s \<or> w' \<and> A3 s ) \<and> (\<not> w \<or> b2 \<and> A5 s \<or> w' \<and> A3 s)) \<and> (b1' \<longrightarrow>\<not> A1 s)) \<and> (b2' \<longrightarrow> A4 s) \<Longrightarrow>
 P6_2inv s w' b1' b2' A1 A2 A3 A4 A5"
   apply(unfold P6_2inv_def)
-  apply(rule conjI)
- apply(rule always2_rule[of s0])
-   apply simp
-  apply(rule conj_forward)
-    prefer 2
-    apply(rotate_tac -1)
-    apply assumption
-   prefer 2
-   apply(rule conj_forward)
-     prefer 2
-     apply(rule disj_forward)
-       prefer 2
-       apply(rotate_tac -1)
-       apply assumption
-      prefer 2
-      apply(rule disj_forward)
-        prefer 2
-       apply(rotate_tac -1)
-        apply assumption
-       prefer 2
-       apply(rule weak_until_one_point)
-        apply simp
-       apply(rule disj_forward)
-         prefer 2
-         apply(rule conj_forward)
-           prefer 2
+  apply(erule conjE)
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2,4))[1]
+     apply(erule always2_rule)
+      apply simp
+     apply(erule conjE)
+    subgoal premises prems2
+      apply(rule conjI)
+       apply(insert prems2(1,2))[1]
+       apply(erule conjE)
+      subgoal premises prems3
+        apply(rule conjI)
+         apply(insert prems3(1,2))[1]
+         apply(erule disjE)
+          apply(rule disjI1)
+          apply assumption
+         apply(rule disjI2)
+         apply(rule weak_until_one_point)
+          apply simp
+         apply(erule disjE)
+          apply(rule disjI1)
+          apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
            apply(rule previous_ex_one_point[of s0])
             apply simp
-       apply(rotate_tac -1)
-           apply assumption
-          prefer 2
-       apply(rotate_tac -1)
+           apply (simp add: prems1(3))
+          apply(insert prems4(1,3))[1]
           apply assumption
-       apply(rotate_tac -1)
+          done
+         apply(rule disjI2)
          apply assumption
-        prefer 2
-       apply(rotate_tac -1)
-        apply assumption
-       apply(rotate_tac -1)
-       apply assumption
-       apply(rotate_tac -1)
-      apply assumption
-       apply(rotate_tac -1)
-     apply assumption
-    prefer 2
-    apply(rule weak_until_rule[of s0])
-     apply simp
-    apply(rule conj_forward)
-  prefer 2
-      apply(rule all_imp_refl)
-       apply(rotate_tac -1)
-      apply assumption
-     prefer 2
-     apply(rule conj_forward)
-       prefer 2
-       apply(rule all_imp_refl)
-       apply(rotate_tac -1)
-       apply assumption
-  prefer 2
-      apply(rule disj_forward)
-        prefer 2
-        apply(rotate_tac -1)
-        apply assumption
-       prefer 2
-      apply(rule disj_forward)
-        prefer 2
-        apply(rule conj_forward)
-          prefer 2
-          apply(rule previous_ex_one_point[of s0])
-           apply simp
-          apply(rotate_tac -1)
+        apply(insert prems3(1,3))
+        apply(rule weak_until_rule)
+         apply simp
+        apply(rule conjI)
+         apply simp
+        apply(rule conjI)
+         apply simp
+        apply(erule disjE)
+         apply(rule disjI1)
+         apply assumption
+        apply(rule disjI2)
+        apply(erule disjE)
+         apply(rule disjI1)
+         apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
+           apply(rule previous_ex_one_point[of s0])
+          apply simp
+           apply (simp add: prems1(3))
+          apply(insert prems4(1,3))
           apply assumption
-         prefer 2
-         apply(rotate_tac -1)
-         apply assumption
-       apply(rotate_tac -1)
+          done
+        apply(rule disjI2)
         apply assumption
-       prefer 2
-       apply(rotate_tac -1)
-       apply assumption
-       apply(rotate_tac -1)
+        done
+      apply(insert prems2(1,3))
       apply assumption
-       apply(rotate_tac -1)
-     apply assumption
-       apply(rotate_tac -1)
+      done
+    apply(insert prems1(1,3,5))
     apply assumption
-       apply(rotate_tac -1)
-    apply assumption
-       apply(rotate_tac -1)
-    apply assumption
-   apply(erule conjE)+
-  apply auto
-(*   apply(rule conjI)
-    apply auto[1]
-   apply(rule conjI)
-    apply auto[1]
-   apply(rule conjI)
-  apply auto[1]
-   apply(rule conjI)
-    apply auto[1]
-   apply auto*)
+    done
   done
 
 lemma P6_2_einv2req: "P6_2inv  s w b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow> P6_2 s A1 A2 A3 A4 A5"
   apply(unfold P6_2_def P6_2inv_def)
-(* using always2_einv2req weak_until_einv2req
-  by (smt (verit, best) weak_until_def weak_until_inv_def)*)
-  apply(rule always2_einv2req)
-  apply(rule conj_forward)
-    prefer 2
-  apply(rotate_tac -1)
-    apply assumption
-   prefer 2
-  apply(rule weak_until_einv2req)
-   apply(rule conj_forward)
-     prefer 2
-     apply(rule all_imp_refl)
-     apply(rotate_tac -1)
-     apply assumption
-    prefer 2
-     apply(rule all_imp_refl)
-     apply(rotate_tac -1)
-    apply assumption
-     apply(rotate_tac -1)
-   apply assumption
-  apply auto
-  done
+  using always2_einv2req Pattern6_Def.weak_until_einv2req
+  by (smt (verit, ccfv_SIG))
 
 end

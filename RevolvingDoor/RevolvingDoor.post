@@ -1,0 +1,56 @@
+PROGRAM RevolvingDoor
+
+	VAR_INPUT
+		user : BOOL;
+		pressure : BOOL;
+	END_VAR
+
+	VAR_OUTPUT
+		rotation : BOOL;
+		brake : BOOL;
+	END_VAR
+
+	VAR CONSTANT
+		SUSPENSION_TIME : TIME := T#1s100ms;
+		DELAY : TIME := T#800ms;
+	END_VAR
+
+	PROCESS Controller
+		STATE motionless
+			IF user THEN
+				IF pressure THEN
+					brake := TRUE;
+					SET STATE suspended;
+				ELSE
+					rotation := TRUE;
+					SET NEXT;
+				END_IF
+			END_IF
+		END_STATE
+
+		STATE rotating
+			IF pressure THEN
+				rotation := FALSE;
+				brake := TRUE;
+				SET NEXT;
+			ELSIF user THEN
+				RESET TIMER;
+			END_IF
+			TIMEOUT DELAY  THEN
+				rotation := FALSE;
+				SET STATE motionless;
+			END_TIMEOUT
+		END_STATE
+
+		STATE suspended
+			IF pressure THEN
+				RESET TIMER;
+			END_IF
+			TIMEOUT SUSPENSION_TIME THEN
+				brake := FALSE;
+				rotation := TRUE;
+				SET STATE rotating;
+			END_TIMEOUT
+		END_STATE
+	END_PROCESS
+END_PROGRAM

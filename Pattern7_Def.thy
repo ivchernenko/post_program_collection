@@ -122,129 +122,96 @@ definition P7_2 where "P7_2 s t A1 A2 A3 A4 A5 \<equiv>
 always2 s A1 A2 (\<lambda> s2. constrained_weak_until s2 s t A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4))"
 
 definition P7_2inv where "P7_2inv s t t1 b1 b2 A1 A2 A3 A4 A5 \<equiv>
-always2 s A1 A2 (\<lambda> s2. constrained_weak_until_inv s2 s t t1 A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4)) \<and> (b1 = A1 s) \<and> (b2 = A4 s)" 
+always2_inv s b1 A1 A2 (\<lambda> s2. constrained_weak_until_inv s2 s t t1 A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4)) \<and>  (b2 \<longrightarrow> A4 s)" 
 
-lemma P7_2_rule: "consecutive s0 s \<Longrightarrow>
-P7_2inv s0 t t1 b1 b2 A1 A2 A3 A4 A5 \<and> (\<not> b1 \<or> \<not> A2 s  \<or> b2 \<and> A5 s \<or> t1' = 0 \<and> A3 s) \<and> 
-(t1 < t \<and> (b2 \<and> A5 s \<and>  t1' \<le> t+1  \<or>  t1' \<le> t1 + 1 \<and> A3 s) \<or> t1 \<ge> t \<and> t1' \<le> t1 + 1) \<and> (b1' = A1 s) \<and> (b2' = A4 s) \<Longrightarrow>
+lemma P7_2_rule: "
+P7_2inv s0 t t1 b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow>consecutive s0 s \<Longrightarrow>
+ (((( b1 \<or> \<not> A2 s)  \<or> b2 \<and> A5 s \<or> t1' = 0 \<and> A3 s) \<and> 
+(t1 < t \<and> ((b2 \<and> A5 s) \<and>  t1' \<le> t+1  \<or>  t1' \<le> t1 + 1 \<and> A3 s) \<or> t1 \<ge> t \<and> t1' \<le> t1 + 1)) \<and> (b1' \<longrightarrow> \<not> A1 s)) \<and> (b2' \<longrightarrow> A4 s) \<Longrightarrow>
 P7_2inv s t t1' b1' b2' A1 A2 A3 A4 A5"
   apply(unfold P7_2inv_def)
-  apply(rule conjI)
-  subgoal
-    apply(rule always2_rule[of s0])
-     apply simp
-    apply(rule conj_forward)
-      prefer 2
-      apply(rotate_tac -1)
-      apply assumption
-     prefer 2
-     apply(rule conj_forward)
-       prefer 2
-       apply(rule disj_forward)
-         prefer 2
-      apply(rotate_tac -1)
-         apply assumption
-        prefer 2
-        apply(rule disj_forward)
-          prefer 2
-          apply(rotate_tac -1)
+  apply(erule conjE)
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2,4))[1]
+     apply(erule always2_rule)
+      apply simp
+     apply(erule conjE)
+    subgoal premises prems2
+      apply(rule conjI)
+       apply(insert prems2(1,2))[1]
+       apply(erule conjE)
+      subgoal premises prems3
+        apply(rule conjI)
+         apply(insert prems3(1,2))[1]
+         apply(erule disjE)
+          apply(rule disjI1)
           apply assumption
-         prefer 2
+         apply(rule disjI2)
          apply(rule constrained_weak_until_one_point)
           apply simp
-         apply(rule disj_forward)
-           prefer 2
-           apply(rule conj_forward)
-             prefer 2
-             apply(rule previous_ex_one_point[of s0])
+         apply(erule disjE)
+          apply(rule disjI1)
+          apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
+           apply(rule previous_ex_one_point[of s0])
+            apply simp
+           apply (simp add: prems1(3))
+          apply(insert prems4(1,3))
+          apply assumption
+          done
+         apply(rule disjI2)
+         apply assumption
+        apply(insert prems3(1,3))
+        apply(rule constrained_weak_until_rule)
+         apply simp
+        apply(rule conjI)
+         apply simp
+        apply(rule conjI)
+         apply simp
+        apply(erule disjE)
+         apply(rule disjI1)
+         apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
+           apply assumption
+          apply(insert prems4(1,3))
+          apply(erule disjE)
+           apply(rule disjI1)
+           apply(erule conjE)
+          subgoal premises prems5
+            apply(rule conjI)
+             apply(insert prems5(1,2))[1]
+             apply(erule conjE)
+            subgoal premises prems6
+              apply(rule conjI)
+               apply(insert prems6(1,2))[1]
+               apply(rule previous_ex_one_point[of s0])
               apply simp
-          apply(rotate_tac -1)
-             apply assumption
-            prefer 2
-          apply(rotate_tac -1)
-            apply assumption
-          apply(rotate_tac -1)
-           apply assumption
-          prefer 2
-          apply(rotate_tac -1)
-          apply assumption
-          apply(rotate_tac -1)
-         apply assumption
-          apply(rotate_tac -1)
-        apply assumption
-          apply(rotate_tac -1)
-       apply assumption
-      prefer 2
-      apply(rule constrained_weak_until_rule[of s0])
-       apply simp
-      apply(rule conj_forward)
-        prefer 2
-        apply(rule all_imp_refl)
-          apply(rotate_tac -1)
-        apply assumption
-       prefer 2
-      apply(rule conj_forward)
-        prefer 2
-        apply(rule all_imp_refl)
-          apply(rotate_tac -1)
-        apply assumption
-        prefer 2
-        apply(rule disj_forward)
-          prefer 2
-          apply(rule conj_forward)
-            prefer 2
-          apply(rotate_tac -1)
-            apply assumption
-           prefer 2
-           apply(rule disj_forward)
-             prefer 2
-             apply(rule conj_forward)
-               prefer 2
-               apply(rule conj_forward)
-                 prefer 2
-                 apply(rule previous_ex_one_point[of s0])
-                  apply simp
-                 apply(rotate_tac -1)
-                 apply assumption
-                apply(rotate_tac -1)
-                apply assumption
-               apply(rotate_tac -1)
-               apply assumption
-              prefer 2
-              apply(rotate_tac -1)
+               apply (simp add: prems1(3))
+              apply(insert prems6(1,3))
               apply assumption
-             apply(rotate_tac -1)
-             apply assumption
-            prefer 2
-            apply(rotate_tac -1)
+              done
+            apply(insert prems5(1,3))
             apply assumption
-           apply(rotate_tac -1)
-           apply assumption
-          apply(rotate_tac -1)
+            done
+          apply(rule disjI2)
           apply assumption
-         prefer 2
-         apply(rotate_tac -1)
-         apply assumption
-        apply(rotate_tac -1)
+          done
+        apply(rule disjI2)
         apply assumption
-          apply(rotate_tac -1)
-       apply assumption
-      apply(rotate_tac -1)
-      apply assumption
-     apply(rotate_tac -1)
-     apply assumption
-    apply(erule conjE)+
-    apply auto
+        done
+      apply(insert prems2(1,3))
+      apply simp
+      done
+    apply(insert prems1(1,3,5))
+    apply simp
     done
-  apply auto
   done
-
-lemma P7_2_rule': "
-P7_2inv s0 t t1 b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow> consecutive s0 s \<Longrightarrow> (\<not> b1 \<or> \<not> A2 s  \<or> b2 \<and> A5 s \<or> t1' = 0 \<and> A3 s) \<and> 
-(t1 < t \<and> (b2 \<and> A5 s \<and>  t1' \<le> t+1  \<or>  t1' \<le> t1 + 1 \<and> A3 s) \<or> t1 \<ge> t \<and> t1' \<le> t1 + 1) \<and> (b1' = A1 s) \<and> (b2' = A4 s) \<Longrightarrow>
-P7_2inv s t t1' b1' b2' A1 A2 A3 A4 A5"
-  using P7_2_rule by blast
-
 
 lemma P7_2_einv2req: "P7_2inv s t t1 b1 b2  A1 A2 A3 A4 A5 \<Longrightarrow> P7_2 s t A1 A2 A3 A4 A5"
   apply(unfold P7_2inv_def P7_2_def)

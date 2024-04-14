@@ -1,0 +1,66 @@
+(*
+1. При входе пользователя дверь начинает вращаться, если на перегородки
+    не оказывается давление.
+2. Вращение продолжается, пока пользователь находится внутри пространства 
+   вращения, если на перегородки не оказывается давление.
+3. Если пользователь покинул пространство вращения, то не более, чем через 
+  DELAY секунд вращение остановится, если за это время пользователи 
+  не появятся вновь.
+4. Если на секционные перегородки оказывается давление, то вращение 
+   приостанавливается не менее, чем на SUSPENSION_TIME секунд.
+5. Если на секционные перегородки перестали оказывать давление, то не более, 
+   чем через SUSPENSION_TIME секунд вращение возобновится.
+6. Запрещена одновременная подача сигналов rotation и brake.
+*)
+
+Definition R1 (s: estate) := forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1/\
+ getVarBool s1 rotation = false  /\
+ getVarBool s2 user /\
+ ~ getVarBool s2 pressure ->
+ getVarBool s2 rotation = true.
+
+Definition R2 (s: estate) := forall s1 s2,
+ between s1 s2 s /\
+ getVarBool s1 rotation = true /\
+ getVarBool s2 user /\
+ ~getVarBool s2 pressure ->
+ getVarBool s2 rotation = true.
+
+Definition R3 (s: estate) := forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1 /\
+ distance s2 s >= DELAY /\
+ getVarBool s1 rotation = true /\
+ getVarBool s1 user /\
+ ~getVarBool s2 user ->
+ exists s4, 
+  between s2 s4 s /\
+  distance s2 s4 <= DELAY /\
+  (getVarBool s4 rotation = false \/ getVarBool s4 user) /\
+  (forall s3, between s2 s3 s4 /\ s3<>s4 -> ~getVarBool s3 user).
+
+Definition R4 (s: estate) := forall s1 s2 s3,
+ between s1 s2 s3 /\
+ inside s3 s /\
+ distance s1 s2 = 1 /\
+ distance s2 s3 < SUSPENSION_TIME /\
+ getVarBool s1 rotation = true /\
+ getVarBool s2 pressure ->
+ getVarBool s3 brake.
+
+Definition R5 (s: estate) := forall s1 s2,
+ between s1 s2 s /\
+ distance s1 s2 = 1 /\
+ distance s2 s >= SUSPENSION_TIME /\
+ getVarBool s1 pressure /\
+ ~getVarBool s2 pressure /\
+ exists s4,
+  between s2 s4 s /\
+  distance s2 s4 <= SUSPENSION_TIME - 1 /\
+  (getVarBool s4 rotation =true \/ getVarBool s4 pressure) /\
+  (forall s3, between s2 s3 s4 /\ s3<>s4 -> ~getVarBool s3 pressure).
+
+Definition R6 (s: estate) := forall s1,
+ inside s1 s -> ~(getVarBool s1 rotation /\ getVarBool s1 brake).

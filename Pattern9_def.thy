@@ -1,5 +1,5 @@
-theory Pattern9_Def
-  imports VCTheoryLemmas
+theory Pattern9_def
+  imports Pattern4_Def Pattern5_Def
 begin
 
 definition P9inv where "P9inv A1 A2 A3 t1 t11 t2 t21 s \<equiv>
@@ -12,17 +12,15 @@ toEnvNum s2 s < t11 \<and>
 
 
 lemma P9inv_simp:
-"P1 \<longrightarrow> P9inv A1 A2 A3 t1 t11 t2 t21 s0 \<Longrightarrow>
-P2 \<and>  A1 s0 s \<longrightarrow> A2 s \<and> t22 = 0 \<and> (t2 > 0 \<longrightarrow> A3 s) \<or> t12 > 0 \<and> \<not> A2 s \<Longrightarrow>
-P2 \<and> t22 \<le> t21 + 1  \<Longrightarrow>
-P2 \<and> t21 + 1 < t2 \<longrightarrow> A3 s \<Longrightarrow>
-P2 \<and> t11 > 0 \<and> t12 \<le> t11 \<longrightarrow> t11 \<le> t1 \<and> A2 s \<and> t22 = 0 \<and> (t2 > 0 \<longrightarrow> A3 s) \<Longrightarrow>
-P2 \<and> t11 > 0 \<and> A2 s \<longrightarrow> (t11 \<le> t1 \<or> t12 \<le> t1 + 1) \<and>  t22 = 0 \<and> (t2 > 0 \<longrightarrow> A3 s) \<Longrightarrow>
-P2 \<longrightarrow> P1 \<Longrightarrow> toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and>  toEnvNum s0 s = 1 \<Longrightarrow>
-P2 \<longrightarrow> P9inv A1 A2 A3 t1 t12 t2 t22 s"
+" P9inv A1 A2 A3 t1 t11 t2 t21 s0 \<Longrightarrow>
+  A1 s0 s \<longrightarrow> A2 s \<and> t22 = 0 \<and> (t2 > 0 \<longrightarrow> A3 s) \<or> t12 > 0 \<and> \<not> A2 s \<Longrightarrow>
+ t22 \<le> t21 + 1  \<Longrightarrow>
+ t21 + 1 < t2 \<longrightarrow> A3 s \<Longrightarrow>
+ t11 > 0 \<and> t12 \<le> t11 \<longrightarrow> t11 \<le> t1 \<and> A2 s \<and> t22 = 0 \<and> (t2 > 0 \<longrightarrow> A3 s) \<Longrightarrow>
+ t11 > 0 \<and> A2 s \<longrightarrow> (t11 \<le> t1 \<or> t12 \<le> t1 + 1) \<and>  t22 = 0 \<and> (t2 > 0 \<longrightarrow> A3 s) \<Longrightarrow>
+ toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and>  toEnvNum s0 s = 1 \<Longrightarrow>
+ P9inv A1 A2 A3 t1 t12 t2 t22 s"
   apply(unfold P9inv_def)
-  apply(rule impI)
-  apply (simp del: One_nat_def)
   apply(subgoal_tac "\<forall> s1. substate s1 s \<and> toEnvP s1  \<and> s1 \<noteq> s \<longrightarrow> substate s1 s0")
   apply(rule allI)+
   subgoal for s1 s2
@@ -98,7 +96,95 @@ lemma einv2req: "P9inv A1 A2 A3 t1 t11 t2 t21 s \<Longrightarrow> t11 \<le> t1 \
     apply(unfold P9inv_def)
   by (smt (verit, del_insts) leD le_zero_eq nle_le order_le_less_trans substate_refl toEnvNum_id)
   
-   
+definition P9' where "P9' s t1 t2 A1 A2 A3 A4 \<equiv> P4' s t1 A1 A2 (\<lambda> s2. \<not> A3 s2) (\<lambda> s3. A3 s3 \<and> constrained_always s3 s t2 A4)"
 
+definition P9'inv where "P9'inv s t1 t2 t11 t21 b1 A1 A2 A3 A4 \<equiv> P4'inv s t1 t11 b1 A1 A2 (\<lambda> s2. \<not> A3 s2) (\<lambda> s3. A3 s3 \<and> constrained_always_inv s3 s t2 t21 A4)" 
+
+lemma P9'inv_rule: "
+ P9'inv s0 t1 t2 t11 t21 b A1 A2 A3 A4 \<Longrightarrow> 
+(((b \<or> \<not> A2 s) \<or> (A3 s \<and> (t2 = 0 \<or> t21' = 0 \<and> ( A4 s) )) \<or> \<not> A3 s \<and> t11' > 0)  \<and>
+( t2 = 0 \<or> (t21 + 1 \<ge> t2 \<or> A4 s) \<and> t21' \<le> t21 + 1) \<and>
+(t11 = 0 \<or> (A3 s \<and> (t2 = 0 \<or> t21' = 0 \<and> ( A4 s) )) \<and> t11 \<le> t1 \<or> \<not>A3 s \<and> t11 < t11')) \<and> (b' \<longrightarrow> \<not> A1 s)  \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+ P9'inv s t1 t2 t11' t21' b' A1 A2 A3 A4"
+  apply(unfold P9'inv_def)
+  apply(erule P4'inv_rule_gen)
+   apply simp
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2))[1]
+     apply(erule conjE)
+    subgoal premises prems2
+      apply(rule conjI)
+       apply(insert prems2(1,2))[1]
+       apply(erule disjE)
+        apply(rule disjI1)
+        apply assumption
+       apply(rule disjI2)
+       apply(erule disjE)
+        apply(rule disjI1)
+        apply(erule conjE)
+      subgoal premises prems3
+        apply(rule conjI)
+         apply(insert prems3(1,2))[1]
+         apply assumption
+        apply(insert prems3(1,3))
+        apply(rule constrained_always_one_point)
+        apply assumption
+        done
+       apply(rule disjI2)
+       apply assumption
+      apply(insert prems2(1,3))
+      apply(rule conjI)
+       apply simp
+      apply(erule conjE)
+      subgoal premises prems3
+        apply(rule conjI)
+         apply(insert prems3(1,2))[1]
+         apply(rule all_conj_rule)
+         apply(rule conjI)
+          apply simp
+         apply(rule constrained_always_rule)
+          apply simp
+         apply simp
+        apply(insert prems3(1,3))
+        apply(erule disjE)
+         apply(rule disjI1)
+         apply assumption
+        apply(rule disjI2)
+        apply(erule disjE)
+         apply(rule disjI1)
+         apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
+           apply(erule conjE)
+          subgoal premises prems5
+            apply(rule conjI)
+             apply(insert prems5(1,2))[1]
+             apply assumption
+            apply(insert prems5(1,3))
+            apply(rule constrained_always_one_point)
+            apply assumption
+            done
+          apply(insert prems4(1,3))
+          apply assumption
+          done
+        apply(rule disjI2)
+        apply assumption
+        done
+      done
+    apply(insert prems1(1,3))
+    apply simp
+    done
+  done
+
+lemma P9'einv2req: "
+ P9'inv s t1 t2 t11 t21 b A1 A2 A3 A4 \<Longrightarrow> t11 \<le> t1 \<Longrightarrow>
+ P9' s t1 t2 A1 A2 A3 A4"
+  apply(unfold P9'inv_def P9'_def)
+  using P4'_einv2req_gen constrained_always_einv2req
+  by (smt (verit, best))
 
 end

@@ -108,121 +108,52 @@ toEnvP s \<Longrightarrow>A2 s \<or> A1 s \<and> t1 > 0 \<Longrightarrow> constr
   apply(unfold constrained_until_inv_def)
   by (metis less_eq_nat.simps(1) substate_antisym substate_refl toEnvNum_id)
 
-definition P1'inv where "P1'inv s t t1 A1 A2 A3 \<equiv> 
+definition P1'inv where "P1'inv s t t1 A1 A3 A2 \<equiv> 
 always s (\<lambda> s1.  A1 s1 \<longrightarrow> constrained_until_inv s1 s t t1 A3 A2)"
 
-definition P1' where "P1' s t A1 A2 A3 \<equiv> 
+definition P1' where "P1' s t A1 A3 A2 \<equiv> 
 always s (\<lambda> s1.  A1 s1 \<longrightarrow> constrained_until s1 s t A3 A2)"
 
-
 lemma P1'inv_rule: "
- P1'inv s0 t t1 A1 A2 A3 \<Longrightarrow> 
-\<not> A1 s \<or> A2 s \<or> A3 s \<and> t2 > 0  \<Longrightarrow>
-t1 = 0 \<or> A2 s \<and> t1 \<le> t \<or> A3 s \<and> t1 < t2 \<Longrightarrow>
-toEnvP s0 \<and> toEnvP s  \<and> substate s0 s \<and> toEnvNum s0 s = 1 \<Longrightarrow>
- P1'inv s t t2 A1 A2 A3"
+ P1'inv s0 t t1 A1 A3 A2 \<Longrightarrow> 
+(\<not> A1 s \<or> A2 s \<or> A3 s \<and> t2 > 0)  \<and>
+(t1 = 0 \<or> A2 s \<and> t1 \<le> t \<or> A3 s \<and> t1 < t2) \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+ P1'inv s t t2 A1 A3 A2"
   apply(unfold P1'inv_def)
- (* using always_rule constrained_until_rule constrained_until_one_point
-  by (metis (no_types, lifting) always_def substate_antisym toEnvNum_id zero_neq_one)
-*)
   apply(simp only: imp_conv_disj)
-  apply(rule always_rule[of s0])
-   apply(rule conj_forward)
-     prefer 2
-     apply(rotate_tac -1)
-     apply assumption
-    prefer 2
-    apply(rule conj_forward)
-      prefer 2
-      apply(rule disj_forward)
-        prefer 2
-        apply(rotate_tac -1)
-        apply assumption
-       prefer 2
-       apply(rule constrained_until_one_point)
-        apply simp
-       apply(rotate_tac -1)
-       apply assumption
-      apply(rotate_tac -1)
-      apply assumption
-     prefer 2
-     apply(rule all_disj_rule)
-     apply(rule conj_forward)
-       prefer 2
-       apply(rule all_imp_refl)
-       apply(rotate_tac -1)
-       apply assumption
-      prefer 2
-      apply(rule constrained_until_rule[of s0])
-       apply simp
-      apply(rule conj_forward)
-        prefer 2
-        apply(rule all_imp_refl)
-        apply(rotate_tac -1)
-        apply assumption
-       prefer 2
-       apply(rule conj_forward)
-         prefer 2
-         apply(rule all_imp_refl)
-         apply(rotate_tac -1)
-         apply assumption
-        prefer 2
-        apply(rotate_tac -1)
-        apply assumption
-        apply(rotate_tac -1)
-       apply assumption
-        apply(rotate_tac -1)
-      apply assumption
-     apply(rotate_tac -1)
-     apply assumption
-    apply(rotate_tac -1)
-    apply assumption
-   apply auto
+  apply(erule always_rule)
+  apply simp
+   apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2))[1]
+     apply(erule disjE)
+      apply(rule disjI1)
+      apply assumption (*apply simp*)
+     apply(rule disjI2)
+     apply(rule constrained_until_one_point)
+      apply simp
+     apply assumption (*apply simp*)
+    apply(insert prems1(1,3))[1]
+    apply(rule all_disj_rule)
+    apply(rule conjI)
+     apply(rule all_imp_refl)
+    apply(rule constrained_until_rule)
+     apply simp
+    apply(rule conjI)
+     apply(rule all_imp_refl)
+    apply(rule conjI)
+     apply(rule all_imp_refl)
+    apply assumption (*apply simp*)
+    done
   done
-
 
 lemma P1'einv2req: "P1'inv s t t1 A1 A2 A3 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P1' s t A1 A2 A3"
   apply(unfold P1'inv_def P1'_def)
- (* using always_einv2req constrained_until_einv2req
-  by (metis (no_types, lifting) always_def)
-*)
-  apply(simp only: imp_conv_disj)
-  apply(rule always_einv2req)
-  apply(rule conj_forward)
-    prefer 2
-    apply(rotate_tac -1)
-    apply assumption
-   prefer 2
-   apply(rule all_disj_rule)
-   apply(rule conj_forward)
-     prefer 2
-     apply(rule all_imp_refl)
-    apply(rotate_tac -1)
-     apply assumption
-    prefer 2
-    apply(rule constrained_until_einv2req)
-    apply(rule conj_forward)
-      prefer 2
-      apply(rule all_imp_refl)
-    apply(rotate_tac -1)
-      apply assumption
-     prefer 2
-     apply(rule conj_forward)
-       prefer 2
-       apply(rule all_imp_refl)
-    apply(rotate_tac -1)
-       apply assumption
-      prefer 2
-    apply(rotate_tac -1)
-      apply assumption
-    apply(rotate_tac -1)
-     apply assumption
-    apply(rotate_tac -1)
-    apply assumption
-    apply(rotate_tac -1)
-   apply assumption
-  apply auto
-  done
+  using always_einv2req constrained_until_einv2req
+  by (smt (verit, ccfv_SIG))
 
 end
-  
+
+
