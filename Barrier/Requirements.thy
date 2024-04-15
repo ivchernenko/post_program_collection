@@ -16,15 +16,15 @@ definition R4Pattern where "R4Pattern s t A1 A2 A3 A4 A5 A6 A7 \<equiv> P1' s t 
 
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
-R4Pattern s (OPEN_TIME'TIMEOUT - 1) (\<lambda> s1. getVarBool s1 green' = True) (\<lambda> s2. getVarBool s2 carInFront' = True) (\<lambda> s3. getVarBool s3 carInFront' = False)
+R4Pattern s (OPEN_TIME'TIMEOUT) (\<lambda> s1. getVarBool s1 green' = True) (\<lambda> s2. getVarBool s2 carInFront' = True) (\<lambda> s3. getVarBool s3 carInFront' = False)
 (\<lambda> s4. getVarBool s4 down' = False \<and> getVarBool s4 opened' = True \<and> getVarBool s4 peCarUnder' = False) 
 (\<lambda> s2. getVarBool s2 carInFront' = False) (\<lambda> s3. getVarBool s3 carInFront' = True)
-(\<lambda> s4. getVarBool s4 down' = True \<and> getVarBool s4 opened' = False \<and> getVarBool s4 peCarUnder' = True) "
+(\<lambda> s4. getVarBool s4 down' = True \<or> getVarBool s4 opened' = False \<or> getVarBool s4 peCarUnder' = True) "
 
 
 definition R5 where "R5 s \<equiv> toEnvP s \<and>
 (\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarBool s1 carInFront' = False \<and> getVarBool s2 carInFront' = True \<and> getVarBool s1 red' = True \<and> getVarBool s2 opened' = False \<longrightarrow> getVarBool s2 up' = True)"
+ getVarBool s1 carInFront' = False \<and> getVarBool s2 carInFront' = True \<and>  getVarBool s2 opened' = False \<longrightarrow> getVarBool s2 up' = True)"
 
 definition R6 where "R6 s \<equiv> toEnvP s \<and>
 (\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and> toEnvNum s2 s3 < OPEN_TIME'TIMEOUT \<and>

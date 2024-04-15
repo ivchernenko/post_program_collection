@@ -8,7 +8,9 @@ definition commonExtraInv where  "commonExtraInv s \<equiv> toEnvP s \<and>
 (getPstate s Opening' = STOP \<longrightarrow> getVarBool s green' = False \<and> getVarBool s up' = False \<and> getVarBool s down' = False) \<and>
 (getPstate s Opening' = Opening'open' \<longrightarrow> ltime s Opening' \<le> OPEN_TIME'TIMEOUT) \<and>
 (getPstate s CarController' \<in> {CarController'waitingForCar', CarController'waitingForCarPassing'}) \<and>
-(getPstate s Opening' \<in> {Opening'opening', Opening'open', Opening'closing', STOP})"
+(getPstate s Opening' \<in> {Opening'opening', Opening'open', Opening'closing', STOP}) \<and>
+(getPstate s CarController' = CarController'waitingForCar' \<longrightarrow> getVarBool s carInFront' = False) \<and>
+(getPstate s CarController' = CarController'waitingForCarPassing' \<longrightarrow> getVarBool s carInFront' = True)"
 
 theorem cei1: "VC1 commonExtraInv s0"
   apply(unfold VC1_def commonExtraInv_def)

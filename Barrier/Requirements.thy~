@@ -16,9 +16,10 @@ definition R4Pattern where "R4Pattern s t A1 A2 A3 A4 A5 A6 A7 \<equiv> P1' s t 
 
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
-P1' s (OPEN_TIME'TIMEOUT - 1) (\<lambda> s1. getVarBool s1 green' = True)
- (\<lambda> s3. getVarBool s3 down' = True \<or> getVarBool s3 opened' = False \<or> getVarBool s3 peCarUnder' = True) 
- (\<lambda> s3. getVarBool s3 down' = False \<and> getVarBool s3 opened' = True \<and> getVarBool s3 peCarUnder' = False)"
+R4Pattern s (OPEN_TIME'TIMEOUT) (\<lambda> s1. getVarBool s1 green' = True) (\<lambda> s2. getVarBool s2 carInFront' = True) (\<lambda> s3. getVarBool s3 carInFront' = False)
+(\<lambda> s4. getVarBool s4 down' = False \<and> getVarBool s4 opened' = True \<and> getVarBool s4 peCarUnder' = False) 
+(\<lambda> s2. getVarBool s2 carInFront' = False) (\<lambda> s3. getVarBool s3 carInFront' = True)
+(\<lambda> s4. getVarBool s4 down' = True \<or> getVarBool s4 opened' = False \<or> getVarBool s4 peCarUnder' = True) "
 
 
 definition R5 where "R5 s \<equiv> toEnvP s \<and>

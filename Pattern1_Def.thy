@@ -114,12 +114,16 @@ always s (\<lambda> s1.  A1 s1 \<longrightarrow> constrained_until_inv s1 s t t1
 definition P1' where "P1' s t A1 A3 A2 \<equiv> 
 always s (\<lambda> s1.  A1 s1 \<longrightarrow> constrained_until s1 s t A3 A2)"
 
-lemma P1'inv_rule: "
- P1'inv s0 t t1 A1 A3 A2 \<Longrightarrow> 
-(\<not> A1 s \<or> A2 s \<or> A3 s \<and> t2 > 0)  \<and>
-(t1 = 0 \<or> A2 s \<and> t1 \<le> t \<or> A3 s \<and> t1 < t2) \<Longrightarrow>
-consecutive s0 s \<Longrightarrow>
- P1'inv s t t2 A1 A3 A2"
+lemma P1'einv2req: "P1'inv s t t1 A1 A2 A3 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P1' s t A1 A2 A3"
+  apply(unfold P1'inv_def P1'_def)
+  using always_einv2req constrained_until_einv2req
+  by (smt (verit, ccfv_SIG))
+
+lemma P1'inv_rule_gen: "
+ P1'inv s0 t t1 A1 A3 A2 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(\<not> A1 s \<or> A2' s \<or> A3' s \<and> t2 > 0)  \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A3 s1 \<longrightarrow> A3' s1) \<and> (\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A2 s1 \<longrightarrow> A2' s1) \<and>  (t1 = 0 \<or> A2' s \<and> t1 \<le> t \<or> A3' s \<and> t1 < t2) \<Longrightarrow>
+ P1'inv s t t2 A1 A3' A2'"
   apply(unfold P1'inv_def)
   apply(simp only: imp_conv_disj)
   apply(erule always_rule)
@@ -138,18 +142,22 @@ consecutive s0 s \<Longrightarrow>
     apply(insert prems1(1,3))[1]
     apply(rule all_disj_rule)
     apply(rule conjI)
-     apply(rule all_imp_refl)
+     apply simp
     apply(rule constrained_until_rule)
      apply simp
-    apply(rule conjI)
-     apply(rule all_imp_refl)
-    apply(rule conjI)
-     apply(rule all_imp_refl)
-    apply assumption (*apply simp*)
+    apply simp
     done
   done
 
-lemma P1'einv2req: "P1'inv s t t1 A1 A2 A3 \<Longrightarrow> t1 \<le> t \<Longrightarrow> P1' s t A1 A2 A3"
+lemma P1'inv_rule: "
+ P1'inv s0 t t1 A1 A3 A2 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(\<not> A1 s \<or> A2 s \<or> A3 s \<and> t2 > 0)  \<and>
+(t1 = 0 \<or> A2 s \<and> t1 \<le> t \<or> A3 s \<and> t1 < t2) \<Longrightarrow>
+ P1'inv s t t2 A1 A3 A2"
+  using P1'inv_rule_gen by simp
+
+lemma P1'einv2req_gen: "P1'inv s t t1 A1 A2 A3 \<Longrightarrow> (\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A2 s1 \<longrightarrow> A2' s1) \<and> (\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A3 s1 \<longrightarrow> A3' s1) \<and>
+ t1 \<le> t \<Longrightarrow> P1' s t A1 A2' A3'"
   apply(unfold P1'inv_def P1'_def)
   using always_einv2req constrained_until_einv2req
   by (smt (verit, ccfv_SIG))
