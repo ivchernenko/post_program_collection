@@ -16,4 +16,9 @@ lemma all_imp_refl: " \<forall> s1. toEnvP s1 \<and> substate s1 s \<and> P s1 \
   apply auto
   done 
 
+lemma all_imp_rule:  "(b' \<longrightarrow> b \<and> (\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> P s1 \<longrightarrow> P' s1)) \<Longrightarrow>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> (b \<longrightarrow> P s1) \<longrightarrow> (b' \<longrightarrow> P' s1))"
+  apply auto
+  done
+
 end

@@ -308,3 +308,41 @@ theorem  "VC36 inv9 env s0 carInFront'value peCarUnder'value opened'value closed
     using substate_toEnvNum_id[of _ s0] apply (force+)?
     done
   using cei36 VC36_def by auto
+
+definition inv9' where "inv9' s \<equiv> R9' s \<and> commonExtraInv s"
+
+theorem  "VC34 inv9' env s0 carInFront'value peCarUnder'value opened'value closed'value"
+  apply(unfold VC34_def inv9'_def R9'_def always2_def always_def previous_ex_def)
+  apply(rule impI)
+  apply(rule conjI)
+  subgoal
+   apply(unfold commonExtraInv_def)[1]
+    apply(erule conjE)+
+    apply auto
+    using substate_toEnvNum_id[of _ s0] apply (force+)?
+  done
+  using cei34 VC34_def by auto
+
+theorem  "VC35 inv9' env s0 carInFront'value peCarUnder'value opened'value closed'value"
+  apply(unfold VC35_def inv9'_def R9'_def always2_def always_def previous_ex_def)
+  apply(rule impI)
+  apply(rule conjI)
+  subgoal
+   apply(unfold commonExtraInv_def)[1]
+    apply(erule conjE)+
+    apply auto
+    using substate_toEnvNum_id[of _ s0] apply (force+)?
+  done
+  using cei35 VC35_def by auto
+
+theorem  "VC36 inv9' env s0 carInFront'value peCarUnder'value opened'value closed'value"
+  apply(unfold VC36_def inv9'_def R9'_def always2_def always_def previous_ex_def)
+  apply(rule impI)
+  apply(rule conjI)
+  subgoal
+   apply(unfold commonExtraInv_def)[1]
+    apply(erule conjE)+
+    apply auto
+    using substate_toEnvNum_id[of _ s0] apply (force+)?
+  done
+  using cei36 VC36_def by auto

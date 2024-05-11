@@ -37,7 +37,8 @@ definition R8 where "R8 s \<equiv> toEnvP s \<and>
 getVarBool s2 opened' = False \<and> getVarBool s2 closed' = False \<longrightarrow>  getVarBool s2 up' = True)"
 
 definition R9 where "R9 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> getVarBool s1 up' = True \<and> getVarBool s2 opened' = False \<longrightarrow> getVarBool s2 up' = True)"
+(\<forall> s2 s1. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
+ getVarBool s1 up' = True \<and> getVarBool s2 opened' = False \<longrightarrow> getVarBool s2 up' = True)"
 
 definition R10 where "R10 s \<equiv> toEnvP s \<and>
 (\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and> toEnvNum s2 s3 < OPEN_TIME'TIMEOUT \<and>

@@ -98,8 +98,14 @@ lemma weak_until_einv2req: "
 definition P6_2 where "P6_2 s A1 A2 A3 A4 A5 \<equiv>
 always2 s A1 A2 (\<lambda> s2. weak_until s2 s A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4))"
 
+definition P6_5 where "P6_5 s A11 A12 A2 A3 \<equiv>
+P6_2 s A11 A12 A2 (\<lambda> s4. True) A3"
+
 definition P6_2inv where "P6_2inv s w b1 b2 A1 A2 A3 A4 A5 \<equiv>
 always2_inv s b1 A1 A2 (\<lambda> s2. weak_until_inv s2 s w A3 (\<lambda> s4. previous_ex s4 A4 \<and> A5 s4)) \<and>  (b2 \<longrightarrow> A4 s) "
+
+definition P6_5inv where "P6_5inv s w b1 A11 A12 A2 A3 \<equiv>
+P6_2inv s w b1 True A11 A12 A2 (\<lambda> s4. True) A3"
 
 lemma P6_2_rule: "
 P6_2inv s0 w b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
@@ -175,9 +181,193 @@ P6_2inv s w' b1' b2' A1 A2 A3 A4 A5"
     done
   done
 
+lemma P6_5_rule: "
+P6_5inv s0 w b1 A11 A12 A2 A3 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(( ( (b1 \<or> \<not>A12 s) \<or>  A3 s \<or> w' \<and> A2 s ) \<and> (\<not> w \<or>  A3 s \<or> w' \<and> A2 s)) \<and> (b1' \<longrightarrow>\<not> A11 s))  \<Longrightarrow>
+P6_5inv s w' b1' A11 A12 A2 A3"
+  apply(unfold P6_5inv_def)
+  using P6_2_rule apply simp
+  done
+
 lemma P6_2_einv2req: "P6_2inv  s w b1 b2 A1 A2 A3 A4 A5 \<Longrightarrow> P6_2 s A1 A2 A3 A4 A5"
   apply(unfold P6_2_def P6_2inv_def)
   using always2_einv2req Pattern6_Def.weak_until_einv2req
   by (smt (verit, ccfv_SIG))
+
+lemma P6_5_einv2req: "P6_5inv  s w b1 A11 A12 A2 A3 \<Longrightarrow> P6_5 s A11 A12 A2 A3"
+  apply(unfold P6_5_def P6_5inv_def)
+  using P6_2_einv2req apply auto
+  done
+
+definition P6_3 where "P6_3 s A11 A12 A2 A31 A32 \<equiv>
+always2 s (\<lambda> s2. previous_ex s2 A11 \<and> A12 s2) (\<lambda> s3.  True) (\<lambda> s3. weak_until s3 s A2
+ (\<lambda> s4. previous_ex s4 A31 \<and> A32 s4))"
+
+definition P6_3inv where "P6_3inv s w b1 b2 b3 A11 A12 A2 A31 A32 \<equiv>
+always2_inv s b1 (\<lambda> s2. previous_ex s2 A11 \<and> A12 s2) (\<lambda> s3.  True) (\<lambda> s3. weak_until_inv s3 s w A2
+ (\<lambda> s4. previous_ex s4 A31 \<and> A32 s4)) \<and> (b2 \<longrightarrow> \<not>A11 s) \<and> (b3 \<longrightarrow> A31 s)"
+
+lemma P6_3_rule_gen: "
+P6_3inv s0 w b1 b2 b3 A11 A12 A2 A31 A32 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(( ( b1 \<or> b3 \<and> A32' s \<or> w' \<and> A2' s ) \<and> ((\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A2 s1 \<longrightarrow> A2' s1) \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A32 s1 \<longrightarrow> A32' s1) \<and>
+(\<not> w \<or> b3 \<and> A32' s \<or> w' \<and> A2' s))) \<and> (b1' \<longrightarrow> b2 \<or> \<not>A12 s)) \<and>
+ (b2' \<longrightarrow>\<not> A11 s) \<and> (b3' \<longrightarrow> A31 s) \<Longrightarrow>
+P6_3inv s w' b1' b2' b3' A11 A12 A2' A31 A32'"
+  apply(unfold P6_3inv_def)
+  apply(erule conjE)
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2,4))[1]
+     apply(erule always2_rule)
+      apply simp
+     apply(erule conjE)
+    subgoal premises prems2
+      apply(rule conjI)
+       apply(insert prems2(1,2))[1]
+       apply(erule conjE)
+      subgoal premises prems3
+        apply(rule conjI)
+         apply(insert prems3(1,2))[1]
+         apply(erule disjE)
+          apply(rule disjI1)
+          apply simp
+         apply(rule disjI2)
+         apply(rule weak_until_one_point)
+          apply simp
+         apply(erule disjE)
+          apply(rule disjI1)
+          apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
+           apply(rule previous_ex_one_point[of s0])
+            apply simp
+           apply (simp add: prems1(3))
+          apply(insert prems4(1,3))
+          apply simp
+          done
+         apply(rule disjI2)
+         apply simp
+        apply(insert prems3(1,3))
+        apply(rule weak_until_rule)
+        apply simp
+        apply(erule conjE)
+        subgoal premises prems4
+          apply(rule conjI)
+           apply(insert prems4(1,2))[1]
+           apply simp
+          apply(insert prems4(1,3))
+          apply(erule conjE)
+          subgoal premises prems5
+            apply(rule conjI)
+             apply(insert prems5(1,2))[1]
+             apply simp
+            apply(insert prems5(1,3))
+            apply(erule disjE)
+             apply(rule disjI1)
+             apply simp
+            apply(rule disjI2)
+            apply(erule disjE)
+             apply(rule disjI1)
+             apply(erule conjE)
+            subgoal premises prems6
+              apply(rule conjI)
+               apply(insert prems6(1,2))[1]
+               apply(rule previous_ex_one_point[of s0])
+                apply simp
+               apply (simp add: prems1(3))
+              apply(insert prems6(1,3))
+              apply simp
+              done
+            apply(rule disjI2)
+            apply simp
+            done
+          done
+        done
+      apply(insert prems2(1,3))
+      apply(simp only: imp_conv_disj)
+      apply(erule disjE)
+       apply(rule disjI1)
+       apply simp
+      apply(rule disjI2)
+      apply(simp only: de_Morgan_conj previous_ex_not)
+      apply(erule disjE)
+       apply(rule disjI1)
+       apply(rule previous_all_one_point[of s0])
+        apply simp
+      using prems1(3) apply simp
+      apply(rule disjI2)
+      apply simp
+      done
+    apply(insert prems1(1,3,5))
+    apply simp
+    done
+  done
+
+lemma P6_3_einv2req_gen: "P6_3inv  s w b1 b2 b3 A11 A12 A2 A31 A32 \<Longrightarrow>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A2 s1 \<longrightarrow> A2' s1) \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A32 s1 \<longrightarrow> A32' s1) \<Longrightarrow>
+ P6_3 s A11 A12 A2' A31 A32'"
+  apply(unfold P6_3_def P6_3inv_def)
+  using always2_einv2req Pattern6_Def.weak_until_einv2req
+  by (smt (verit, ccfv_threshold))
+
+lemma P6_3_rule: "
+P6_3inv s0 w b1 b2 b3 A11 A12 A2 A31 A32 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(( ( b1 \<or> b3 \<and> A32 s \<or> w' \<and> A2 s ) \<and> 
+(\<not> w \<or> b3 \<and> A32 s \<or> w' \<and> A2 s)) \<and> (b1' \<longrightarrow> b2 \<or> \<not>A12 s)) \<and>
+ (b2' \<longrightarrow>\<not> A11 s) \<and> (b3' \<longrightarrow> A31 s) \<Longrightarrow>
+P6_3inv s w' b1' b2' b3' A11 A12 A2 A31 A32"
+  using P6_3_rule_gen apply auto
+  done
+      
+lemma P6_3_einv2req: "P6_3inv  s w b1 b2 b3 A11 A12 A2 A31 A32 \<Longrightarrow>
+ P6_3 s A11 A12 A2 A31 A32"
+  using P6_3_einv2req_gen apply auto
+  done
+
+definition P6_4 where "P6_4 s A11 A12 A2 A3 \<equiv>
+P6_3 s A11 A12 A2 (\<lambda> s4. True) A3"
+
+definition P6_4inv where "P6_4inv s w b1 b2 A11 A12 A2 A3 \<equiv>
+P6_3inv s w b1 b2 True A11 A12 A2 (\<lambda> s4. True) A3"
+
+lemma P6_4_rule_gen: "
+P6_4inv s0 w b1 b2 A11 A12 A2 A3 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(( ( b1 \<or>  A3' s \<or> w' \<and> A2' s ) \<and> ((\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A2 s1 \<longrightarrow> A2' s1) \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s0 \<and> A3 s1 \<longrightarrow> A3' s1) \<and>
+(\<not> w \<or>  A3' s \<or> w' \<and> A2' s))) \<and> (b1' \<longrightarrow> b2 \<or> \<not>A12 s)) \<and>
+ (b2' \<longrightarrow>\<not> A11 s)  \<Longrightarrow>
+P6_4inv s w' b1' b2' A11 A12 A2' A3'"
+  apply(unfold P6_4inv_def)
+  using P6_3_rule_gen apply auto
+  done
+
+lemma P6_4_einv2req_gen: "P6_4inv  s w b1 b2 A11 A12 A2 A3 \<Longrightarrow>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A2 s1 \<longrightarrow> A2' s1) \<and>
+(\<forall> s1. toEnvP s1 \<and> substate s1 s \<and> A3 s1 \<longrightarrow> A3' s1) \<Longrightarrow>
+ P6_4 s A11 A12 A2' A3'"
+  apply(unfold P6_4inv_def P6_4_def)
+  using P6_3_einv2req_gen apply auto
+  done
+
+lemma P6_4_rule: "
+P6_4inv s0 w b1 b2 A11 A12 A2 A3 \<Longrightarrow> consecutive s0 s \<Longrightarrow>
+(( ( b1 \<or>  A3 s \<or> w' \<and> A2 s ) \<and> 
+(\<not> w \<or>  A3 s \<or> w' \<and> A2 s)) \<and> (b1' \<longrightarrow> b2 \<or> \<not>A12 s)) \<and>
+ (b2' \<longrightarrow>\<not> A11 s)  \<Longrightarrow>
+P6_4inv s w' b1' b2' A11 A12 A2 A3"
+  apply(unfold P6_4inv_def)
+  using P6_3_rule_gen apply auto
+  done
+
+lemma P6_4_einv2req: "P6_4inv  s w b1 b2 A11 A12 A2 A3 \<Longrightarrow>
+ P6_4 s A11 A12 A2 A3"
+  apply(unfold P6_4inv_def P6_4_def)
+  using P6_3_einv2req_gen apply auto
+  done
+
 
 end

@@ -40,6 +40,9 @@ definition R9 where "R9 s \<equiv> toEnvP s \<and>
 (\<forall> s2 s1. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
  getVarBool s1 up' = True \<and> getVarBool s2 opened' = False \<longrightarrow> getVarBool s2 up' = True)"
 
+definition R9' where "R9' s \<equiv> toEnvP s \<and>
+always2 s (\<lambda> s1. getVarBool s1 up' = True) (\<lambda> s2. getVarBool s2 opened' = False) (\<lambda> s2. getVarBool s2  up' = True)"
+
 definition R10 where "R10 s \<equiv> toEnvP s \<and>
 (\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and> toEnvNum s2 s3 < OPEN_TIME'TIMEOUT \<and>
 getVarBool s1 carInFront' = False \<and> getVarBool s2 carInFront' = True \<and> getVarBool s2 green' = True \<longrightarrow> getVarBool s3 down' = False)"

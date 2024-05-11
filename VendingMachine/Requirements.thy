@@ -1,22 +1,21 @@
 theory Requirements
-  imports VendingMachine
+  imports VendingMachine "../Patterns"
 begin
 
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarInt s1 mode' = IDLE' \<and> getVarInt s2 mode' = CHOICE' \<and>
-(\<forall> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s3 \<longrightarrow> getVarBool s4 button1' = False) \<longrightarrow>
-getVarBool s3 product1' = False)"
+P6_4 s (\<lambda> s1. getVarInt s1 mode'= IDLE') (\<lambda> s2. getVarInt s2 mode' = CHOICE') (\<lambda> s3. getVarBool s3 product1' = False)
+ (\<lambda> s4. getVarBool s4 button1' = True)
+"
 
 definition R2 where "R2 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and>  getVarBool s1 product1' = False \<and> getVarInt s2 credit' < PRICE1' \<longrightarrow>
- getVarBool s2 product1' = False)"
+always2 s (\<lambda> s1. getVarBool s1 product1' = False) (\<lambda> s2. getVarInt s2 credit' < PRICE1')
+ (\<lambda> s2. getVarBool s2 product1' = False)"
 
 definition R3 where "R3 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2 s3. substate s1 s2 \<and> substate s2 s3 \<and> substate s3 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvP s3 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarInt s1 mode' = CHOICE' \<and> getVarBool s2 button1' = False \<and> getVarInt s2 credit' < PRICE1' \<and>
-(\<forall> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s3 \<longrightarrow> getVarInt s4 credit' < PRICE1') \<longrightarrow>
-getVarBool s3 lockChanger' = False \<and>  getVarInt s3 mode' = ADD_MONEY')"
+P6_5 s (\<lambda> s1. getVarInt s1 mode' = CHOICE')
+ (\<lambda> s2. getVarBool s2 cancel' = False \<and> getVarBool s2 button1' = PRESSED' \<and> getVarInt s2 credit' < PRICE1')
+(\<lambda> s3. getVarBool s3 lockChanger' = False \<and> getVarInt s3 mode' = ADD_MONEY')
+ (\<lambda> s4. getVarBool s4 cancel' = True \<or> getVarInt s4 credit' \<ge> PRICE1')"
 
 definition R4 where "R4 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> toEnvNum s1 s \<ge> 1 \<and> getVarBool s1 given1' = True \<and> getVarInt s1 credit' > 0 \<longrightarrow>
