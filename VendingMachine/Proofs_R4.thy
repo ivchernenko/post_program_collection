@@ -1,28 +1,16 @@
-theory Proofs_R3
-  imports ExtraInv_R3 Requirements
+theory Proofs_R4
+  imports ExtraInv_R4 Requirements
 begin
 
-definition inv3 where "inv3 s \<equiv> extraInv s \<and> R3 s"
+definition inv4 where "inv4 s \<equiv> extraInv s \<and> R4 s"
 
-lemmas einv_rule = P6_5_rule
-lemmas req_rule = P6_5_einv2req
+lemmas einv_rule = P4'inv_rule
+lemmas req_rule = P4'_einv2req
 
 theorem extra1: "VC1 extraInv s0"
-  apply(unfold VC1_def extraInv_def commonExtraInv_def P6_5inv_def P6_2inv_def always2_inv_def weak_until_inv_def
+  apply(unfold VC1_def extraInv_def commonExtraInv_def P4'inv_def always2_inv_def constrained_until_inv_def
 always_def previous_ex_def)
   apply auto
-  done
-
-theorem extra9: "VC9 extraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
- cancel'value "
-apply(unfold VC9_def extraInv_def)
- apply(rule impI)
-  apply(rule conjI)
-  using cei9 apply((auto simp add: VC9_def)[1];fastforce)
-  apply(unfold commonExtraInv_def)
-  apply(erule conjE)+
-  apply(erule einv_rule)
-   apply(auto split: if_splits)
   done
 
 theorem extra72: "VC72 extraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
@@ -301,197 +289,233 @@ apply(unfold VC810_def extraInv_def)
    apply(auto split: if_splits)
   done
 
-theorem  "VC1 inv3 s0"
-  apply(unfold VC1_def inv3_def R3_def  P6_5_def P6_2_def always2_def weak_until_def
+theorem extra639: "VC639 extraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+apply(unfold VC639_def extraInv_def)
+ apply(rule impI)
+  apply(rule conjI)
+  using cei639 apply((auto simp add: VC639_def)[1];fastforce)
+  apply(unfold commonExtraInv_def)
+  apply(erule conjE)+
+  apply(erule einv_rule)
+   apply(auto split: if_splits)
+  done
+
+theorem extra882: "VC882 extraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+apply(unfold VC882_def extraInv_def)
+ apply(rule impI)
+  apply(rule conjI)
+  using cei882 apply((auto simp add: VC882_def)[1];fastforce)
+  apply(unfold commonExtraInv_def)
+  apply(erule conjE)+
+  apply(erule einv_rule)
+   apply(auto split: if_splits)
+  done
+
+theorem extra963: "VC963 extraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+apply(unfold VC963_def extraInv_def)
+ apply(rule impI)
+  apply(rule conjI)
+  using cei963 apply((auto simp add: VC963_def)[1];fastforce)
+  apply(unfold commonExtraInv_def)
+  apply(erule conjE)+
+  apply(erule einv_rule)
+   apply(auto split: if_splits)
+  done
+
+theorem  "VC1 inv4 s0"
+  apply(unfold VC1_def inv4_def R4_def P4'_def always2_def constrained_until_def
 always_def previous_ex_def)
-  using extra1 VC1_def   apply auto
+  using extra1 VC1_def  apply auto
   done
 
-theorem  "VC72 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC72 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC72_def inv3_def R3_def)
+  apply(unfold VC72_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra72 VC72_def apply auto[1]
+  using extra72 apply((auto simp add: VC72_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC153 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC153 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC153_def inv3_def R3_def)
+  apply(unfold VC153_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra153 VC153_def apply auto[1]
+  using extra153 apply((auto simp add: VC153_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC234 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC153 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC234_def inv3_def R3_def)
+  apply(unfold VC153_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra234 VC234_def apply auto[1]
+  using extra153 apply((auto simp add: VC153_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC315 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC315 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC315_def inv3_def R3_def)
+  apply(unfold VC315_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra315 VC315_def apply auto[1]
+  using extra315 apply((auto simp add: VC315_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC324 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC324 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC324_def inv3_def R3_def)
+  apply(unfold VC324_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra324 VC324_def apply auto[1]
+  using extra324 apply((auto simp add: VC324_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC333 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC333 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC333_def inv3_def R3_def)
+  apply(unfold VC333_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra333 VC333_def apply auto[1]
+  using extra333 apply((auto simp add: VC333_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC342 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC342 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC342_def inv3_def R3_def)
+  apply(unfold VC342_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra342 VC342_def apply auto[1]
+  using extra342 apply((auto simp add: VC342_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC351 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC351 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC351_def inv3_def R3_def)
+  apply(unfold VC351_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra351 VC351_def apply auto[1]
+  using extra351 apply((auto simp add: VC351_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC360 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC360 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC360_def inv3_def R3_def)
+  apply(unfold VC360_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra360 VC360_def apply auto[1]
+  using extra360 apply((auto simp add: VC360_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC369 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC369 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC369_def inv3_def R3_def)
+  apply(unfold VC369_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra369 VC369_def apply auto[1]
+  using extra369 apply((auto simp add: VC369_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC378 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC378 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC378_def inv3_def R3_def)
+  apply(unfold VC378_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra378 VC378_def apply auto[1]
+  using extra378 apply((auto simp add: VC378_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC387 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC387 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC387_def inv3_def R3_def)
+  apply(unfold VC387_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra387 VC387_def apply auto[1]
+  using extra387 apply((auto simp add: VC387_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC396 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC396 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC396_def inv3_def R3_def)
+  apply(unfold VC396_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra396 VC396_def apply auto[1]
+  using extra396 apply((auto simp add: VC396_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC405 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC405 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC405_def inv3_def R3_def)
+  apply(unfold VC405_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra405 VC405_def apply auto[1]
+  using extra405 apply((auto simp add: VC405_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC738 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC738 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC738_def inv3_def R3_def)
+  apply(unfold VC738_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
   using extra738 apply((auto simp add: VC738_def)[1];fastforce)
@@ -499,112 +523,150 @@ theorem  "VC738 inv3 env s0  button1'value button2'value deposited'value given1'
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC747 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC747 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC747_def inv3_def R3_def)
+  apply(unfold VC747_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra747 VC747_def apply auto[1]
+  using extra747 apply((auto simp add: VC747_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC756 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC756 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC756_def inv3_def R3_def)
+  apply(unfold VC756_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra756 VC756_def apply auto[1]
+  using extra756 apply((auto simp add: VC756_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC765 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC765 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC765_def inv3_def R3_def)
+  apply(unfold VC765_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra765 VC765_def apply auto[1]
+  using extra765 apply((auto simp add: VC765_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC774 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC774 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC774_def inv3_def R3_def)
+  apply(unfold VC774_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra774 VC774_def apply auto[1]
+  using extra774 apply((auto simp add: VC774_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC783 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC783 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC783_def inv3_def R3_def)
+  apply(unfold VC783_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra783 VC783_def apply auto[1]
+  using extra783 apply((auto simp add: VC783_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC792 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC792 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC792_def inv3_def R3_def)
+  apply(unfold VC792_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra792 VC792_def apply auto[1]
+  using extra792 apply((auto simp add: VC792_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC801 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC801 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC801_def inv3_def R3_def)
+  apply(unfold VC801_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra801 VC801_def apply auto[1]
+  using extra801 apply((auto simp add: VC801_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
   done
 
-theorem  "VC810 inv3 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+theorem  "VC810 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value"
-  apply(unfold VC810_def inv3_def R3_def)
+  apply(unfold VC810_def inv4_def R4_def)
   apply(rule impI)
   apply(rule context_conjI)
-  using extra810 VC810_def apply auto[1]
+  using extra810 apply((auto simp add: VC810_def)[1];fastforce)
   apply(rule conjI)
    apply simp
   apply(unfold extraInv_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(auto simp add: req_rule)
+    apply(auto simp add: req_rule)
+  done
+
+theorem  "VC810 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value"
+  apply(unfold VC810_def inv4_def R4_def)
+  apply(rule impI)
+  apply(rule context_conjI)
+  using extra810 apply((auto simp add: VC810_def)[1];fastforce)
+  apply(rule conjI)
+   apply simp
+  apply(unfold extraInv_def commonExtraInv_def)
+  apply(erule conjE)+
+    apply(auto simp add: req_rule)
+  done
+
+theorem  "VC810 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value"
+  apply(unfold VC810_def inv4_def R4_def)
+  apply(rule impI)
+  apply(rule context_conjI)
+  using extra810 apply((auto simp add: VC810_def)[1];fastforce)
+  apply(rule conjI)
+   apply simp
+  apply(unfold extraInv_def commonExtraInv_def)
+  apply(erule conjE)+
+    apply(auto simp add: req_rule)
+  done
+
+theorem  "VC810 inv4 env s0  button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value"
+  apply(unfold VC810_def inv4_def R4_def)
+  apply(rule impI)
+  apply(rule context_conjI)
+  using extra810 apply((auto simp add: VC810_def)[1];fastforce)
+  apply(rule conjI)
+   apply simp
+  apply(unfold extraInv_def commonExtraInv_def)
+  apply(erule conjE)+
+    apply(auto simp add: req_rule)
   done
 
 end
-

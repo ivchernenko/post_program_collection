@@ -303,4 +303,19 @@ theorem cei810: "VC810 commonExtraInv env s0 button1'value button2'value deposit
   apply(unfold VC810_def commonExtraInv_def)
   by force
 
+theorem cei639: "VC639 commonExtraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+  apply(unfold VC639_def commonExtraInv_def)
+  by force
+
+theorem cei882: "VC882 commonExtraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+  apply(unfold VC882_def commonExtraInv_def)
+  by force
+
+theorem cei963: "VC963 commonExtraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+  apply(unfold VC963_def commonExtraInv_def)
+  by force
+
 end
