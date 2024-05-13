@@ -23,18 +23,19 @@ P4' s 2 (\<lambda> s1. getVarBool s1 product1' = True) (\<lambda> s2. getVarBool
  (\<lambda> s4. getVarBool s4 dispense' = True \<and> getVarInt s4 change' = getVarInt s4 credit' \<or> getVarBool s4 paidOut' =True)"
 
 definition R5 where "R5 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarInt s1 mode' = IDLE' \<longrightarrow> getVarBool s1 lockChanger' = False)"
+always s (\<lambda> s1. getVarInt s1 mode' = IDLE' \<longrightarrow> getVarBool s1 lockChanger' = False)"
 
 definition R6 where "R6 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
- getVarInt s1 mode' \<noteq> IDLE' \<and> getVarBool s1 product1' = False \<and> getVarBool s1 product2' = False \<and> getVarBool s2 cancel' = True \<longrightarrow>
- getVarBool s2 dispense' = True \<and> getVarInt s2 change' = getVarInt s2 credit')"
+P4' s 2 (\<lambda> s1. getVarInt s1 mode' = CHOICE' \<or> getVarInt s1 mode' = ADD_MONEY') (\<lambda> s2. getVarBool s2 cancel')
+(\<lambda> s3. getVarBool s3 dispense' = False \<and> getVarBool s3 paidOut' = False)
+ (\<lambda> s4. getVarBool s4 dispense' = True \<and> getVarInt s4 change' = getVarInt s4 credit' \<or> getVarBool s4 paidOut' =True)"
 
 definition R7 where "R7 s \<equiv>  toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarInt s1 mode' = IDLE' \<longrightarrow> getVarInt s1 credit' = 0)"
+always s (\<lambda> s1.  getVarInt s1 mode' = IDLE' \<longrightarrow> getVarInt s1 credit' \<le> 0)"
 
 definition R8 where "R8 s \<equiv> toEnvP s \<and> 
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>  getVarBool s1 lockChanger' = False \<longrightarrow>
+(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
+  getVarBool s1 lockChanger' = False \<longrightarrow>
  getVarInt s2 credit' =  getVarInt s1 credit' + getVarInt s2 deposited')"
 
 definition R9 where "R9 s \<equiv> toEnvP s \<and>

@@ -79,4 +79,34 @@ lemma always2_einv2req: "always2_inv s b A1 A2 A3 \<Longrightarrow>  (\<forall> 
   apply(unfold always2_def always2_inv_def)
   by (metis (mono_tags, lifting) always_einv2req)
 
+definition always2_2 where  "always2_2 s A1 A2 A3 \<equiv> 
+always2 s A1 A2 (\<lambda> s2. previous_all s2 (\<lambda> s1. A3 s1 s2))"
+
+definition always2_2_inv where  "always2_2_inv s b A1 A2 A3 \<equiv> 
+always2_inv s b A1 A2 (\<lambda> s2. previous_all s2 (\<lambda> s1. A3 s1 s2))"
+
+lemma always2_2_rule: "
+always2_2_inv s0 b A1 A2 A3 \<Longrightarrow>consecutive s0 s \<Longrightarrow> (((b \<or> ~ A2 s) \<or> A3 s0 s) ) \<and> (b' \<longrightarrow> \<not>A1 s) \<Longrightarrow>
+ always2_2_inv s b' A1 A2 A3"
+  apply(unfold always2_2_inv_def)
+  apply(erule always2_rule)
+   apply simp
+  apply(erule conjE)
+  subgoal premises prems1
+    apply(rule conjI)
+     apply(insert prems1(1,2))[1]
+     apply(rule conjI)
+      apply(erule disjE)
+       apply(rule disjI1)
+       apply simp
+      apply(rule disjI2)
+      apply(rule previous_all_one_point[of s0])
+       apply simp
+      apply simp
+     apply simp
+    apply(insert prems1(1,3))
+    apply simp
+    done
+  done
+
 end

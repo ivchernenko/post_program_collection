@@ -25,7 +25,9 @@ definition commonExtraInv where "commonExtraInv s \<equiv> toEnvP s \<and>
 (getPstate s Sale2' \<noteq> Sale2'delivery' \<longrightarrow> getVarBool s product2' = False)  \<and>
 (getPstate s Sale2' \<in> {Sale2'addMoney', Sale2'delivery', STOP, ERROR}) \<and>
 (getPstate s Sale1' \<noteq> STOP \<longrightarrow> getPstate s Sale2' = STOP) \<and>
-(getPstate s Sale2' \<noteq> STOP \<longrightarrow> getPstate s Sale1' = STOP)
+(getPstate s Sale2' \<noteq> STOP \<longrightarrow> getPstate s Sale1' = STOP) \<and>
+(getPstate s Sale1' = ERROR \<longrightarrow> getVarInt s mode' = DELIVERY') \<and>
+(getPstate s Sale2' = ERROR \<longrightarrow> getVarInt s mode' = DELIVERY')
 "
 
 theorem cei: "VC1 commonExtraInv s0"
