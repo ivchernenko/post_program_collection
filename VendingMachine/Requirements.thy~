@@ -34,9 +34,8 @@ definition R7 where "R7 s \<equiv>  toEnvP s \<and>
 always s (\<lambda> s1.  getVarInt s1 mode' = IDLE' \<longrightarrow> getVarInt s1 credit' \<le> 0)"
 
 definition R8 where "R8 s \<equiv> toEnvP s \<and> 
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
-  getVarBool s1 lockChanger' = False \<longrightarrow>
- getVarInt s2 credit' =  getVarInt s1 credit' + getVarInt s2 deposited')"
+always2_2 s (\<lambda> s1. getVarBool s1 lockChanger' = False) (\<lambda> s2. True)
+ (\<lambda> s1 s2. getVarInt s2 credit' = getVarInt s1 credit' + getVarInt s2 deposited')"
 
 definition R9 where "R9 s \<equiv> toEnvP s \<and>
 (\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and> getVarBool s2 given1' = True \<longrightarrow>

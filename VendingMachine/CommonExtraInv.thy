@@ -6,24 +6,30 @@ definition commonExtraInv where "commonExtraInv s \<equiv> toEnvP s \<and>
 (getPstate s Controller' = Controller'waiting' \<longrightarrow>
  getVarInt s mode' = IDLE' \<and> getVarBool s lockChanger' = False \<and> getVarInt s credit' \<le> 0) \<and>
 (getPstate s Controller' = Controller'choice' \<longrightarrow> getVarInt s mode' = CHOICE' \<and> getVarBool s lockChanger' = True) \<and>
-(getPstate s Controller' = Controller'payOut' \<longrightarrow> getVarInt s mode' = PAYING_OUT') \<and>
+(getPstate s Controller' = Controller'payOut' \<longrightarrow> getVarInt s mode' = PAYING_OUT' \<and> getVarBool s lockChanger' = True) \<and>
 (getPstate s Controller' \<noteq> Controller'sale' \<longrightarrow> getPstate s Sale1' = STOP \<and> getPstate s Sale2' = STOP) \<and>
 (getPstate s Controller' \<noteq> Controller'payOut' \<longrightarrow> getVarBool s dispense' = False \<and> getVarInt s change' = 0) \<and>
 (getPstate s Controller' \<in> {Controller'waiting', Controller'choice', Controller'sale', Controller'payOut'}) \<and>
 (getPstate s Sale1' = Sale1'addMoney' \<longrightarrow> getVarInt s mode' = ADD_MONEY' \<and> getVarBool s lockChanger' = False \<and>
 \<not> (getVarBool s cancel' \<or> getVarInt s credit' \<ge> PRICE1')) \<and>
 (getPstate s Sale1' = Sale1'delivery' \<longrightarrow>
- getVarInt s mode' = DELIVERY' \<and> getVarInt s credit' \<ge> PRICE1' \<and> getVarBool s product1' = True) \<and>
+ getVarInt s mode' = DELIVERY' \<and> getVarInt s credit' \<ge> PRICE1' \<and> getVarBool s product1' = True \<and>
+ getVarBool s lockChanger' = True) \<and>
 (getPstate s Sale1' = Sale1'delivery' \<longrightarrow> ltime s Sale1' \<le> DELIVERY_TIME_LIMIT'TIMEOUT) \<and>
 (getPstate s Sale1' \<noteq> Sale1'delivery' \<longrightarrow> getVarBool s product1' = False)  \<and>
+(getPstate s Sale1' = ERROR \<longrightarrow> getVarBool s lockChanger' = True) \<and>
 (getPstate s Sale1' \<in> {Sale1'addMoney', Sale1'delivery', STOP, ERROR}) \<and>
 (getPstate s Sale2' = Sale2'addMoney' \<longrightarrow> getVarInt s mode' = ADD_MONEY' \<and> getVarBool s lockChanger' = False \<and>
 \<not> (getVarBool s cancel' \<or> getVarInt s credit' \<ge> PRICE2')) \<and>
 (getPstate s Sale2' = Sale2'delivery' \<longrightarrow>
- getVarInt s mode' = DELIVERY' \<and> getVarInt s credit' \<ge> PRICE2' \<and> getVarBool s product2' = True) \<and>
+ getVarInt s mode' = DELIVERY' \<and> getVarInt s credit' \<ge> PRICE2' \<and> getVarBool s product2' = True \<and>
+getVarBool s lockChanger' = True) \<and>
 (getPstate s Sale2' = Sale2'delivery' \<longrightarrow> ltime s Sale2' \<le> DELIVERY_TIME_LIMIT'TIMEOUT) \<and>
 (getPstate s Sale2' \<noteq> Sale2'delivery' \<longrightarrow> getVarBool s product2' = False)  \<and>
+(getPstate s Sale2' = ERROR \<longrightarrow> getVarBool s lockChanger' = True) \<and>
 (getPstate s Sale2' \<in> {Sale2'addMoney', Sale2'delivery', STOP, ERROR}) \<and>
+(getPstate s Controller' = Controller'sale' \<and> getPstate s Sale1' = STOP \<and> getPstate s Sale2' = STOP \<longrightarrow>
+getVarBool s lockChanger' = True) \<and>
 (getPstate s Sale1' \<noteq> STOP \<longrightarrow> getPstate s Sale2' = STOP) \<and>
 (getPstate s Sale2' \<noteq> STOP \<longrightarrow> getPstate s Sale1' = STOP) \<and>
 (getPstate s Sale1' = ERROR \<longrightarrow> getVarInt s mode' = DELIVERY') \<and>
@@ -318,6 +324,11 @@ theorem cei882: "VC882 commonExtraInv env s0 button1'value button2'value deposit
 theorem cei963: "VC963 commonExtraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
  cancel'value "
   apply(unfold VC963_def commonExtraInv_def)
+  by force
+
+theorem cei729: "VC729 commonExtraInv env s0 button1'value button2'value deposited'value given1'value given2'value paidOut'value
+ cancel'value "
+  apply(unfold VC729_def commonExtraInv_def)
   by force
 
 end

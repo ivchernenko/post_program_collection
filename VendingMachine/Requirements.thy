@@ -38,17 +38,15 @@ always2_2 s (\<lambda> s1. getVarBool s1 lockChanger' = False) (\<lambda> s2. Tr
  (\<lambda> s1 s2. getVarInt s2 credit' = getVarInt s1 credit' + getVarInt s2 deposited')"
 
 definition R9 where "R9 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and> getVarBool s2 given1' = True \<longrightarrow>
- getVarInt s2 credit' = getVarInt s1 credit' - PRICE1')"
+always2_2 s (\<lambda> s1. getVarBool s1 product1' = True) (\<lambda> s2. getVarBool s2 given1' = True)
+ (\<lambda> s1 s2. getVarInt s2 credit' = getVarInt s1 credit' - PRICE1')"
 
 definition R10 where "R10 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and> toEnvNum s2 s \<ge> 1 \<and>
- getVarBool s1 product1' = True \<and> getVarBool s2 product1' = False \<and> getVarBool s2 given1' = False \<longrightarrow>
-(\<exists> s4. toEnvP s4 \<and> substate s2 s4 \<and> substate s4 s \<and> toEnvNum s2 s4 \<le> 1 \<and> getVarInt s4 mode' = CHOICE' \<and>
-(\<forall> s3. substate s2 s3 \<and> substate s3 s4 \<and> s3 \<noteq> s4 \<longrightarrow> getVarInt s3 mode' \<noteq> CHOICE')))"
+P4' s 1 (\<lambda> s1. getVarBool s1 product1' = True) (\<lambda> s2. getVarBool s2 product1' = False \<and> getVarBool s2 given1' = False)
+(\<lambda> s3. getVarInt s3 mode' \<noteq> CHOICE') (\<lambda> s4. getVarInt s4 mode' = CHOICE')"
 
 definition R11 where "R11 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> (getVarBool s1 product1' = True \<or> getVarBool s1 product2' = True) \<longrightarrow> getVarBool s1 lockChanger' = True)"
+always s (\<lambda> s1. getVarBool s1 product1' = True \<or> getVarBool s1 product2' = True \<longrightarrow> getVarBool s1 lockChanger' = True)"
 
 definition R12 where "R12 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 product1' = True \<longrightarrow> getVarBool s1 product2' = False)"
